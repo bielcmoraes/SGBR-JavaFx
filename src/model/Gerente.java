@@ -19,14 +19,14 @@ import exceptions.VendaNaoCadastrada;
 import exceptions.NaoEncontrado;
 import exceptions.PratoNaoCadastrado;
 import exceptions.PrecoInvalido;
-import view.ListagemView;
+
 /**Classe para objetos do tipo Gerente, onde são contidos, valores e metódos necessários para a implementação da classe.
  * 
  * @author Gabriel Morae
  * @author Luis Fernando Cintra
  * @see Usuario
  */
-public class Gerente extends Usuario implements FornecedorCopyable, UsuarioCopyable, ProdutoCopyable, CardapioCopyable, VendaCopyable, ListagemCopyable, GeraRelatoriosCopyable{
+public class Gerente extends Usuario implements FornecedorCopyable, UsuarioCopyable, ProdutoCopyable, CardapioCopyable, VendaCopyable, GeraRelatoriosCopyable{
 	
 	/**O construtor vazio inicializa o construtor vazio da classe herdada. Necessario para intanciar um representante da classe com informações de id, login e senha pré estabelecidas.
 	 */
@@ -283,51 +283,6 @@ public class Gerente extends Usuario implements FornecedorCopyable, UsuarioCopya
 	public boolean excluirVenda(ArrayList<Venda> listaVendas, ArrayList<String> listaIds, String codigoVenda) throws VendaNaoCadastrada, ErroGrave {
 		GerenciaVendas gerenciamentoVendas = new GerenciaVendas();
 		return gerenciamentoVendas.excluirVenda(listaVendas, listaIds, codigoVenda);
-	}
-	
-	/**Metódo para instanciar um objeto do tipo ListagemView.
-	 * @param cardapio Cardapio (lista de pratos)
-	 */
-	@Override
-	public void mostrarCardapio(ArrayList<Prato> cardapio) {
-		ListagemView listagemView = new ListagemView();
-		listagemView.mostrarCardapio(cardapio);
-	}
-	
-	/**Metódo para instanciar um objeto do tipo ListagemView.
-	 * @param listarFornecedor Lista de Fornecedores
-	 */
-	@Override
-	public void listarFornecedor(ArrayList<Fornecedor> listaFornecedores) {
-		ListagemView listagemView = new ListagemView();
-		listagemView.listarFornecedor(listaFornecedores);
-	}
-	
-	/**Metódo para instanciar um objeto do tipo ListagemView.
-	 * @param listarProduto Lista de produtos
-	 */
-	@Override
-	public void listarProduto(HashMap<String, ArrayList<Produto>> listaProdutos) {
-		ListagemView listagemView = new ListagemView();
-		listagemView.listarProduto(listaProdutos);	
-	}
-	
-	/**Metódo para instanciar um objeto do tipo ListagemView e retornar o método listarUsuario.
-	 * @param listaUsuarios Lista de usuários
-	 */
-	@Override
-	public void listarUsuario(ArrayList<Usuario> listaUsuarios) {
-		ListagemView listagemView = new ListagemView();
-		listagemView.listarUsuario(listaUsuarios);
-	}
-	
-	/**Metódo para instanciar um objeto do tipo ListagemView e retornar o método listarVenda.
-	 * @param listaVendas Lista de vendas
-	 */
-	@Override
-	public void listarVenda(ArrayList<Venda> listaVendas) {
-		ListagemView listagemView = new ListagemView();
-		listagemView.listarVenda(listaVendas);
 	}
 	
 	/**Metódo para instanciar um objeto do tipo GeraRelatorio e retornar o método estoqueTotal.
