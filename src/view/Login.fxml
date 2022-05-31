@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -21,11 +22,7 @@
                      </VBox.margin>
                   </TextField>
                   <Label text="Senha" />
-                  <TextField fx:id="senhaTextField">
-                     <VBox.margin>
-                        <Insets bottom="10.0" />
-                     </VBox.margin>
-                  </TextField>
+                  <PasswordField fx:id="senhaTextField" />
                   <Button fx:id="loginButton" mnemonicParsing="false" onAction="#logar" text="Login" />
                </children>
             </VBox>

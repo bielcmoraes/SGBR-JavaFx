@@ -35,12 +35,12 @@ public class Login {
 	 * @return objeto do tipo Usuario (pode ser da classe Gerente ou Funcionario) caso a autenticação ocorra com sucesso e null caso a autenticação 
 	 * não ocorra com sucesso
 	 */
-	public Usuario autenticarLogin(ArrayList<Usuario> listaUsuarios, String[] infoLogin) {
+	public Usuario autenticarLogin(ArrayList<Usuario> listaUsuarios, String login, String senha) {
 		
 		try {
 			//Tente validar o login
 			for(Usuario usuario: listaUsuarios) {
-				if(usuario.getLogin().equals(infoLogin[0]) && usuario.getSenha().equals(infoLogin[1])) {
+				if(usuario.getLogin().equals(login) && usuario.getSenha().equals(senha)) {
 					return usuario;
 				}
 			}

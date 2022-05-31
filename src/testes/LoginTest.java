@@ -14,31 +14,28 @@ public class LoginTest {
 	public void autenticaLoginListaUsuarioNull(){
 		BancoDeDados bd = new BancoDeDados();
 		Login lo = new Login(bd.getListaUsuarios());
-		String[] info = new String[2];
-		info[0] = "patati";
-		info[1] = "patata";
-		assertNull(lo.autenticarLogin(null, info), "Tentando logar com a lista de usuarios null");
+		String login = "patati";
+		String senha = "patata";
+		assertNull(lo.autenticarLogin(null, login, senha), "Tentando logar com a lista de usuarios null");
 	}
 	
 	@Test
 	public void falhaAutenticaLogin() {
 		BancoDeDados bd = new BancoDeDados();
 		Login lo = new Login(bd.getListaUsuarios());
-		String[] info = new String[2];
-		info[0] = "patati";
-		info[1] = "patata";
-		assertNull(lo.autenticarLogin(bd.getListaUsuarios(), info), "Tentando logar com informações incorretas");
+		String login = "patati";
+		String  senha = "patata";
+		assertNull(lo.autenticarLogin(bd.getListaUsuarios(), login, senha), "Tentando logar com informações incorretas");
 	}
 	
 	@Test
 	public void logandoComSucesso() {
 		BancoDeDados bd = new BancoDeDados();
 		Login lo = new Login(bd.getListaUsuarios());
-		String[] info = new String[2];
-		info[0] = "admin";
-		info[1] = "admin";
+		String login = "admin";
+		String senha = "admin";
 		Usuario logado = bd.getListaUsuarios().get(0);
-		assertEquals(logado, lo.autenticarLogin(bd.getListaUsuarios(), info),"Logando com sucesso");
+		assertEquals(logado, lo.autenticarLogin(bd.getListaUsuarios(), login, senha),"Logando com sucesso");
 	}
 
 }
