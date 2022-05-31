@@ -109,6 +109,7 @@ public class GerenciaVendas implements VendaCopyable {
 		
 		Venda novaVenda = new Venda(listaIds, pratos, precoTotal, info[1]);
 		
+		
 		try {
 			listaVendas.add(novaVenda);
 			return true;
