@@ -33,31 +33,12 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-<<<<<<< HEAD
       <VBox layoutX="10.0" layoutY="50.0" prefHeight="150.0" prefWidth="100.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="95.0">
-=======
-      <VBox layoutX="10.0" layoutY="50.0" prefHeight="390.0" prefWidth="119.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="501.0" AnchorPane.topAnchor="90.0">
->>>>>>> branch 'main' of https://github.com/bielcmoraes/SGBR-JavaFx.git
          <children>
-<<<<<<< HEAD
             <Button fx:id="cadastrarButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" style="-fx-border-radius: 50;" text="CADASTRAR" />
             <Button fx:id="editarButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="EDITAR" />
             <Button fx:id="excluirButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="EXCLUIR" />
             <Button fx:id="voltarButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="VOLTAR" />
-=======
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" style="-fx-border-radius: 50;" text="CADASTRAR" />
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="EDITAR" />
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="EXCLUIR" />
-            <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <Button fx:id="voltarButton" mnemonicParsing="false" onAction="#voltarParaMain" text="VOLTAR" textAlignment="JUSTIFY">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-               </children>
-            </VBox>
->>>>>>> branch 'main' of https://github.com/bielcmoraes/SGBR-JavaFx.git
          </children>
       </VBox>
    </children>
