@@ -44,7 +44,12 @@ public class ProdutosController {
 
     @FXML
     private Button voltarButton;
-
+    
+    @FXML
+    void cadastrarProduto(ActionEvent event) {
+    	trocarTela(event, "/view/CadastrarProduto.fxml");
+    }
+    
     @FXML
     void voltarParaMain(ActionEvent event) {
     	trocarTela(event, "/view/MenuGerente.fxml");

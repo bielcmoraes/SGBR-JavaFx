@@ -35,7 +35,7 @@
       </TableView>
       <VBox layoutX="10.0" layoutY="50.0" prefHeight="150.0" prefWidth="100.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="95.0">
          <children>
-            <Button fx:id="cadastrarButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" style="-fx-border-radius: 50;" text="CADASTRAR" />
+            <Button fx:id="cadastrarButton" mnemonicParsing="false" onAction="#cadastrarProduto" prefHeight="50.0" prefWidth="100.0" style="-fx-border-radius: 50;" text="CADASTRAR" />
             <Button fx:id="editarButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="EDITAR" />
             <Button fx:id="excluirButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="EXCLUIR" />
             <Button fx:id="voltarButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="VOLTAR" />
