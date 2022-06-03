@@ -38,7 +38,7 @@
             <Button fx:id="cadastrarButton" mnemonicParsing="false" onAction="#cadastrarProduto" prefHeight="50.0" prefWidth="100.0" style="-fx-border-radius: 50;" text="CADASTRAR" />
             <Button fx:id="editarButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="EDITAR" />
             <Button fx:id="excluirButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="EXCLUIR" />
-            <Button fx:id="voltarButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="VOLTAR" />
+            <Button fx:id="voltarButton" mnemonicParsing="false" onAction="#voltarParaMain" prefHeight="50.0" prefWidth="100.0" text="VOLTAR" />
          </children>
       </VBox>
    </children>
