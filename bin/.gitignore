@@ -1,5 +1,15 @@
+<<<<<<< HEAD
 /view/
 /controller/
 /exceptions/
 /model/
 /testes/
+=======
+/PreCadastro/
+/controller/
+/exceptions/
+/imagens/
+/model/
+/testes/
+/view/
+>>>>>>> branch 'main' of https://github.com/bielcmoraes/SGBR-JavaFx.git

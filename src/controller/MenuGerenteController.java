@@ -31,7 +31,38 @@ public class MenuGerenteController {
 
     @FXML
     private Button vendasButton;
-     
+    
+    //Métodos
+    @FXML
+    private void tela_usuarios(ActionEvent event) {
+    	trocarTela(event, "/view/Usuarios.fxml");
+    }
+    
+    @FXML
+    void tela_fornecedores(ActionEvent event) {
+    	trocarTela(event, "/view/Fornecedores.fxml");
+    }
+    
+    @FXML
+    private void tela_produtos(ActionEvent event) {
+    	trocarTela(event, "/view/Produtos.fxml");
+    }
+    
+    @FXML
+    void tela_cardapio(ActionEvent event) {
+    	trocarTela(event, "/view/Cardapio.fxml");
+    }
+
+    @FXML
+    void tela_vendas(ActionEvent event) {
+    	trocarTela(event, "/view/Vendas.fxml");
+    }
+    
+    @FXML
+    void tela_clientes(ActionEvent event) {
+    	trocarTela(event, "/view/Clientes.fxml");
+    }
+    
     @FXML
     private void deslogar(ActionEvent event) {
     	trocarTela(event, "/view/Login.fxml");

@@ -23,12 +23,12 @@
       <Separator prefHeight="10.0" prefWidth="200.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="70.0" />
       <VBox layoutY="146.0" prefHeight="350.0" prefWidth="100.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="90.0">
          <children>
-            <Button fx:id="usuariosButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Usuários" />
-            <Button fx:id="fornecedoresButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Fornecedores" />
-            <Button fx:id="produtosButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Produtos" />
-            <Button fx:id="cardapioButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Cardapio" />
-            <Button fx:id="vendasButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Vendas" />
-            <Button fx:id="clientesButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Clientes" />
+            <Button fx:id="usuariosButton" mnemonicParsing="false" onAction="#tela_usuarios" prefHeight="50.0" prefWidth="100.0" text="Usuários" />
+            <Button fx:id="fornecedoresButton" mnemonicParsing="false" onAction="#tela_fornecedores" prefHeight="50.0" prefWidth="100.0" text="Fornecedores" />
+            <Button fx:id="produtosButton" mnemonicParsing="false" onAction="#tela_produtos" prefHeight="50.0" prefWidth="100.0" text="Produtos" />
+            <Button fx:id="cardapioButton" mnemonicParsing="false" onAction="#tela_cardapio" prefHeight="50.0" prefWidth="100.0" text="Cardapio" />
+            <Button fx:id="vendasButton" mnemonicParsing="false" onAction="#tela_vendas" prefHeight="50.0" prefWidth="100.0" text="Vendas" />
+            <Button fx:id="clientesButton" mnemonicParsing="false" onAction="#tela_clientes" prefHeight="50.0" prefWidth="100.0" text="Clientes" />
             <Button fx:id="deslogarButton" mnemonicParsing="false" onAction="#deslogar" prefHeight="50.0" prefWidth="100.0" text="Deslogar" />
          </children>
          <opaqueInsets>
