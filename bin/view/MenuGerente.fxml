@@ -25,7 +25,7 @@
          <children>
             <Button fx:id="usuariosButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Usuários" />
             <Button fx:id="fornecedoresButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Fornecedores" />
-            <Button fx:id="produtosButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Produtos" />
+            <Button fx:id="produtosButton" mnemonicParsing="false" onAction="#tela_produtos" prefHeight="50.0" prefWidth="100.0" text="Produtos" />
             <Button fx:id="cardapioButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Cardapio" />
             <Button fx:id="vendasButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Vendas" />
             <Button fx:id="clientesButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Clientes" />

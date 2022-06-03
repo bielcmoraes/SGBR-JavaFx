@@ -37,6 +37,11 @@ public class MenuGerenteController {
     	trocarTela(event, "/view/Login.fxml");
     }
     
+    @FXML
+    private void tela_produtos(ActionEvent event) {
+    	trocarTela(event, "/view/Produtos.fxml");
+    }
+    
     private void trocarTela(ActionEvent event, String url) {
     	Node node = (Node) event.getSource();
 		try {

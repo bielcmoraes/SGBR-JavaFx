@@ -51,7 +51,7 @@ public class LoginController {
     			trocarTela(event, "/view/MenuGerente.fxml");
     			
     		}else if(usuarioLogado instanceof Funcionario) {
-    			//Chama o menu de funcionario
+    			trocarTela(event, "/view/MenuFuncionario.fxml");
     		}
     	}
     	
