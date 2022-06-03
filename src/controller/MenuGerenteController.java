@@ -32,6 +32,9 @@ public class MenuGerenteController {
     @FXML
     private Button vendasButton;
     
+    @FXML
+    private AnchorPane tela_atualizacao;
+    
     //Métodos
     @FXML
     private void tela_usuarios(ActionEvent event) {
@@ -45,12 +48,23 @@ public class MenuGerenteController {
     
     @FXML
     private void tela_produtos(ActionEvent event) {
-    	trocarTela(event, "/view/Produtos.fxml");
+    	
+		try {
+			atualizarPane("/view/Produtos.fxml");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
     
     @FXML
     void tela_cardapio(ActionEvent event) {
-    	trocarTela(event, "/view/Cardapio.fxml");
+    	try {
+			atualizarPane("/view/Cardapio.fxml");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
     @FXML
@@ -68,6 +82,17 @@ public class MenuGerenteController {
     	trocarTela(event, "/view/Login.fxml");
     }
     
+    @FXML
+    public void atualizarPane(String url) throws IOException, Exception {
+        AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource(url));
+        tela_atualizacao.setTopAnchor(a, 0.0);
+        tela_atualizacao.setBottomAnchor(a, 0.0);
+        tela_atualizacao.setLeftAnchor(a, 0.0);
+        tela_atualizacao.setRightAnchor(a, 0.0);
+        tela_atualizacao.getChildren().add(a);
+
+    }
+    
     private void trocarTela(ActionEvent event, String url) {
     	Node node = (Node) event.getSource();
 		try {
@@ -76,6 +101,8 @@ public class MenuGerenteController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+    
+    
     }
      
 }
