@@ -1,9 +1,14 @@
 package controller;
 
-<<<<<<< HEAD
+import java.io.IOException;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.layout.AnchorPane;
 
 public class ProdutosController {
 
@@ -40,23 +45,6 @@ public class ProdutosController {
     @FXML
     private Button voltarButton;
 
-}
-
-=======
-import java.io.IOException;
-
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
-
-public class ProdutosController {
-
-    @FXML
-    private Button voltarButton;
-
     @FXML
     void voltarParaMain(ActionEvent event) {
     	trocarTela(event, "/view/MenuGerente.fxml");
@@ -72,4 +60,3 @@ public class ProdutosController {
 		}
     }
 }
->>>>>>> branch 'main' of https://github.com/bielcmoraes/SGBR-JavaFx.git
