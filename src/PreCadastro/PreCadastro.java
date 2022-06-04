@@ -29,11 +29,11 @@ public class PreCadastro {
 		GerenciaProdutos gerenciaProdutos = new GerenciaProdutos();
 		
 		String [] info = new String[5];
-		info[0] = "Batata";//nome;
-		info[1] = "10";//preco;
-		info[2] = "100 kg";//quantidade;
-		info[3] = "10/10/2022";//validade;
-		info[4] = "Joao, Maria";//fornecedores;
+		info[0] = "Batata"; //nome;
+		info[1] = "10"; //preco;
+		info[2] = "100 kg"; //quantidade;
+		info[3] = "10/10/2022"; //validade;
+		info[4] = "Joao, Maria"; //fornecedores;
 		try {
 			gerenciaProdutos.cadastrarProduto(listaProdutos, listaIds, info, listaFornecedor);
 		} catch (PrecoInvalido | FormatoQuantidadeInvalido | QuantidadeInvalida | FormatoDataInvalido
@@ -46,6 +46,18 @@ public class PreCadastro {
 		info[2] = "30 l";//quantidade;
 		info[3] = "20/10/2022";//validade;
 		info[4] = "Maria";//fornecedores;
+		try {
+			gerenciaProdutos.cadastrarProduto(listaProdutos, listaIds, info, listaFornecedor);
+		} catch (PrecoInvalido | FormatoQuantidadeInvalido | QuantidadeInvalida | FormatoDataInvalido
+				| FornecedorNaoCadastrado | ErroGrave e) {
+			System.out.println(e.toString());
+		}
+		
+		info[0] = "Leite";//nome;
+		info[1] = "12";//preco;
+		info[2] = "5 l";//quantidade;
+		info[3] = "28/10/2021";//validade;
+		info[4] = "Joao, Maria";//fornecedores;
 		try {
 			gerenciaProdutos.cadastrarProduto(listaProdutos, listaIds, info, listaFornecedor);
 		} catch (PrecoInvalido | FormatoQuantidadeInvalido | QuantidadeInvalida | FormatoDataInvalido

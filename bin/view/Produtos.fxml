@@ -31,7 +31,7 @@
                </children>
             </HBox>
             <Separator prefHeight="8.0" prefWidth="600.0" />
-            <TableView prefHeight="585.0" prefWidth="640.0">
+            <TableView fx:id="tabelaProdutos" prefHeight="585.0" prefWidth="640.0">
               <columns>
                 <TableColumn fx:id="idTableColumn" prefWidth="75.0" text="ID" />
                 <TableColumn fx:id="nomeTableColumn" prefWidth="75.0" text="NOME" />

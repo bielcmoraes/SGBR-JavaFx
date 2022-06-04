@@ -3,6 +3,8 @@ package model;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import org.junit.platform.commons.util.StringUtils;
+
 /**Classe para objetos do tipo Produto, onde são contidos, valores e metódos necessarios para implementação da classe.
  * 
  * @author Gabriel Moraes
@@ -18,6 +20,7 @@ public class Produto extends Entidade {
 	private String unidadeDeMedida;
 	private LocalDate validade;
 	private ArrayList<Fornecedor> fornecedores;
+	private String fornecedoresToString = "";
 	
 	/**O construtor inicializa o construtor da classe herdada e atribui a cada variável da classe os respectivos valores fornecidos como parâmetro. 
 	 * 
@@ -109,5 +112,16 @@ public class Produto extends Entidade {
 	 * @param unidadeDeMedida Unidade de medida do produto*/
 	public void setUnidadeDeMedida(String unidadeDeMedida) {
 		this.unidadeDeMedida = unidadeDeMedida;
+	}
+
+	public String getFornecedoresToString() {
+		
+		String fornecedorTemp = "";
+		for(Fornecedor fornecedor : fornecedores) {
+			fornecedorTemp += fornecedor.getNome() + ", ";
+		}
+		
+		fornecedoresToString = fornecedorTemp.substring(0, fornecedorTemp.length()-2);
+		return fornecedoresToString;
 	}
 }
