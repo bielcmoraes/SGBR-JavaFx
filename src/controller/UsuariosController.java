@@ -46,7 +46,7 @@ public class UsuariosController implements Initializable{
     
     //Métodos
     @FXML
-    void cadastrarProduto(ActionEvent event) {
+    void cadastrarUsuario(ActionEvent event) {
 
     }
 

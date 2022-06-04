@@ -14,6 +14,7 @@ public class Fornecedor extends Entidade{
 	private String cnpj;
 	private String endereco;
 	private ArrayList<String> produtos;
+	private String produtosToString;
 	
 	/**O construtor inicializa o costrutor da classe herdada e atribui a cada variável da classe os respectivos valores fornecidos como parâmetro.
 	 * 
@@ -72,6 +73,17 @@ public class Fornecedor extends Entidade{
 
 	public void setProdutos(ArrayList<String> produtos) {
 		this.produtos = produtos;
+	}
+
+	public String getProdutosToString() {
+		
+		String produtosTemp = "";
+		for(String produto : produtos) {
+			produtosTemp += produto + ", ";
+		}
+		
+		produtosToString = produtosTemp.substring(0, produtosTemp.length()-2);
+		return produtosToString;
 	}
 
 }

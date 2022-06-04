@@ -20,7 +20,7 @@ public class Produto extends Entidade {
 	private String unidadeDeMedida;
 	private LocalDate validade;
 	private ArrayList<Fornecedor> fornecedores;
-	private String fornecedoresToString = "";
+	private String fornecedoresToString;
 	
 	/**O construtor inicializa o construtor da classe herdada e atribui a cada variável da classe os respectivos valores fornecidos como parâmetro. 
 	 * 
