@@ -38,23 +38,17 @@ public class MenuGerenteController {
     //Métodos
     @FXML
     private void tela_usuarios(ActionEvent event) {
-    	trocarTela(event, "/view/Usuarios.fxml");
+    	atualizarPane("/view/Usuarios.fxml");
     }
     
     @FXML
     void tela_fornecedores(ActionEvent event) {
-    	trocarTela(event, "/view/Fornecedores.fxml");
+    	atualizarPane("/view/Fornecedores.fxml");
     }
     
     @FXML
     private void tela_produtos(ActionEvent event) {
-    	
-		try {
-			atualizarPane("/view/Produtos.fxml");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    	atualizarPane("/view/Produtos.fxml");
     }
     
     @FXML
@@ -83,14 +77,20 @@ public class MenuGerenteController {
     }
     
     @FXML
-    public void atualizarPane(String url) throws IOException, Exception {
-        AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource(url));
-        tela_atualizacao.setTopAnchor(a, 0.0);
-        tela_atualizacao.setBottomAnchor(a, 0.0);
-        tela_atualizacao.setLeftAnchor(a, 0.0);
-        tela_atualizacao.setRightAnchor(a, 0.0);
-        tela_atualizacao.getChildren().add(a);
-
+    public void atualizarPane(String url){
+        
+		try {
+			AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource(url));
+			tela_atualizacao.setTopAnchor(a, 0.0);
+	        tela_atualizacao.setBottomAnchor(a, 0.0);
+	        tela_atualizacao.setLeftAnchor(a, 0.0);
+	        tela_atualizacao.setRightAnchor(a, 0.0);
+	        tela_atualizacao.getChildren().add(a);
+	        
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
     
     private void trocarTela(ActionEvent event, String url) {

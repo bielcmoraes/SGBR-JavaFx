@@ -1,5 +1,8 @@
 package PreCadastro;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import exceptions.ErroGrave;
 import exceptions.FormatoDataInvalido;
 import exceptions.FormatoIngredientesInvalido;
@@ -11,14 +14,18 @@ import exceptions.ProdutoNaoCadastrado;
 import exceptions.QuantidadeInvalida;
 import exceptions.QuantidadeProdutosInsuficiente;
 import model.BancoDeDados;
+import model.Fornecedor;
 import model.GerenciaCardapio;
 import model.GerenciaFornecedor;
 import model.GerenciaProdutos;
 import model.GerenciaVendas;
+import model.Prato;
+import model.Produto;
+import model.Venda;
 
 public class PreCadastro {
 	
-	public void PreCadastrarProdutos (BancoDeDados bancoDeDados) {
+	public void PreCadastrarProdutos (HashMap<String, ArrayList<Produto>> listaProdutos, ArrayList<String> listaIds, ArrayList<Fornecedor> listaFornecedor) {
 		GerenciaProdutos gerenciaProdutos = new GerenciaProdutos();
 		
 		String [] info = new String[5];
@@ -28,7 +35,7 @@ public class PreCadastro {
 		info[3] = "10/10/2022";//validade;
 		info[4] = "Joao, Maria";//fornecedores;
 		try {
-			gerenciaProdutos.cadastrarProduto(bancoDeDados.getListaProdutos(), bancoDeDados.getListaIds(), info, bancoDeDados.getListaFornecedores());
+			gerenciaProdutos.cadastrarProduto(listaProdutos, listaIds, info, listaFornecedor);
 		} catch (PrecoInvalido | FormatoQuantidadeInvalido | QuantidadeInvalida | FormatoDataInvalido
 				| FornecedorNaoCadastrado | ErroGrave e) {
 			System.out.println(e.toString());
@@ -40,7 +47,7 @@ public class PreCadastro {
 		info[3] = "20/10/2022";//validade;
 		info[4] = "Maria";//fornecedores;
 		try {
-			gerenciaProdutos.cadastrarProduto(bancoDeDados.getListaProdutos(), bancoDeDados.getListaIds(), info, bancoDeDados.getListaFornecedores());
+			gerenciaProdutos.cadastrarProduto(listaProdutos, listaIds, info, listaFornecedor);
 		} catch (PrecoInvalido | FormatoQuantidadeInvalido | QuantidadeInvalida | FormatoDataInvalido
 				| FornecedorNaoCadastrado | ErroGrave e) {
 			System.out.println(e.toString());
@@ -52,7 +59,7 @@ public class PreCadastro {
 		info[3] = "15/09/2022";//validade;
 		info[4] = "Jose";//fornecedores;
 		try {
-			gerenciaProdutos.cadastrarProduto(bancoDeDados.getListaProdutos(), bancoDeDados.getListaIds(), info, bancoDeDados.getListaFornecedores());
+			gerenciaProdutos.cadastrarProduto(listaProdutos, listaIds, info, listaFornecedor);
 		} catch (PrecoInvalido | FormatoQuantidadeInvalido | QuantidadeInvalida | FormatoDataInvalido
 				| FornecedorNaoCadastrado | ErroGrave e) {
 			System.out.println(e.toString());
@@ -64,7 +71,7 @@ public class PreCadastro {
 		info[3] = "02/09/2021";//validade;
 		info[4] = "Jose";//fornecedores;
 		try {
-			gerenciaProdutos.cadastrarProduto(bancoDeDados.getListaProdutos(), bancoDeDados.getListaIds(), info, bancoDeDados.getListaFornecedores());
+			gerenciaProdutos.cadastrarProduto(listaProdutos, listaIds, info, listaFornecedor);
 		} catch (PrecoInvalido | FormatoQuantidadeInvalido | QuantidadeInvalida | FormatoDataInvalido
 				| FornecedorNaoCadastrado | ErroGrave e) {
 			System.out.println(e.toString());
@@ -76,7 +83,7 @@ public class PreCadastro {
 		info[3] = "01/09/2020";//validade;
 		info[4] = "Jose";//fornecedores;
 		try {
-			gerenciaProdutos.cadastrarProduto(bancoDeDados.getListaProdutos(), bancoDeDados.getListaIds(), info, bancoDeDados.getListaFornecedores());
+			gerenciaProdutos.cadastrarProduto(listaProdutos, listaIds, info, listaFornecedor);
 		} catch (PrecoInvalido | FormatoQuantidadeInvalido | QuantidadeInvalida | FormatoDataInvalido
 				| FornecedorNaoCadastrado | ErroGrave e) {
 			System.out.println(e.toString());
@@ -88,7 +95,7 @@ public class PreCadastro {
 		info[3] = "20/08/2022";//validade;
 		info[4] = "Jose";//fornecedores;
 		try {
-			gerenciaProdutos.cadastrarProduto(bancoDeDados.getListaProdutos(), bancoDeDados.getListaIds(), info, bancoDeDados.getListaFornecedores());
+			gerenciaProdutos.cadastrarProduto(listaProdutos, listaIds, info, listaFornecedor);
 		} catch (PrecoInvalido | FormatoQuantidadeInvalido | QuantidadeInvalida | FormatoDataInvalido
 				| FornecedorNaoCadastrado | ErroGrave e) {
 			System.out.println(e.toString());
@@ -100,14 +107,14 @@ public class PreCadastro {
 		info[3] = "25/10/2022";//validade;
 		info[4] = "Jose";//fornecedores;
 		try {
-			gerenciaProdutos.cadastrarProduto(bancoDeDados.getListaProdutos(), bancoDeDados.getListaIds(), info, bancoDeDados.getListaFornecedores());
+			gerenciaProdutos.cadastrarProduto(listaProdutos, listaIds, info, listaFornecedor);
 		} catch (PrecoInvalido | FormatoQuantidadeInvalido | QuantidadeInvalida | FormatoDataInvalido
 				| FornecedorNaoCadastrado | ErroGrave e) {
 			System.out.println(e.toString());
 		}
 	}
 	
-	public void PreCadastrarFornecedores (BancoDeDados bancoDeDados){
+	public void PreCadastrarFornecedores (ArrayList<Fornecedor> listaFornecedor, ArrayList<String> listaIds){
 		GerenciaFornecedor gerenciaFornecedor = new GerenciaFornecedor();
 		
 		String [] info = new String[3];
@@ -115,7 +122,7 @@ public class PreCadastro {
 		info[1] = "77.994.900/0001-26";//cnpj;
 		info[2] = "Rua A";//endereco;
 		try {
-			gerenciaFornecedor.cadastrarFornecedor(bancoDeDados.getListaFornecedores(), bancoDeDados.getListaIds(), info);
+			gerenciaFornecedor.cadastrarFornecedor(listaFornecedor, listaIds, info);
 		} catch (ErroGrave e) {
 			System.out.println(e.toString());
 		}
@@ -124,7 +131,7 @@ public class PreCadastro {
 		info[1] = "37.889.838/0001-98";//cnpj;
 		info[2] = "Rua B";//endereco;
 		try {
-			gerenciaFornecedor.cadastrarFornecedor(bancoDeDados.getListaFornecedores(), bancoDeDados.getListaIds(), info);
+			gerenciaFornecedor.cadastrarFornecedor(listaFornecedor, listaIds, info);
 		} catch (ErroGrave e) {
 			System.out.println(e.toString());
 		}
@@ -133,13 +140,13 @@ public class PreCadastro {
 		info[1] = "37.889.838/0001-98";//cnpj;
 		info[2] = "Rua C";//endereco;
 		try {
-			gerenciaFornecedor.cadastrarFornecedor(bancoDeDados.getListaFornecedores(), bancoDeDados.getListaIds(), info);
+			gerenciaFornecedor.cadastrarFornecedor(listaFornecedor, listaIds, info);
 		} catch (ErroGrave e) {
 			System.out.println(e.toString());
 		}
 	}
 	
-	public void PreCadastrarPratos (BancoDeDados bancoDeDados) {
+	public void PreCadastrarPratos (ArrayList<Prato> cardapio, ArrayList<String> listaIds, HashMap<String, ArrayList<Produto>> listaProdutos) {
 		GerenciaCardapio gerenciaCardapio = new GerenciaCardapio();
 		
 		String [] info = new String[5];
@@ -149,13 +156,15 @@ public class PreCadastro {
 		info[2] = "Cachorro Quente Simples";//descricao;
 		info[3] = "Lanche";//categoria;
 		info[4] = "1;un;Salsicha;1;un;Pao;";//ingredientes;
-
+		
 		try {
-			gerenciaCardapio.cadastrarPrato(bancoDeDados.getCardapio(), bancoDeDados.getListaIds(), bancoDeDados.getListaProdutos(), info);
+			gerenciaCardapio.cadastrarPrato(cardapio, listaIds, listaProdutos, info);
 		} catch (PrecoInvalido | QuantidadeInvalida | ProdutoNaoCadastrado | FormatoIngredientesInvalido
 				| ErroGrave e1) {
-			System.out.println(e1.toString());
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
+		
 
 		
 		info[0] = "Pure de Batata";//nome;
@@ -165,7 +174,7 @@ public class PreCadastro {
 		info[4] = "0.5;kg;Batata;0.5;l;Leite;";//ingredientes;
 
 		try {
-			gerenciaCardapio.cadastrarPrato(bancoDeDados.getCardapio(), bancoDeDados.getListaIds(), bancoDeDados.getListaProdutos(), info);
+			gerenciaCardapio.cadastrarPrato(cardapio, listaIds, listaProdutos, info);
 		} catch (PrecoInvalido | QuantidadeInvalida | ProdutoNaoCadastrado | FormatoIngredientesInvalido
 				| ErroGrave e) {
 			System.out.println(e.toString());
@@ -173,7 +182,7 @@ public class PreCadastro {
 	
 	}
 	
-	public void preCadastrarVendas(BancoDeDados bancoDeDados) {
+	public void preCadastrarVendas(ArrayList<Venda> listaVendas, ArrayList<String> listaIds, ArrayList<Prato> cardapio, HashMap<String, ArrayList<Produto>> listaProdutos) {
 		GerenciaVendas gerenciaVendas = new GerenciaVendas();
 		
 		String [] info = new String[2];
@@ -182,7 +191,7 @@ public class PreCadastro {
 		info[1] = "Pix";
 		
 		try {
-			gerenciaVendas.cadastrarVenda(bancoDeDados.getListaVendas(), bancoDeDados.getListaIds(), bancoDeDados.getCardapio(), info, bancoDeDados.getListaProdutos());
+			gerenciaVendas.cadastrarVenda(listaVendas, listaIds, cardapio, info, listaProdutos);
 		} catch (PratoNaoCadastrado | QuantidadeProdutosInsuficiente | ErroGrave e) {
 			System.out.println(e.toString());
 		}
@@ -191,7 +200,7 @@ public class PreCadastro {
 		info[1] = "Dinheiro";
 		
 		try {
-			gerenciaVendas.cadastrarVenda(bancoDeDados.getListaVendas(), bancoDeDados.getListaIds(), bancoDeDados.getCardapio(), info, bancoDeDados.getListaProdutos());
+			gerenciaVendas.cadastrarVenda(listaVendas, listaIds, cardapio, info, listaProdutos);
 		} catch (PratoNaoCadastrado | QuantidadeProdutosInsuficiente | ErroGrave e) {
 			System.out.println(e.toString());
 		}
@@ -200,7 +209,7 @@ public class PreCadastro {
 		info[1] = "Credito";
 		
 		try {
-			gerenciaVendas.cadastrarVenda(bancoDeDados.getListaVendas(), bancoDeDados.getListaIds(), bancoDeDados.getCardapio(), info, bancoDeDados.getListaProdutos());
+			gerenciaVendas.cadastrarVenda(listaVendas, listaIds, cardapio, info, listaProdutos);
 		} catch (PratoNaoCadastrado | QuantidadeProdutosInsuficiente | ErroGrave e) {
 			System.out.println(e.toString());
 		}
@@ -209,7 +218,7 @@ public class PreCadastro {
 		info[1] = "Dinheiro";
 
 		try {
-			gerenciaVendas.cadastrarVenda(bancoDeDados.getListaVendas(), bancoDeDados.getListaIds(), bancoDeDados.getCardapio(), info, bancoDeDados.getListaProdutos());
+			gerenciaVendas.cadastrarVenda(listaVendas, listaIds, cardapio, info, listaProdutos);
 		} catch (PratoNaoCadastrado | QuantidadeProdutosInsuficiente | ErroGrave e) {
 			System.out.println(e.toString());
 		}

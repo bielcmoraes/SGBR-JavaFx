@@ -3,6 +3,8 @@ package model;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import PreCadastro.PreCadastro;
+
 /**Classe responsável por instanciar todos os ArrayList's que são utilizados no programa.
  * 
  * @author Gabriel Moraes
@@ -18,6 +20,14 @@ public class BancoDeDados {
 	private ArrayList<Venda> listaVendas = new ArrayList<Venda>();
 	private ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
 	private ArrayList<String> listaIds = new ArrayList<String>();
+	
+	public BancoDeDados() {
+		PreCadastro preCadastro = new PreCadastro();
+		preCadastro.PreCadastrarFornecedores(listaFornecedores, listaIds);
+		preCadastro.PreCadastrarProdutos(listaProdutos, listaIds, listaFornecedores);
+		preCadastro.PreCadastrarPratos(cardapio, listaIds, listaProdutos);
+		preCadastro.preCadastrarVendas(listaVendas, listaIds, cardapio, listaProdutos);
+	}
 	
 	/**Metódo para retorno da lista de fornecedores
 	 * @return Retorna o atributo privado listaFornecedores*/

@@ -1,8 +1,6 @@
 package controller;
 
 import java.io.IOException;
-
-import PreCadastro.PreCadastro;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -31,12 +29,7 @@ public class LoginController {
 
     @FXML
     private void logar(ActionEvent event) {
-    	BancoDeDados dados = new BancoDeDados();
-		PreCadastro preCadastro = new PreCadastro();
-		preCadastro.PreCadastrarFornecedores(dados);
-		preCadastro.PreCadastrarProdutos(dados);
-		preCadastro.PreCadastrarPratos(dados);
-		preCadastro.preCadastrarVendas(dados);
+    	BancoDeDados dados = Main.getBancoDeDados();
     	Login login = new Login(dados.getListaUsuarios());
     	Usuario usuarioLogado = login.autenticarLogin(dados.getListaUsuarios(), usuarioTextField.getText(), senhaTextField.getText());
     	
