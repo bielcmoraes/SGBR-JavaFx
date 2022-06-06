@@ -85,5 +85,11 @@ public class Fornecedor extends Entidade{
 		produtosToString = produtosTemp.substring(0, produtosTemp.length()-2);
 		return produtosToString;
 	}
+	
+	@Override
+	public String toString() {
+		return getNome();
+		
+	}
 
 }

@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
@@ -15,6 +16,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -90,21 +92,45 @@ public class ProdutosController implements Initializable{
 			
 			idTableColumn.setCellValueFactory(new PropertyValueFactory<Produto, String>("id"));
 			nomeTableColumn.setCellValueFactory(new PropertyValueFactory<Produto, String>("nome"));
-			precoTableColumn.setCellValueFactory(new PropertyValueFactory<Produto, Double>("preco"));
+			precoTableColumn.setCellValueFactory(new PropertyValueFactory<Produto, Double>("preco"));        
 			quantidadeTableColumn.setCellValueFactory(new PropertyValueFactory<Produto, Double>("quantidade"));
 			medidaTableColumn.setCellValueFactory(new PropertyValueFactory<Produto, String>("unidadeDeMedida"));
 			validadeTableColumn.setCellValueFactory(new PropertyValueFactory<Produto, LocalDate>("validade"));
 			fornecedores.setCellValueFactory(new PropertyValueFactory<Produto, String>("fornecedoresToString"));
 			
+			precoTableColumn.setCellFactory(c -> new TableCell<>() {
+			    @Override
+			    protected void updateItem(Double preco, boolean empty) {
+			        super.updateItem(preco, empty);
+			        if (preco == null || empty) {
+			            setText(null);
+			        } else {
+			            setText(String.format("R$ %.2f", preco));
+			        }
+			    }
+			});
 			
+			validadeTableColumn.setCellFactory(c -> new TableCell<>() {
+			    @Override
+			    protected void updateItem(LocalDate validade, boolean empty) {
+			        super.updateItem(validade, empty);
+			        if (validade == null || empty) {
+			            setText(null);
+			        } else {
+			        	DateTimeFormatter formatoData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+			            setText(validade.format(formatoData));
+			        }
+			    }
+			});
+			
+			observableListProdutos = FXCollections.observableArrayList();
 			for(ArrayList<Produto> estoque: listaProdutos.values()) {
-				observableListProdutos = FXCollections.observableArrayList(estoque);
+				observableListProdutos.addAll(estoque);
 				}
 				
 				tabelaProdutos.setItems(observableListProdutos);	
 		}
     
-	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		carregarListaProdutos();

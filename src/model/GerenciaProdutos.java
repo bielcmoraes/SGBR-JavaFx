@@ -35,6 +35,7 @@ public class GerenciaProdutos implements ProdutoCopyable {
 			throws PrecoInvalido, FormatoQuantidadeInvalido, QuantidadeInvalida, FormatoDataInvalido, FornecedorNaoCadastrado, ErroGrave{
 		
 		Double preco;
+		info[1] = info[1].replace("R$ ", "");
 		try {
 			
 			preco = Double.parseDouble(info[1]);
