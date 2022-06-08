@@ -1,7 +1,7 @@
-/model/
-/controller/
-/ColunaValor.class
-/ColunaValor$1.class
-/util/
 /view/
+<<<<<<< HEAD
 /testes/
+=======
+/imagens/
+/controller/
+>>>>>>> branch 'main' of https://github.com/bielcmoraes/SGBR-JavaFx.git

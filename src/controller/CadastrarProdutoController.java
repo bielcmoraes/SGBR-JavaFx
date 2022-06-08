@@ -38,6 +38,9 @@ public class CadastrarProdutoController implements Initializable{
     private Button cancelarButton;
 
     @FXML
+    private AnchorPane painelAnchorPane;
+    
+    @FXML
     private ComboBox<Fornecedor> fornecedorComboBox;
 
     @FXML
@@ -93,12 +96,12 @@ public class CadastrarProdutoController implements Initializable{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    	trocarTela(event, "/view/Produtos.fxml");
+    	atualizarPainel("/view/Produtos.fxml");
     }
     
     @FXML
     private void cancelar(ActionEvent event) {
-    	trocarTela(event, "/view/Produtos.fxml");
+    	atualizarPainel("/view/Produtos.fxml");
     }
 
 	@Override
@@ -112,11 +115,15 @@ public class CadastrarProdutoController implements Initializable{
 		fornecedorComboBox.setItems(obsFornecedores);
 	}
 	
-	private void trocarTela(ActionEvent event, String url) {
-    	Node node = (Node) event.getSource();
+    private void atualizarPainel(String url) {
 		try {
-			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource(url));
-			node.getScene().setRoot(root);
+			AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource(url));
+			AnchorPane.setTopAnchor(a, 0.0);
+			AnchorPane.setBottomAnchor(a, 0.0);
+			AnchorPane.setLeftAnchor(a, 0.0);
+			AnchorPane.setRightAnchor(a, 0.0);
+			painelAnchorPane.getChildren().clear();
+			painelAnchorPane.getChildren().add(a);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

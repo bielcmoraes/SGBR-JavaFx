@@ -14,16 +14,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import model.Fornecedor;
 import model.Produto;
-import model.Usuario;
 
 public class ProdutosController implements Initializable{
 
@@ -35,6 +32,9 @@ public class ProdutosController implements Initializable{
 
     @FXML
     private Button excluirButton;
+    
+    @FXML
+    private AnchorPane painelAnchorPane;
     
     @FXML
     private TableView<Produto> tabelaProdutos;
@@ -59,9 +59,6 @@ public class ProdutosController implements Initializable{
 
     @FXML
     private TableColumn<Produto, LocalDate> validadeTableColumn;
-
-    @FXML
-    private Button voltarButton;
     
     private HashMap<String, ArrayList<Produto>> listaProdutos = Main.getBancoDeDados().getListaProdutos();
     
@@ -70,19 +67,18 @@ public class ProdutosController implements Initializable{
     //Métodos
     @FXML
     void cadastrarProduto(ActionEvent event) {
-    	trocarTela(event, "/view/CadastrarProduto.fxml");
+    	atualizarPainel("/view/CadastrarProduto.fxml");
     }
     
-    @FXML
-    void voltarParaMain(ActionEvent event) {
-    	trocarTela(event, "/view/MenuGerente.fxml");
-    }
-    
-    private void trocarTela(ActionEvent event, String url) {
-    	Node node = (Node) event.getSource();
+    private void atualizarPainel(String url) {
 		try {
-			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource(url));
-			node.getScene().setRoot(root);
+			AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource(url));
+			AnchorPane.setTopAnchor(a, 0.0);
+			AnchorPane.setBottomAnchor(a, 0.0);
+			AnchorPane.setLeftAnchor(a, 0.0);
+			AnchorPane.setRightAnchor(a, 0.0);
+			painelAnchorPane.getChildren().clear();
+			painelAnchorPane.getChildren().add(a);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

@@ -3,36 +3,108 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuGerenteController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuGerenteController">
    <children>
-      <Label alignment="TOP_LEFT" style="-fx-text-fill: #2196F3;" stylesheets="@application.css" text="GERENCIAMENTOS" textAlignment="JUSTIFY" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="30.0">
-         <font>
-            <Font name="System Bold" size="36.0" />
-         </font>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-      </Label>
-      <Separator prefHeight="10.0" prefWidth="200.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="70.0" />
-      <VBox layoutY="146.0" prefHeight="350.0" prefWidth="100.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="90.0">
+      <VBox alignment="TOP_CENTER" layoutY="146.0" prefWidth="200.0" styleClass="menuBar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button fx:id="usuariosButton" mnemonicParsing="false" onAction="#tela_usuarios" prefHeight="50.0" prefWidth="100.0" text="Usuários" />
-            <Button fx:id="fornecedoresButton" mnemonicParsing="false" onAction="#tela_fornecedores" prefHeight="50.0" prefWidth="100.0" text="Fornecedores" />
-            <Button fx:id="produtosButton" mnemonicParsing="false" onAction="#tela_produtos" prefHeight="50.0" prefWidth="100.0" text="Produtos" />
-            <Button fx:id="cardapioButton" mnemonicParsing="false" onAction="#tela_cardapio" prefHeight="50.0" prefWidth="100.0" text="Cardapio" />
-            <Button fx:id="vendasButton" mnemonicParsing="false" onAction="#tela_vendas" prefHeight="50.0" prefWidth="100.0" text="Vendas" />
-            <Button fx:id="clientesButton" mnemonicParsing="false" onAction="#tela_clientes" prefHeight="50.0" prefWidth="100.0" text="Clientes" />
-            <Button fx:id="deslogarButton" mnemonicParsing="false" onAction="#deslogar" prefHeight="50.0" prefWidth="100.0" text="Deslogar" />
+            <ImageView fitHeight="89.0" fitWidth="89.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagens/13176313511579838435-128.png" />
+               </image>
+               <VBox.margin>
+                  <Insets top="50.0" />
+               </VBox.margin>
+            </ImageView>
+            <Label text="NIMBUS" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Segoe UI Semibold" size="24.0" />
+               </font>
+            </Label>
+            <Label text="GERENCIAMENTO" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Segoe UI Semibold" size="11.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="50.0" />
+               </VBox.margin>
+            </Label>
+            <Button fx:id="usuariosButton" alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#tela_usuarios" prefHeight="50.0" prefWidth="100.0" styleClass="barButton" text="USUÁRIOS">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagens/19339625881548233621-128.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="fornecedoresButton" alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#tela_fornecedores" prefHeight="50.0" prefWidth="100.0" styleClass="barButton" text="FORNECEDORES">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagens/2817315341595601896-128.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="produtosButton" alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#tela_produtos" prefHeight="50.0" prefWidth="100.0" styleClass="barButton" text="PRODUTOS">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagens/20498114531571183075-128.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="cardapioButton" alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#tela_cardapio" prefHeight="50.0" prefWidth="100.0" styleClass="barButton" text="CARDAPIO">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagens/5382974231579060827-128.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="vendasButton" alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#tela_vendas" prefHeight="50.0" prefWidth="100.0" styleClass="barButton" text="VENDAS">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagens/19002805871632477535-128.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="clientesButton" alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#tela_clientes" prefHeight="50.0" prefWidth="100.0" styleClass="barButton" text="CLIENTES">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagens/21173215271640888406-128.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="deslogarButton" alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#deslogar" prefHeight="50.0" prefWidth="100.0" styleClass="barButton" text="DESLOGAR">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagens/16147924811618134427-128.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <VBox.margin>
+                  <Insets top="50.0" />
+               </VBox.margin>
+            </Button>
          </children>
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
       </VBox>
-      <AnchorPane fx:id="tela_atualizacao" prefHeight="200.0" prefWidth="200.0" stylesheets="@application.css" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="90.0" />
+      <AnchorPane fx:id="painelAnchorPane" layoutY="32.0" prefHeight="600.0" prefWidth="600.0" styleClass="paneBackground" stylesheets="@application.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
    </children>
 </AnchorPane>

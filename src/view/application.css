@@ -1,1 +1,128 @@
-/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.menuBar {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #F04F78, #905EA9);
+}
+
+.text-fieldLogin {
+    -fx-font-size: 12pt;
+    -fx-font-family: "Segoe UI";
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: transparent;
+    -fx-border-color: #FFFFFF;
+    -fx-border-insets: 0 0 1 0;
+    -fx-text-fill: #FFFFFF;
+}
+
+.text-fieldCrud {
+    -fx-font-size: 12pt;
+    -fx-font-family: "Segoe UI";
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: transparent;
+    -fx-border-color: linear-gradient(from 0% 0% to 100% 100%, #F04F78, #905EA9);
+    -fx-border-insets: 0 0 1 0;
+    -fx-text-fill: linear-gradient(from 0% 0% to 100% 100%, #F04F78, #905EA9);
+}
+
+.barButton {
+	-fx-background-color: transparent;
+	-fx-text-fill: #FFFFFF;
+	-fx-font-size: 12pt;
+	-fx-font-family: "Segoe UI SemiBold";
+}
+
+.loginButton {
+	-fx-background-color: transparent;
+	-fx-text-fill: #FFFFFF;
+	-fx-font-size: 12pt;
+	-fx-font-family: "Segoe UI SemiBold";
+}
+
+.crudButton {
+	-fx-background-radius: 0px;
+	-fx-border-radius: 0px;
+	
+	-fx-background-color: #FFFFFF;
+	-fx-border-color: linear-gradient(from 0% 0% to 100% 100%, #F04F78, #905EA9);
+	-fx-text-fill: linear-gradient(from 0% 0% to 100% 100%, #F04F78, #905EA9);
+	-fx-font-size: 12pt;
+	-fx-font-family: "Segoe UI SemiBold";
+}
+
+.crudButton:hover {
+	-fx-text-fill: #FFFFFF;
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #F04F78, #905EA9);
+}
+
+.titulo {
+	-fx-text-fill: linear-gradient(from 0% 0% to 100% 100%, #F04F78, #905EA9);
+}
+
+.barButton:hover {
+    -fx-background-color: rgba(46, 34, 47, 0.2);
+}
+
+.paneBackground {
+	-fx-background-color: #F9F9F9;
+}
+
+.line {
+    -fx-border-width: 0px;
+    -fx-border-insets: 0px;
+}
+
+.separator {
+    -fx-padding: 0px;
+    -fx-border-insets: 0px;
+    -fx-border-width: 1px;
+    -fx-border-color: #FFFFFF;
+}
+
+.table-view {
+    -fx-base: #FFFFFF;
+    -fx-control-inner-background: #FFFFFF;
+    -fx-background-color: #FFFFFF;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+    -fx-padding: 5;
+    -fx-border-color: linear-gradient(from 0% 0% to 100% 100%, #F04F78, #905EA9);
+    -fx-font-family: "Segoe UI";
+}
+
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-size: 35;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: transparent;
+    -fx-border-color: 
+        linear-gradient(from 0% 0% to 100% 100%, #F04F78, #905EA9);
+    -fx-border-insets: 0 10 1 0;
+}
+
+.table-view .column-header .label {
+    -fx-font-size: 12pt;
+    -fx-font-family: "Segoe UI SemiBold";
+    -fx-text-fill: linear-gradient(from 0% 0% to 100% 100%, #F04F78, #905EA9);
+    -fx-alignment: center-left;
+    -fx-opacity: 1;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #F04F78, #905EA9);
+    -fx-table-cell-border-color: transparent;
+}
+
+.textoLogin {
+	-fx-text-fill: #FFFFFF;
+	-fx-font-size: 12pt;
+	-fx-font-family: "Segoe UI SemiBold";
+}
+
+.textoCrud {
+	-fx-text-fill: linear-gradient(from 0% 0% to 100% 100%, #F04F78, #905EA9);
+	-fx-font-size: 12pt;
+	-fx-font-family: "Segoe UI SemiBold";
+}
+
+
