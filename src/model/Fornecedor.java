@@ -77,12 +77,15 @@ public class Fornecedor extends Entidade{
 
 	public String getProdutosToString() {
 		
-		String produtosTemp = "";
-		for(String produto : produtos) {
-			produtosTemp += produto + ", ";
+		if(!this.produtos.isEmpty()) {
+			String produtosTemp = "";
+			for(String produto : this.produtos) {
+				produtosTemp += produto + ", ";
+			}
+			
+			produtosToString = produtosTemp.substring(0, produtosTemp.length()-2);
 		}
 		
-		produtosToString = produtosTemp.substring(0, produtosTemp.length()-2);
 		return produtosToString;
 	}
 	
