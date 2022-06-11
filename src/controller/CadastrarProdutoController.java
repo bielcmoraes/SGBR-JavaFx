@@ -108,6 +108,8 @@ public class CadastrarProdutoController implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		carregarFornecedores();
+		permiteDecimal(precoTextField);
+		permiteDecimal(quantidadeTextField);
 		
 	}
 	
@@ -129,5 +131,22 @@ public class CadastrarProdutoController implements Initializable{
 			e.printStackTrace();
 		}
     }
+    
+    
+    public void permiteDecimal(TextField textfield) {
+        textfield.textProperty().addListener(
+                (observable, oldValue, newValue) -> {
+                    try {
+                        if (!newValue.matches("\\d*(\\.\\d*)?")) {
+                            textfield.setText(oldValue);
+                        }
+
+                    } catch(Exception e) {
+                        textfield.setText(oldValue);
+                    }
+                }
+        );
+    }
+
 	
 }

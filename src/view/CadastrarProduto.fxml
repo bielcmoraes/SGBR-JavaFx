@@ -77,7 +77,7 @@
                   <Insets />
                </GridPane.margin>
             </TextField>
-            <DatePicker fx:id="validadeDatePicker" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+            <DatePicker fx:id="validadeDatePicker" editable="false" GridPane.columnIndex="2" GridPane.rowIndex="9" />
             <ComboBox fx:id="fornecedorComboBox" prefWidth="150.0" GridPane.rowIndex="9" />
             <TextField fx:id="precoTextField" promptText="R$ 99,99" styleClass="text-fieldCrud" GridPane.rowIndex="6" />
             <TextField fx:id="quantidadeTextField" promptText="99 kg" styleClass="text-fieldCrud" GridPane.columnIndex="2" GridPane.rowIndex="6" />

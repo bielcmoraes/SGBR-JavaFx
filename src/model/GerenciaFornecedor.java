@@ -75,7 +75,7 @@ public class GerenciaFornecedor implements FornecedorCopyable {
 	 * @throws NaoEncontrado 
 	 */
 	@Override
-	public boolean excluirFornecedor(ArrayList<Fornecedor> listaFornecedores, ArrayList<String> listaIds, String codigoFornecedor) throws ErroGrave, NaoEncontrado {
+	public boolean excluirFornecedor(ArrayList<Fornecedor> listaFornecedores, ArrayList<String> listaIds, String codigoFornecedor) throws ErroGrave {
 			
 			try {
 				for(Fornecedor fornecedor : listaFornecedores) {
@@ -84,9 +84,6 @@ public class GerenciaFornecedor implements FornecedorCopyable {
 						listaFornecedores.remove(index);
 						listaIds.remove(codigoFornecedor);
 						return true;
-					}
-					else {
-						throw new NaoEncontrado("Fornecedor");
 					}
 				}
 			}catch(ArrayIndexOutOfBoundsException a){

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
+import exceptions.ErroGrave;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -21,6 +22,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import model.BancoDeDados;
+import model.GerenciaProdutos;
+import model.GerenciaUsuario;
 import model.Produto;
 
 public class ProdutosController implements Initializable{
@@ -69,6 +72,19 @@ public class ProdutosController implements Initializable{
     @FXML
     void cadastrarProduto(ActionEvent event) {
     	atualizarPainel("/view/CadastrarProduto.fxml");
+    }
+    
+    @FXML
+    void excluirProduto(ActionEvent event) {
+    	String idSelecionado = tabelaProdutos.getSelectionModel().getSelectedItem().getId();
+    	GerenciaProdutos gerenciaProdutos = new GerenciaProdutos();
+    	try {
+    		gerenciaProdutos.excluirProduto(BancoDeDados.getInstance().getListaProdutos(), BancoDeDados.getInstance().getListaIds(), idSelecionado);
+		} catch (ErroGrave e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	carregarListaProdutos();
     }
     
     private void atualizarPainel(String url) {

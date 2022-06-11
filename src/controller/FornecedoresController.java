@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import exceptions.ErroGrave;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,6 +19,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import model.BancoDeDados;
 import model.Fornecedor;
+import model.GerenciaFornecedor;
+import model.GerenciaUsuario;
 
 public class FornecedoresController implements Initializable{
 
@@ -71,7 +74,16 @@ public class FornecedoresController implements Initializable{
 
     @FXML
     void excluirFornecedor(ActionEvent event) {
-
+    	
+    	String idSelecionado = tabelaFornecedores.getSelectionModel().getSelectedItem().getId();
+    	GerenciaFornecedor gerenciaFornecedor = new GerenciaFornecedor();
+    	try {
+    		gerenciaFornecedor.excluirFornecedor(BancoDeDados.getInstance().getListaFornecedores(), BancoDeDados.getInstance().getListaIds(), idSelecionado);
+		} catch (ErroGrave e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	carregarListaUsuarios();
     }
     
     @FXML

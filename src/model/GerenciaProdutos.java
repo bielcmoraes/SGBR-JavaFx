@@ -214,7 +214,7 @@ public class GerenciaProdutos implements ProdutoCopyable {
 	 */
 	@Override
 	public boolean excluirProduto(HashMap<String, ArrayList<Produto>> listaProdutos, ArrayList<String> listaIds, String codigoProduto) 
-	throws ProdutoNaoCadastrado, ErroGrave {
+	throws ErroGrave {
 		
 		try {
 			for(ArrayList<Produto> estoque : listaProdutos.values()) {
@@ -229,7 +229,7 @@ public class GerenciaProdutos implements ProdutoCopyable {
 					}
 				}
 			}
-			throw new ProdutoNaoCadastrado();
+			return false;
 		}
 		catch(ArrayIndexOutOfBoundsException e1) {
 			throw new ErroGrave();
