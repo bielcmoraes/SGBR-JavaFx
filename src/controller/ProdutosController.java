@@ -20,6 +20,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import model.BancoDeDados;
 import model.Produto;
 
 public class ProdutosController implements Initializable{
@@ -60,7 +61,7 @@ public class ProdutosController implements Initializable{
     @FXML
     private TableColumn<Produto, LocalDate> validadeTableColumn;
     
-    private HashMap<String, ArrayList<Produto>> listaProdutos = Main.getBancoDeDados().getListaProdutos();
+    private HashMap<String, ArrayList<Produto>> listaProdutos = BancoDeDados.getInstance().getListaProdutos();
     
     private ObservableList<Produto> observableListProdutos;
     

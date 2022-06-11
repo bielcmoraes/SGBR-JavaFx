@@ -29,9 +29,8 @@ public class LoginController {
 
     @FXML
     private void logar(ActionEvent event) {
-    	BancoDeDados dados = Main.getBancoDeDados();
-    	Login login = new Login(dados.getListaUsuarios());
-    	Usuario usuarioLogado = login.autenticarLogin(dados.getListaUsuarios(), usuarioTextField.getText(), senhaTextField.getText());
+    	Login login = new Login(BancoDeDados.getInstance().getListaUsuarios());
+    	Usuario usuarioLogado = login.autenticarLogin(BancoDeDados.getInstance().getListaUsuarios(), usuarioTextField.getText(), senhaTextField.getText());
     	
     	if(usuarioLogado == null) {
     		 Alert erroLogin = new Alert(Alert.AlertType.ERROR);

@@ -10,8 +10,6 @@ import model.BancoDeDados;
 
 public class Main extends Application {
 	
-	private static BancoDeDados bancoDeDados = new BancoDeDados();
-	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -29,9 +27,5 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		launch(args);
-	}
-	
-	public static BancoDeDados getBancoDeDados() {
-		return bancoDeDados;
 	}
 }

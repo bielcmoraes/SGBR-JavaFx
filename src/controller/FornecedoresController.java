@@ -16,6 +16,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import model.BancoDeDados;
 import model.Fornecedor;
 
 public class FornecedoresController implements Initializable{
@@ -53,7 +54,7 @@ public class FornecedoresController implements Initializable{
     @FXML
     private Button voltarButton;
     
-    private ArrayList<Fornecedor> listaFornecedores = Main.getBancoDeDados().getListaFornecedores();
+    private ArrayList<Fornecedor> listaFornecedores = BancoDeDados.getInstance().getListaFornecedores();
     
     private ObservableList<Fornecedor> observableListFornecedor;
     

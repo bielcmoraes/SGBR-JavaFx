@@ -21,12 +21,23 @@ public class BancoDeDados {
 	private ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
 	private ArrayList<String> listaIds = new ArrayList<String>();
 	
-	public BancoDeDados() {
+	private static BancoDeDados instancia;
+	
+	
+	
+	private BancoDeDados() {
 		PreCadastro preCadastro = new PreCadastro();
 		preCadastro.PreCadastrarFornecedores(listaFornecedores, listaIds);
 		preCadastro.PreCadastrarProdutos(listaProdutos, listaIds, listaFornecedores);
 		preCadastro.PreCadastrarPratos(cardapio, listaIds, listaProdutos);
 		preCadastro.preCadastrarVendas(listaVendas, listaIds, cardapio, listaProdutos);
+	}
+	
+	public static synchronized BancoDeDados getInstance() {
+		if(instancia == null) {
+			instancia = new BancoDeDados();
+		}
+		return instancia;
 	}
 	
 	/**Metódo para retorno da lista de fornecedores

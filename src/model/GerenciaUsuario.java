@@ -30,7 +30,7 @@ public class GerenciaUsuario implements UsuarioCopyable {
 			
 		try {
 			//Cria um novo Gerente e adiciona na lista
-			if(infoUsuario[1].equals("1")) {
+			if(infoUsuario[1].equals("Gerente")) {
 				
 				for(Usuario usuario: listaUsuarios) {
 					if(usuario.getLogin().equals(infoUsuario[2])) {
@@ -42,7 +42,7 @@ public class GerenciaUsuario implements UsuarioCopyable {
 				return true;
 			}
 			//Cria um novo Funcionario e adiciona na lista
-			else if(infoUsuario[1].equals("2")) {
+			else if(infoUsuario[1].equals("Funcionário")) {
 				
 				for(Usuario usuario: listaUsuarios) {
 					if(usuario.getLogin().equals(infoUsuario[2])) {

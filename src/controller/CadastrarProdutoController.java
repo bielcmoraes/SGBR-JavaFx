@@ -25,6 +25,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import model.BancoDeDados;
 import model.Fornecedor;
 import model.GerenciaProdutos;
 import model.Produto;
@@ -76,7 +77,7 @@ public class CadastrarProdutoController implements Initializable{
 		
     	GerenciaProdutos gerenciaProdutos = new GerenciaProdutos();
     	try {
-			gerenciaProdutos.cadastrarProduto(Main.getBancoDeDados().getListaProdutos(), Main.getBancoDeDados().getListaIds(), info, Main.getBancoDeDados().getListaFornecedores());
+			gerenciaProdutos.cadastrarProduto(BancoDeDados.getInstance().getListaProdutos(), BancoDeDados.getInstance().getListaIds(), info, BancoDeDados.getInstance().getListaFornecedores());
 		} catch (PrecoInvalido e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -111,7 +112,7 @@ public class CadastrarProdutoController implements Initializable{
 	}
 	
 	private void carregarFornecedores() {
-		obsFornecedores = FXCollections.observableArrayList(Main.getBancoDeDados().getListaFornecedores());
+		obsFornecedores = FXCollections.observableArrayList(BancoDeDados.getInstance().getListaFornecedores());
 		fornecedorComboBox.setItems(obsFornecedores);
 	}
 	

@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import model.BancoDeDados;
 import model.GerenciaFornecedor;
 import model.Produto;
 
@@ -49,7 +50,7 @@ public class CadastrarFornecedorController {
 		GerenciaFornecedor gerenciaFornecedores = new GerenciaFornecedor();
 		
 		try {
-			gerenciaFornecedores.cadastrarFornecedor(Main.getBancoDeDados().getListaFornecedores(), Main.getBancoDeDados().getListaIds(), info);
+			gerenciaFornecedores.cadastrarFornecedor(BancoDeDados.getInstance().getListaFornecedores(), BancoDeDados.getInstance().getListaIds(), info);
 		} catch (ErroGrave e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

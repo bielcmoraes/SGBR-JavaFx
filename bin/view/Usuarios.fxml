@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UsuariosController">
+<AnchorPane fx:id="painelAnchorPane" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UsuariosController">
    <children>
       <Pane prefHeight="382.0" prefWidth="600.0" style="-fx-background-color: #EAEAEA; -fx-background-radius: 25;" stylesheets="@application.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
       <Label alignment="TOP_LEFT" layoutX="190.0" style="-fx-text-fill: #2196F3;" stylesheets="@application.css" text="Usuários" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="30.0">
@@ -26,7 +26,7 @@
                <children>
                   <Button fx:id="cadastrarButton" mnemonicParsing="false" onAction="#cadastrarUsuario" prefHeight="50.0" prefWidth="100.0" style="-fx-border-radius: 50;" text="CADASTRAR" />
                   <Button fx:id="editarButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="EDITAR" />
-                  <Button fx:id="excluirButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="EXCLUIR" />
+                  <Button fx:id="excluirButton" mnemonicParsing="false" onAction="#excluirUsuario" prefHeight="50.0" prefWidth="100.0" text="EXCLUIR" />
                   <Button fx:id="voltarButton" mnemonicParsing="false" onAction="#voltarParaMain" prefHeight="50.0" prefWidth="100.0" text="VOLTAR" />
                </children>
             </HBox>
