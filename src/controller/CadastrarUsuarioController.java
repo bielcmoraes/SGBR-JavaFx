@@ -14,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
@@ -52,28 +53,56 @@ public class CadastrarUsuarioController implements Initializable{
     @FXML
     void cadastrar(ActionEvent event) {
     	
-    	String nome = nomeTextField.getText();
-    	String tipoUsuario = tipoUsuarioComboBox.getSelectionModel().getSelectedItem().toString();
-    	String login = loginTextField.getText();
     	
-    	if(senhaTextField.getText().equals(confirmaSenhaTextField.getText())) {
-    		String senha = senhaTextField.getText();
-    		String [] info = new String[4];
-        	info[0] = nome;
-        	info[1] = tipoUsuario;
-        	info[2] = login;
-        	info[3] = senha;
-        	GerenciaUsuario gerenciaUsuario = new GerenciaUsuario();
-        	try {
-				gerenciaUsuario.cadastrarUsuario(BancoDeDados.getInstance().getListaUsuarios(), BancoDeDados.getInstance().getListaIds(), info);
-				atualizarPainel("/view/Usuarios.fxml");
-			} catch (EscolhaIncorreta | LoginJaCadastrado | ErroGrave e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+    	
+    	if(!senhaTextField.getText().isBlank() && !loginTextField.getText().isBlank() && !nomeTextField.getText().isBlank() && !tipoUsuarioComboBox.getSelectionModel().getSelectedItem().toString().isBlank()) {
+    		
+    		String nome = nomeTextField.getText();
+        	String tipoUsuario = tipoUsuarioComboBox.getSelectionModel().getSelectedItem().toString();
+        	String login = loginTextField.getText();
+        	
+    		if(senhaTextField.getText().equals(confirmaSenhaTextField.getText())) {
+        		String senha = senhaTextField.getText();
+        		String [] info = new String[4];
+            	info[0] = nome;
+            	info[1] = tipoUsuario;
+            	info[2] = login;
+            	info[3] = senha;
+            	GerenciaUsuario gerenciaUsuario = new GerenciaUsuario();
+            	
+    				try {
+    					gerenciaUsuario.cadastrarUsuario(BancoDeDados.getInstance().getListaUsuarios(), BancoDeDados.getInstance().getListaIds(), info);
+    					atualizarPainel("/view/Usuarios.fxml");
+    				} catch (EscolhaIncorreta e) {
+    					e.printStackTrace();
+    				} catch (LoginJaCadastrado e) {
+    					Alert loginRepetido = new Alert(Alert.AlertType.ERROR);
+    					loginRepetido.setTitle("Login repetido");
+    					loginRepetido.setHeaderText("Login já cadastrado");
+    					loginRepetido.setContentText("TENTE NOVAMENTE!!!!");
+    					loginRepetido.showAndWait();
+    					
+    				} catch (ErroGrave e) {
+    					e.printStackTrace();
+    				}
+    			
+    			}else {
+    				Alert senhasDiferentes = new Alert(Alert.AlertType.ERROR);
+    				senhasDiferentes.setTitle("Erro na confirmação de senha");
+    				senhasDiferentes.setHeaderText("As senhas são diferentes");
+    				senhasDiferentes.setContentText("TENTE NOVAMENTE!!!!");
+    				senhasDiferentes.showAndWait();
+    			}
+    	}else {
+    		Alert senhasDiferentes = new Alert(Alert.AlertType.ERROR);
+			senhasDiferentes.setTitle("Campos vazios");
+			senhasDiferentes.setHeaderText("Um ou mais campos não preenchidos");
+			senhasDiferentes.setContentText("PREENCHA OS CAMPOS!!!!");
+			senhasDiferentes.showAndWait();
     	}
     	
-    }
+    	}
+    	
 
     @FXML
     void cancelar(ActionEvent event) {
