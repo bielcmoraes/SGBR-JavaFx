@@ -69,10 +69,8 @@ public class UsuariosController implements Initializable{
 		} catch (ErroGrave e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (NaoEncontrado e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
+    	carregarListaUsuarios();
     	}
     
     @FXML

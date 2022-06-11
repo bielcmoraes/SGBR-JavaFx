@@ -72,7 +72,7 @@ public class GerenciaUsuario implements UsuarioCopyable {
 	 * @throws ErroGrave 
 	 */
 	@Override
-	public boolean editarUsuario(ArrayList<Usuario> listaUsuarios, String codigoUsuario, String [] info) throws NaoEncontrado, ErroGrave {
+	public boolean editarUsuario(ArrayList<Usuario> listaUsuarios, String codigoUsuario, String [] info) throws ErroGrave {
 		
 		try {
 			for(Usuario usuario : listaUsuarios) {
@@ -80,8 +80,6 @@ public class GerenciaUsuario implements UsuarioCopyable {
 					usuario.setNome(info[0]);
 					usuario.setSenha(info[1]);
 					return true;
-				}else {
-					throw new NaoEncontrado("Usuário");
 				}
 			}
 		}catch(NullPointerException n) {
@@ -98,7 +96,7 @@ public class GerenciaUsuario implements UsuarioCopyable {
 	 * 
 	 */
 	@Override
-	public boolean excluirUsuario(ArrayList<Usuario> listaUsuarios, ArrayList<String> listaIds, String codigoUsuario) throws ErroGrave, NaoEncontrado {
+	public boolean excluirUsuario(ArrayList<Usuario> listaUsuarios, ArrayList<String> listaIds, String codigoUsuario) throws ErroGrave {
 		
 		try {
 			for(Usuario usuario : listaUsuarios) {
@@ -107,9 +105,6 @@ public class GerenciaUsuario implements UsuarioCopyable {
 					listaUsuarios.remove(index);
 					listaIds.remove(codigoUsuario);
 					return true;
-				}
-				else {
-					throw new NaoEncontrado("Usuário");
 				}
 			}
 		}catch(NullPointerException n) {
