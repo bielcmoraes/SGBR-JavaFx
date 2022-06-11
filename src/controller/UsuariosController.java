@@ -60,16 +60,23 @@ public class UsuariosController implements Initializable{
     }
     
     @FXML
+    void editar(ActionEvent event) {
+    	atualizarPainel("/view/EditarUsuario.fxml");
+    }
+    
+    @FXML
     void excluirUsuario(ActionEvent event) {
     	
-    	String idSelecionado = tabelaUsuarios.getSelectionModel().getSelectedItem().getId();
-    	GerenciaUsuario gerenciaUsuario = new GerenciaUsuario();
-    	try {
-			gerenciaUsuario.excluirUsuario(BancoDeDados.getInstance().getListaUsuarios(), BancoDeDados.getInstance().getListaIds(), idSelecionado);
-		} catch (ErroGrave e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    	if (tabelaUsuarios.getSelectionModel().getSelectedItem() != null) {
+    		String idSelecionado = tabelaUsuarios.getSelectionModel().getSelectedItem().getId();
+    		GerenciaUsuario gerenciaUsuario = new GerenciaUsuario();
+        	try {
+    			gerenciaUsuario.excluirUsuario(BancoDeDados.getInstance().getListaUsuarios(), BancoDeDados.getInstance().getListaIds(), idSelecionado);
+    		} catch (ErroGrave e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		}
+    	}
     	carregarListaUsuarios();
     	}
     
