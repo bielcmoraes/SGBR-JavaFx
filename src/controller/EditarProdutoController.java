@@ -25,11 +25,12 @@ import javafx.scene.layout.AnchorPane;
 import model.BancoDeDados;
 import model.Fornecedor;
 import model.GerenciaProdutos;
+import model.Produto;
 
-public class CadastrarProdutoController implements Initializable{
-	
+public class EditarProdutoController implements Initializable{
+
     @FXML
-    private Button cadastrarButton;
+    private Button editarButton;
 
     @FXML
     private Button cancelarButton;
@@ -60,7 +61,9 @@ public class CadastrarProdutoController implements Initializable{
     private ObservableList<String> obsMedidas;
     
     @FXML
-    private void cadastrar(ActionEvent event) {
+    private void editar(ActionEvent event) {
+    	Produto produto = (Produto) ObjetoSelecionado.getInstance().getObj();
+    	
     	DateTimeFormatter formatoData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     	
     	String nome =  nomeTextField.getText();
@@ -78,7 +81,7 @@ public class CadastrarProdutoController implements Initializable{
 		
     	GerenciaProdutos gerenciaProdutos = new GerenciaProdutos();
     	try {
-			gerenciaProdutos.cadastrarProduto(BancoDeDados.getInstance().getListaProdutos(), BancoDeDados.getInstance().getListaIds(), info, BancoDeDados.getInstance().getListaFornecedores());
+			gerenciaProdutos.editarProduto(BancoDeDados.getInstance().getListaProdutos(), produto.getId(), info, BancoDeDados.getInstance().getListaFornecedores());
 		} catch (PrecoInvalido e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -108,11 +111,22 @@ public class CadastrarProdutoController implements Initializable{
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		carregarDados();
 		carregarFornecedores();
 		carregarMedidas();
 		permiteDecimal(precoTextField);
 		permiteDecimal(quantidadeTextField);
 		
+	}
+	
+	private void carregarDados() {
+		Produto produto = (Produto) ObjetoSelecionado.getInstance().getObj();
+    	nomeTextField.setText(produto.getNome());
+    	precoTextField.setText(produto.getPreco().toString());
+    	quantidadeTextField.setText(produto.getQuantidade().toString());
+    	medidaComboBox.setValue(produto.getUnidadeDeMedida());
+    	validadeDatePicker.setValue(produto.getValidade());
+    	fornecedorComboBox.setValue(produto.getFornecedores().get(0));
 	}
 	
 	private void carregarFornecedores() {

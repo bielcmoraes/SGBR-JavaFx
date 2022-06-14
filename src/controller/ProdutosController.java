@@ -23,7 +23,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import model.BancoDeDados;
 import model.GerenciaProdutos;
-import model.GerenciaUsuario;
 import model.Produto;
 
 public class ProdutosController implements Initializable{
@@ -72,6 +71,12 @@ public class ProdutosController implements Initializable{
     @FXML
     void cadastrarProduto(ActionEvent event) {
     	atualizarPainel("/view/CadastrarProduto.fxml");
+    }
+    
+    @FXML
+    void editarProduto(ActionEvent event) {
+    	ObjetoSelecionado.getInstance().setObj(tabelaProdutos.getSelectionModel().getSelectedItem());
+    	atualizarPainel("/view/EditarProduto.fxml");
     }
     
     @FXML

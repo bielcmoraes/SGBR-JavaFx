@@ -33,6 +33,9 @@
             <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label styleClass="titulo" text="DADOS DO PRODUTO" GridPane.columnSpan="2147483647">
@@ -59,7 +62,7 @@
                   <Insets top="10.0" />
                </padding>
             </Label>
-            <Label styleClass="textoCrud" text="QUANTIDADE:" GridPane.columnIndex="2" GridPane.rowIndex="5">
+            <Label styleClass="textoCrud" text="QUANTIDADE:" GridPane.rowIndex="8">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
@@ -67,7 +70,7 @@
                   <Insets top="10.0" />
                </padding>
             </Label>
-            <Label styleClass="textoCrud" text="VALIDADE:" GridPane.columnIndex="2" GridPane.rowIndex="8">
+            <Label styleClass="textoCrud" text="VALIDADE:" GridPane.columnIndex="2" GridPane.rowIndex="11">
                <padding>
                   <Insets top="10.0" />
                </padding>
@@ -77,15 +80,21 @@
                   <Insets />
                </GridPane.margin>
             </TextField>
-            <DatePicker fx:id="validadeDatePicker" editable="false" GridPane.columnIndex="2" GridPane.rowIndex="9" />
-            <ComboBox fx:id="fornecedorComboBox" prefWidth="150.0" GridPane.rowIndex="9" />
+            <DatePicker fx:id="validadeDatePicker" editable="false" GridPane.columnIndex="2" GridPane.rowIndex="12" />
+            <ComboBox fx:id="fornecedorComboBox" prefWidth="150.0" promptText="Selecione" GridPane.rowIndex="12" />
             <TextField fx:id="precoTextField" promptText="R$ 99,99" styleClass="text-fieldCrud" GridPane.rowIndex="6" />
-            <TextField fx:id="quantidadeTextField" promptText="99 kg" styleClass="text-fieldCrud" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-            <Label styleClass="textoCrud" text="FORNECEDOR:" GridPane.rowIndex="8">
+            <TextField fx:id="quantidadeTextField" promptText="99 kg" styleClass="text-fieldCrud" GridPane.rowIndex="9" />
+            <Label styleClass="textoCrud" text="FORNECEDOR:" GridPane.rowIndex="11">
                <padding>
                   <Insets top="10.0" />
                </padding>
             </Label>
+            <Label styleClass="textoCrud" text="MEDIDA:" GridPane.columnIndex="2" GridPane.rowIndex="8">
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </Label>
+            <ComboBox fx:id="medidaComboBox" prefWidth="150.0" promptText="Selecione" GridPane.columnIndex="2" GridPane.rowIndex="9" />
          </children>
       </GridPane>
       <HBox layoutX="294.0" layoutY="249.0" prefHeight="50.0" prefWidth="324.0" spacing="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0">
