@@ -1,6 +1,5 @@
 package controller;
 
-import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -13,19 +12,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
 import model.BancoDeDados;
 import model.GerenciaProdutos;
 import model.Produto;
 
-public class ProdutosController implements Initializable{
+public class ProdutosController extends Tela implements Initializable{
 
     @FXML
     private Button cadastrarButton;
@@ -35,9 +32,6 @@ public class ProdutosController implements Initializable{
 
     @FXML
     private Button excluirButton;
-    
-    @FXML
-    private AnchorPane painelAnchorPane;
     
     @FXML
     private TableView<Produto> tabelaProdutos;
@@ -90,20 +84,6 @@ public class ProdutosController implements Initializable{
 			e.printStackTrace();
 		}
     	carregarListaProdutos();
-    }
-    
-    private void atualizarPainel(String url) {
-		try {
-			AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource(url));
-			AnchorPane.setTopAnchor(a, 0.0);
-			AnchorPane.setBottomAnchor(a, 0.0);
-			AnchorPane.setLeftAnchor(a, 0.0);
-			AnchorPane.setRightAnchor(a, 0.0);
-			painelAnchorPane.getChildren().clear();
-			painelAnchorPane.getChildren().add(a);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
     }
     
 	public void carregarListaProdutos() {
