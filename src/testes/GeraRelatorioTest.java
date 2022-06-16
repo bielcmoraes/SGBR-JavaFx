@@ -13,8 +13,7 @@ import model.GeraRelatorio;
 
 class GeraRelatorioTest {
 
-	private BancoDeDados bd = new BancoDeDados();
-	private PreCadastro pc = new PreCadastro();
+	
 	private GeraRelatorio gr = new GeraRelatorio();
 	@BeforeEach
 	 
@@ -25,7 +24,7 @@ class GeraRelatorioTest {
 	
 	@Test
 	void estoqueTotalComSucesso() throws RelatorioNaoGerado, ErroGrave {
-		assertTrue(gr.estoqueTotal(bd.getListaProdutos()));
+		assertTrue(gr.estoqueTotal(BancoDeDados.getInstance().getListaProdutos()));
 	}
 	
 	@Test
@@ -35,7 +34,7 @@ class GeraRelatorioTest {
 	
 	@Test
 	void estoquePorProdutoComSucesso() throws RelatorioNaoGerado, ErroGrave {
-		assertTrue(gr.estoquePorProduto(bd.getListaProdutos()));
+		assertTrue(gr.estoquePorProduto(BancoDeDados.getInstance().getListaProdutos()));
 	}
 	
 	@Test
@@ -45,7 +44,7 @@ class GeraRelatorioTest {
 	
 	@Test
 	void estoqueProdutosPertoDeVencerComSucesso() throws RelatorioNaoGerado, ErroGrave {
-		assertTrue(gr.estoqueProdutosPertoDeVencer(bd.getListaProdutos()));
+		assertTrue(gr.estoqueProdutosPertoDeVencer(BancoDeDados.getInstance().getListaProdutos()));
 	}
 	
 	@Test
@@ -55,7 +54,7 @@ class GeraRelatorioTest {
 	
 	@Test
 	void fornecedorPorProdutoComSucesso() throws RelatorioNaoGerado, ErroGrave {
-		assertTrue(gr.fornecedorPorProduto(bd.getListaProdutos()));
+		assertTrue(gr.fornecedorPorProduto(BancoDeDados.getInstance().getListaProdutos()));
 	}
 	
 	@Test
@@ -65,7 +64,7 @@ class GeraRelatorioTest {
 	
 	@Test
 	void fornecedorPorFornecedorComSucesso() throws RelatorioNaoGerado, ErroGrave {
-		assertTrue(gr.fornecedorPorFornecedor(bd.getListaFornecedores()));
+		assertTrue(gr.fornecedorPorFornecedor(BancoDeDados.getInstance().getListaFornecedores()));
 	}
 	
 	@Test
@@ -75,7 +74,7 @@ class GeraRelatorioTest {
 	
 	@Test
 	void vendasTotalComSucesso() throws RelatorioNaoGerado, ErroGrave {
-		assertTrue(gr.vendasTotal(bd.getListaVendas()));
+		assertTrue(gr.vendasTotal(BancoDeDados.getInstance().getListaVendas()));
 	}
 	
 	@Test
@@ -85,7 +84,7 @@ class GeraRelatorioTest {
 	
 	@Test
 	void vendasPorPeriodoComSucesso() throws RelatorioNaoGerado, ErroGrave {
-		assertTrue(gr.vendasPorPeriodo(bd.getListaVendas()));
+		assertTrue(gr.vendasPorPeriodo(BancoDeDados.getInstance().getListaVendas()));
 	}
 	
 	@Test
@@ -95,6 +94,11 @@ class GeraRelatorioTest {
 	
 	@Test
 	void vendasPorTipoDePratoComSucesso() throws RelatorioNaoGerado, ErroGrave {
-		assertTrue(gr.vendasPorTipoDePrato(bd.getListaVendas()));
+		assertTrue(gr.vendasPorTipoDePrato(BancoDeDados.getInstance().getListaVendas()));
+	}
+	
+	@Test
+	void notaFiscalComSucesso() throws RelatorioNaoGerado {
+		assertTrue(gr.notaFiscal(BancoDeDados.getInstance().getListaVendas().get(0)));
 	}
 }

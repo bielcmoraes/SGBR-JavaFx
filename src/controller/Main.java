@@ -1,15 +1,10 @@
 package controller;
 	
-import java.io.IOException;
-
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import model.BancoDeDados;
 
 
 public class Main extends Application {

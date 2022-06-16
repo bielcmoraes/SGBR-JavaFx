@@ -257,6 +257,18 @@ public class GeraRelatorio implements GeraRelatoriosCopyable {
         	
         } 
 	}
-
+	
+	public boolean notaFiscal(Venda venda) throws RelatorioNaoGerado {
+		
+		try {
+			new Relatorio(venda);
+			return true;
+		} catch (DocumentException e) {
+			throw new RelatorioNaoGerado("Nota fiscal não gerada");
+		} catch (FileNotFoundException e) {
+			throw new RelatorioNaoGerado("Nota fiscal não gerada");
+		}
+		
+	}
 
 }

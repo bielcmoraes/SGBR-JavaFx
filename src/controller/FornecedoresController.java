@@ -20,7 +20,6 @@ import javafx.scene.layout.AnchorPane;
 import model.BancoDeDados;
 import model.Fornecedor;
 import model.GerenciaFornecedor;
-import model.GerenciaUsuario;
 
 public class FornecedoresController implements Initializable{
 
