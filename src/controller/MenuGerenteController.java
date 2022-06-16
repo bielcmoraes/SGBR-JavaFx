@@ -98,8 +98,6 @@ public class MenuGerenteController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-    
-    
     }
      
 }

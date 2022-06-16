@@ -60,6 +60,17 @@ public class UsuariosController implements Initializable{
     
     @FXML
     void editar(ActionEvent event) {
+    	
+    	FXMLLoader loader = new FXMLLoader();
+    	loader.setLocation(EditarUsuarioController.class.getResource("view/EditarUsuario.fxml"));
+    	
+        try {
+			loader.load();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	EditarUsuarioController carregarInfo = loader.getController();
     	atualizarPainel("/view/EditarUsuario.fxml");
     }
     
