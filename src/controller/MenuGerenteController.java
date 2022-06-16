@@ -1,15 +1,10 @@
 package controller;
 
-import java.io.IOException;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
 
-public class MenuGerenteController {
+public class MenuGerenteController extends Tela {
 
     @FXML
     private Button cardapioButton;
@@ -31,9 +26,6 @@ public class MenuGerenteController {
 
     @FXML
     private Button vendasButton;
-    
-    @FXML
-    private AnchorPane painelAnchorPane;
     
     //Métodos
     @FXML
@@ -75,6 +67,7 @@ public class MenuGerenteController {
     private void deslogar(ActionEvent event) {
     	trocarTela(event, "/view/Login.fxml");
     }
+<<<<<<< HEAD
     
     private void atualizarPainel(String url) {
 		try {
@@ -99,5 +92,7 @@ public class MenuGerenteController {
 			e.printStackTrace();
 		}
     }
+=======
+>>>>>>> branch 'main' of https://github.com/bielcmoraes/SGBR-JavaFx.git
      
 }
