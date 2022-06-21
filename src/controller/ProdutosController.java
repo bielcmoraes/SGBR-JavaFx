@@ -126,7 +126,7 @@ public class ProdutosController extends Tela implements Initializable{
 			quantidadeTableColumn.setCellValueFactory(new PropertyValueFactory<Produto, Double>("quantidade"));
 			medidaTableColumn.setCellValueFactory(new PropertyValueFactory<Produto, String>("unidadeDeMedida"));
 			validadeTableColumn.setCellValueFactory(new PropertyValueFactory<Produto, LocalDate>("validade"));
-			fornecedores.setCellValueFactory(new PropertyValueFactory<Produto, String>("fornecedoresToString"));
+			fornecedores.setCellValueFactory(new PropertyValueFactory<Produto, String>("FornecedoresToString"));
 			
 			precoTableColumn.setCellFactory(c -> new TableCell<>() {
 			    @Override

@@ -20,7 +20,6 @@ public class Produto extends Entidade {
 	private String unidadeDeMedida;
 	private LocalDate validade;
 	private ArrayList<Fornecedor> fornecedores;
-	private String fornecedoresToString;
 	
 	/**O construtor inicializa o construtor da classe herdada e atribui a cada variável da classe os respectivos valores fornecidos como parâmetro. 
 	 * 
@@ -116,12 +115,12 @@ public class Produto extends Entidade {
 
 	public String getFornecedoresToString() {
 		
-		String fornecedorTemp = "";
+		String fornecedoresTemp = "";
 		for(Fornecedor fornecedor : fornecedores) {
-			fornecedorTemp += fornecedor.getNome() + ", ";
+			fornecedoresTemp += fornecedor.getNome() + ", ";
 		}
 		
-		fornecedoresToString = fornecedorTemp.substring(0, fornecedorTemp.length()-2);
-		return fornecedoresToString;
+		fornecedoresTemp = fornecedoresTemp.substring(0, fornecedoresTemp.length()-2);
+		return fornecedoresTemp;
 	}
 }

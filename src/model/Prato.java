@@ -112,5 +112,14 @@ public class Prato extends Entidade{
 		this.receita = receita;
 	}
 
-	
+	public String getProdutosToString() {
+		
+		String produtosTemp = "";
+		for(String produto : receita.keySet()) { 
+			produtosTemp += produto + ", ";
+		}
+		
+		produtosTemp = produtosTemp.substring(0, produtosTemp.length()-2);
+		return produtosTemp;
+	}
 }
