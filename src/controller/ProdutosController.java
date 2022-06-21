@@ -5,7 +5,10 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Optional;
 import java.util.ResourceBundle;
+
+import org.junit.runners.model.FrameworkField;
 
 import exceptions.ErroGrave;
 import javafx.collections.FXCollections;
@@ -13,7 +16,10 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -69,21 +75,47 @@ public class ProdutosController extends Tela implements Initializable{
     
     @FXML
     void editarProduto(ActionEvent event) {
-    	ObjetoSelecionado.getInstance().setObj(tabelaProdutos.getSelectionModel().getSelectedItem());
-    	atualizarPainel("/view/EditarProduto.fxml");
+    	Produto produto = tabelaProdutos.getSelectionModel().getSelectedItem();
+    	if (produto != null) {
+    		ObjetoSelecionado.getInstance().setObj(produto);
+    		atualizarPainel("/view/EditarProduto.fxml");
+    	} else {
+    		Alert alert = new Alert(AlertType.WARNING);
+    		alert.setTitle("ATENÇÃO!");
+    		alert.setHeaderText("Nenhum item selecionado!");
+    		alert.setContentText("Selecione um item na tabela para que possa edita-lo.");
+    		alert.showAndWait();
+    	}	
     }
     
     @FXML
     void excluirProduto(ActionEvent event) {
-    	String idSelecionado = tabelaProdutos.getSelectionModel().getSelectedItem().getId();
-    	GerenciaProdutos gerenciaProdutos = new GerenciaProdutos();
-    	try {
-    		gerenciaProdutos.excluirProduto(BancoDeDados.getInstance().getListaProdutos(), BancoDeDados.getInstance().getListaIds(), idSelecionado);
-		} catch (ErroGrave e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    	carregarListaProdutos();
+    	Produto produto = tabelaProdutos.getSelectionModel().getSelectedItem();
+    	if (produto != null) {
+    		Alert alert = new Alert(AlertType.CONFIRMATION);
+    		alert.setTitle("ATENÇÃO!");
+    		alert.setHeaderText("Deseja mesmo excluir o item selecionado?");
+    		alert.setContentText("Clique em ok se sim.");
+    		Optional<ButtonType> escolha = alert.showAndWait();
+    		if (escolha.isPresent() && escolha.get() == ButtonType.OK) {
+    			String idSelecionado = produto.getId();
+		    	GerenciaProdutos gerenciaProdutos = new GerenciaProdutos();
+		    	try {
+		    		gerenciaProdutos.excluirProduto(BancoDeDados.getInstance().getListaProdutos(), BancoDeDados.getInstance().getListaIds(), idSelecionado);
+				} catch (ErroGrave e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		    	carregarListaProdutos();
+    		}
+    	} else {
+    		Alert alert = new Alert(AlertType.WARNING);
+    		alert.setTitle("ATENÇÃO!");
+    		alert.setHeaderText("Nenhum item selecionado!");
+    		alert.setContentText("Selecione um item na tabela para que possa exclui-lo.");
+    		alert.showAndWait();
+    	}
+    	
     }
     
 	public void carregarListaProdutos() {
