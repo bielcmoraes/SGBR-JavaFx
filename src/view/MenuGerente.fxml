@@ -13,9 +13,9 @@
    <children>
       <VBox alignment="TOP_CENTER" layoutY="146.0" prefWidth="200.0" styleClass="menuBar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fitHeight="89.0" fitWidth="89.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="117.0" fitWidth="195.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../imagens/13176313511579838435-128.png" />
+                  <Image url="@../../../../Desktop/título%20(6).png" />
                </image>
                <VBox.margin>
                   <Insets top="50.0" />
