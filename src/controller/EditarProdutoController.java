@@ -108,9 +108,9 @@ public class EditarProdutoController implements Initializable{
 	    	atualizarPainel("/view/Produtos.fxml");
     	} else {
     		Alert alert = new Alert(AlertType.WARNING);
-    		alert.setTitle("ATENÇÃO!");
-    		alert.setHeaderText("Existe campos não preenchidos!");
-    		alert.setContentText("Preenchas os campos restantes antes de cadastrar.");
+    		alert.setTitle("ATENCAO!");
+    		alert.setHeaderText("Existe campos nao preenchidos!");
+    		alert.setContentText("Preenchas os campos restantes antes de editar.");
     		alert.showAndWait();
     	}
     }

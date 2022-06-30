@@ -12,13 +12,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import model.BancoDeDados;
 import model.GerenciaUsuario;
+import model.Produto;
 import model.Usuario;
 
 public class UsuariosController implements Initializable{
@@ -60,18 +63,17 @@ public class UsuariosController implements Initializable{
     
     @FXML
     void editar(ActionEvent event) {
-    	
-    	FXMLLoader loader = new FXMLLoader();
-    	loader.setLocation(EditarUsuarioController.class.getResource("view/EditarUsuario.fxml"));
-    	
-        try {
-			loader.load();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    	EditarUsuarioController carregarInfo = loader.getController();
-    	atualizarPainel("/view/EditarUsuario.fxml");
+    	Usuario usuario = tabelaUsuarios.getSelectionModel().getSelectedItem();
+    	if(usuario != null) {
+    		ObjetoSelecionado.getInstance().setObj(usuario);
+    		atualizarPainel("/view/EditarUsuario.fxml");
+    	} else {
+    		Alert alert = new Alert(AlertType.WARNING);
+    		alert.setTitle("ATENÇÃO!");
+    		alert.setHeaderText("Nenhum usuário selecionado!");
+    		alert.setContentText("Selecione um usuário na tabela para que possa edita-lo.");
+    		alert.showAndWait();
+    	}
     }
     
     @FXML

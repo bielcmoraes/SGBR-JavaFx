@@ -73,7 +73,7 @@
                   <Insets />
                </GridPane.margin>
             </TextField>
-            <TextField fx:id="loginTextField" styleClass="text-fieldCrud" GridPane.rowIndex="6" />
+            <TextField fx:id="loginTextField" disable="true" styleClass="text-fieldCrud" GridPane.rowIndex="6" />
             <PasswordField fx:id="senhaTextField" styleClass="text-fieldCrud" GridPane.rowIndex="9" />
             <Label styleClass="textoCrud" text="CONFIRMAÇÃO DE SENHA:" GridPane.columnSpan="2" GridPane.rowIndex="10">
                <padding>

@@ -93,11 +93,11 @@ public class CadastrarUsuarioController implements Initializable{
     				senhasDiferentes.showAndWait();
     			}
     	}else {
-    		Alert senhasDiferentes = new Alert(Alert.AlertType.ERROR);
-			senhasDiferentes.setTitle("Campos vazios");
-			senhasDiferentes.setHeaderText("Um ou mais campos não preenchidos");
-			senhasDiferentes.setContentText("PREENCHA OS CAMPOS!!!!");
-			senhasDiferentes.showAndWait();
+    		Alert alert = new Alert(Alert.AlertType.ERROR);
+    		alert.setTitle("Campos vazios");
+			alert.setHeaderText("Um ou mais campos não preenchidos");
+			alert.setContentText("PREENCHA OS CAMPOS!!!!");
+			alert.showAndWait();
     	}
     	
     	}
