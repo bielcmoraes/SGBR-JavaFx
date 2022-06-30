@@ -15,7 +15,7 @@
          <children>
             <ImageView fitHeight="117.0" fitWidth="195.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../Desktop/título%20(6).png" />
+                  <Image url="@../imagens/nimbus%20branca%20sem%20nome.png" />
                </image>
                <VBox.margin>
                   <Insets top="50.0" />
@@ -84,6 +84,15 @@
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../imagens/21173215271640888406-128.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="relatoriosButton" alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#tela_clientes" prefHeight="50.0" prefWidth="100.0" styleClass="barButton" text="RELATÓRIOS">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagens/botaoPDF.png" />
                      </image>
                   </ImageView>
                </graphic>
