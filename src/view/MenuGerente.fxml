@@ -11,7 +11,7 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuGerenteController">
    <children>
-      <VBox alignment="TOP_CENTER" layoutY="146.0" prefWidth="200.0" styleClass="menuBar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="TOP_CENTER" layoutY="146.0" prefHeight="638.0" prefWidth="200.0" styleClass="menuBar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fitHeight="117.0" fitWidth="195.0" pickOnBounds="true" preserveRatio="true">
                <image>
