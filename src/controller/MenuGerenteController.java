@@ -27,6 +27,10 @@ public class MenuGerenteController extends Tela {
     @FXML
     private Button vendasButton;
     
+    @FXML
+    private Button relatoriosButton;
+
+    
     //Métodos
     @FXML
     private void tela_usuarios(ActionEvent event) {
@@ -45,22 +49,22 @@ public class MenuGerenteController extends Tela {
     
     @FXML
     void tela_cardapio(ActionEvent event) {
-    	try {
-    		atualizarPainel("/view/Cardapio.fxml");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    	atualizarPainel("/view/Cardapio.fxml");
     }
 
     @FXML
     void tela_vendas(ActionEvent event) {
-    	trocarTela(event, "/view/Vendas.fxml");
+    	atualizarPainel("/view/Vendas.fxml");
     }
     
     @FXML
     void tela_clientes(ActionEvent event) {
-    	trocarTela(event, "/view/Clientes.fxml");
+    	atualizarPainel("/view/Clientes.fxml");
+    }
+    
+    @FXML
+    void tela_relatorios(ActionEvent event) {
+    	atualizarPainel("/view/Relatorios.fxml");
     }
     
     @FXML

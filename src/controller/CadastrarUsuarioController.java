@@ -54,7 +54,7 @@ public class CadastrarUsuarioController implements Initializable{
     	
     	
     	
-    	if(!senhaTextField.getText().isBlank() && !loginTextField.getText().isBlank() && !nomeTextField.getText().isBlank() && !tipoUsuarioComboBox.getSelectionModel().getSelectedItem().toString().isBlank()) {
+    	if(!tipoUsuarioComboBox.getSelectionModel().isEmpty() && !senhaTextField.getText().isBlank() && !loginTextField.getText().isBlank() && !nomeTextField.getText().isBlank() && !tipoUsuarioComboBox.getSelectionModel().getSelectedItem().toString().isBlank()) {
     		
     		String nome = nomeTextField.getText();
         	String tipoUsuario = tipoUsuarioComboBox.getSelectionModel().getSelectedItem().toString();
