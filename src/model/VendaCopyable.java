@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import exceptions.ClienteNaoCadastrado;
 import exceptions.ErroGrave;
 import exceptions.FormatoDataInvalido;
 import exceptions.FormatoHorarioInvalido;
@@ -29,8 +30,9 @@ public interface VendaCopyable {
 	 * @throws QuantidadeProdutosInsuficiente 
 	 * @throws ErroGrave 
 	 * @throws PratoNaoCadastrado 
+	 * @throws ClienteNaoCadastrado 
 	 */
-	public boolean cadastrarVenda(ArrayList<Venda> listaVendas, ArrayList<String> listaIds, ArrayList<Prato> cardapio, String [] info, HashMap<String, ArrayList<Produto>> listaProdutos) throws QuantidadeProdutosInsuficiente, PratoNaoCadastrado, ErroGrave;
+	public boolean cadastrarVenda(ArrayList<Venda> listaVendas, ArrayList<String> listaIds, ArrayList<Prato> cardapio, String [] info, HashMap<String, ArrayList<Produto>> listaProdutos, ArrayList<Cliente> listaClientes) throws QuantidadeProdutosInsuficiente, PratoNaoCadastrado, ErroGrave, ClienteNaoCadastrado;
 	
 	/**Assinatura do metódo editarVenda
 	 * 

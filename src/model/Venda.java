@@ -18,6 +18,7 @@ public class Venda extends Entidade{
 	private ArrayList<Prato> pratos;
 	private Double precoTotal;
 	private String metodoDePagamento;
+	private Cliente cliente;
 	
 	/**O construtor inicializa o construtor da classe herdada e atribui a cada variável da classe os respectivos valores fornecidos como parâmetro. 
 
@@ -29,7 +30,7 @@ public class Venda extends Entidade{
 	 * @param precoTotal Preço total da venda
 	 * @param metodoDePagamento Forma de pagamento da venda
 	 */
-	public Venda(ArrayList<String> listaIds, ArrayList<Prato> pratos, Double precoTotal, String metodoDePagamento) {
+	public Venda(ArrayList<String> listaIds, ArrayList<Prato> pratos, Double precoTotal, String metodoDePagamento, Cliente cliente) {
 		
 		super(listaIds);
 		this.data = LocalDate.now();
@@ -37,6 +38,7 @@ public class Venda extends Entidade{
 		this.pratos = pratos;
 		this.precoTotal = precoTotal;
 		this.metodoDePagamento = metodoDePagamento;
+		this.cliente = cliente;
 	}
 
 	/**Metódo para retorno de data da venda.
@@ -97,6 +99,14 @@ public class Venda extends Entidade{
 	 * @param metodoDePagamento	Nova forma de pagamento da venda*/
 	public void setMetodoDePagamento(String metodoDePagamento) {
 		this.metodoDePagamento = metodoDePagamento;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 }
 

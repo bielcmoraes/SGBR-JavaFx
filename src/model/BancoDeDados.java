@@ -30,7 +30,8 @@ public class BancoDeDados {
 		preCadastro.PreCadastrarFornecedores(listaFornecedores, listaIds);
 		preCadastro.PreCadastrarProdutos(listaProdutos, listaIds, listaFornecedores);
 		preCadastro.PreCadastrarPratos(cardapio, listaIds, listaProdutos);
-		preCadastro.preCadastrarVendas(listaVendas, listaIds, cardapio, listaProdutos);
+		preCadastro.preCadastrarClientes(listaClientes, listaIds);
+		preCadastro.preCadastrarVendas(listaVendas, listaIds, cardapio, listaProdutos, listaClientes);
 	}
 	
 	public static synchronized BancoDeDados getInstance() {

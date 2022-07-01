@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 
+import exceptions.ClienteNaoCadastrado;
 import exceptions.ErroGrave;
 import exceptions.FormatoDataInvalido;
 import exceptions.FormatoHorarioInvalido;
@@ -34,10 +35,11 @@ public class GerenciaVendas implements VendaCopyable {
 	 * @return true caso o cadastro ocorra corretamente, false caso ocorra algum problema durante o processo.
 	 * @throws QuantidadeProdutosInsuficiente 
 	 * @throws PratoNaoCadastrado 
+	 * @throws ClienteNaoCadastrado 
 	 */
 	@Override
-	public boolean cadastrarVenda(ArrayList<Venda> listaVendas, ArrayList<String> listaIds, ArrayList<Prato> cardapio, String [] info, HashMap<String, ArrayList<Produto>> listaProdutos)
-			throws PratoNaoCadastrado, QuantidadeProdutosInsuficiente, ErroGrave {
+	public boolean cadastrarVenda(ArrayList<Venda> listaVendas, ArrayList<String> listaIds, ArrayList<Prato> cardapio, String [] info, HashMap<String, ArrayList<Produto>> listaProdutos, ArrayList<Cliente> listaClientes)
+			throws PratoNaoCadastrado, QuantidadeProdutosInsuficiente, ErroGrave, ClienteNaoCadastrado {
 		
 		ArrayList<Prato> pratos = new ArrayList<Prato>();
 		for (String pratoNome : info[0].split(", ")) {
@@ -107,7 +109,18 @@ public class GerenciaVendas implements VendaCopyable {
 			precoTotal += prato.getPreco();
 		}
 		
-		Venda novaVenda = new Venda(listaIds, pratos, precoTotal, info[1]);
+		Cliente cliente = null;
+		for (Cliente clienteTemp: listaClientes) {
+			if (clienteTemp.getNome().equals(info[2])) {
+				cliente = clienteTemp;
+			}
+		}
+		
+		if (cliente == null) {
+			throw new ClienteNaoCadastrado();
+		}
+		
+		Venda novaVenda = new Venda(listaIds, pratos, precoTotal, info[1], cliente);
 		
 		
 		try {

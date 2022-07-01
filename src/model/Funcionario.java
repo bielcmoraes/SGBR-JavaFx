@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import exceptions.ClienteNaoCadastrado;
 import exceptions.ErroGrave;
 import exceptions.FormatoDataInvalido;
 import exceptions.FormatoHorarioInvalido;
@@ -38,12 +39,13 @@ public class Funcionario extends Usuario implements VendaCopyable {
 	 * @throws ErroGrave 
 	 * @throws QuantidadeProdutosInsuficiente 
 	 * @throws PratoNaoCadastrado 
+	 * @throws ClienteNaoCadastrado 
 	 */
 	@Override
 	public boolean cadastrarVenda(ArrayList<Venda> listaVendas, ArrayList<String> listaIds, ArrayList<Prato> cardapio,
-			String[] info, HashMap<String, ArrayList<Produto>> listaProdutos) throws PratoNaoCadastrado, QuantidadeProdutosInsuficiente, ErroGrave {
+			String[] info, HashMap<String, ArrayList<Produto>> listaProdutos, ArrayList<Cliente> listaClientes) throws PratoNaoCadastrado, QuantidadeProdutosInsuficiente, ErroGrave, ClienteNaoCadastrado {
 		GerenciaVendas gerenciamentoVendas = new GerenciaVendas();
-		return gerenciamentoVendas.cadastrarVenda(listaVendas, listaIds, cardapio, info, listaProdutos);
+		return gerenciamentoVendas.cadastrarVenda(listaVendas, listaIds, cardapio, info, listaProdutos, listaClientes);
 	}
 	
 	/**Metódo para instanciar um objeto do tipo GerenciaVendas e retornar o método editarVenda.

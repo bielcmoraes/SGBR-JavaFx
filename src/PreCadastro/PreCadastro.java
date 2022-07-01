@@ -3,6 +3,7 @@ package PreCadastro;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import exceptions.ClienteNaoCadastrado;
 import exceptions.ErroGrave;
 import exceptions.FormatoDataInvalido;
 import exceptions.FormatoIngredientesInvalido;
@@ -14,8 +15,10 @@ import exceptions.ProdutoNaoCadastrado;
 import exceptions.QuantidadeInvalida;
 import exceptions.QuantidadeProdutosInsuficiente;
 import model.BancoDeDados;
+import model.Cliente;
 import model.Fornecedor;
 import model.GerenciaCardapio;
+import model.GerenciaCliente;
 import model.GerenciaFornecedor;
 import model.GerenciaProdutos;
 import model.GerenciaVendas;
@@ -194,44 +197,76 @@ public class PreCadastro {
 	
 	}
 	
-	public void preCadastrarVendas(ArrayList<Venda> listaVendas, ArrayList<String> listaIds, ArrayList<Prato> cardapio, HashMap<String, ArrayList<Produto>> listaProdutos) {
+	public void preCadastrarClientes(ArrayList<Cliente> listaClientes, ArrayList<String> listaIds) {
+		GerenciaCliente gerenciaCliente = new GerenciaCliente();
+		
+		String[] info = new String[4];
+		
+		info[0] = "Fernando Marcos Vinicius Melo";
+		info[1] = "882.581.314-78";
+		info[2] = "fernando_marcos_melo@termakui.com.br";
+		info[3] = "(93) 2887-3478";
+		
+		try {
+			gerenciaCliente.cadastrarCliente(listaClientes, listaIds, info);
+		} catch (ErroGrave e) {
+			e.printStackTrace();
+		}
+		
+		info[0] = "Vinicius Lorenzo Elias Freitas";
+		info[1] = "291.765.959-94";
+		info[2] = "viniciuslorenzofreitas@simsvale.com.br";
+		info[3] = "(55) 3554-7198";
+		
+		try {
+			gerenciaCliente.cadastrarCliente(listaClientes, listaIds, info);
+		} catch (ErroGrave e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void preCadastrarVendas(ArrayList<Venda> listaVendas, ArrayList<String> listaIds, ArrayList<Prato> cardapio, HashMap<String, ArrayList<Produto>> listaProdutos, ArrayList<Cliente> listaClientes) {
 		GerenciaVendas gerenciaVendas = new GerenciaVendas();
 		
-		String [] info = new String[2];
+		String [] info = new String[3];
 		
 		info[0] = "Cachorro Quente";
 		info[1] = "Pix";
+		info[2] = "Fernando Marcos Vinicius Melo";
 		
 		try {
-			gerenciaVendas.cadastrarVenda(listaVendas, listaIds, cardapio, info, listaProdutos);
-		} catch (PratoNaoCadastrado | QuantidadeProdutosInsuficiente | ErroGrave e) {
+			gerenciaVendas.cadastrarVenda(listaVendas, listaIds, cardapio, info, listaProdutos, listaClientes);
+		} catch (PratoNaoCadastrado | QuantidadeProdutosInsuficiente | ErroGrave | ClienteNaoCadastrado e) {
 			System.out.println(e.toString());
 		}
 		
 		info[0] = "Pure de Batata";
 		info[1] = "Dinheiro";
+		info[2] = "Vinicius Lorenzo Elias Freitas";
 		
 		try {
-			gerenciaVendas.cadastrarVenda(listaVendas, listaIds, cardapio, info, listaProdutos);
-		} catch (PratoNaoCadastrado | QuantidadeProdutosInsuficiente | ErroGrave e) {
+			gerenciaVendas.cadastrarVenda(listaVendas, listaIds, cardapio, info, listaProdutos, listaClientes);
+		} catch (PratoNaoCadastrado | QuantidadeProdutosInsuficiente | ErroGrave | ClienteNaoCadastrado e) {
 			System.out.println(e.toString());
 		}
 		
 		info[0] = "Cachorro Quente, Pure de Batata";
 		info[1] = "Credito";
+		info[2] = "Fernando Marcos Vinicius Melo";
 		
 		try {
-			gerenciaVendas.cadastrarVenda(listaVendas, listaIds, cardapio, info, listaProdutos);
-		} catch (PratoNaoCadastrado | QuantidadeProdutosInsuficiente | ErroGrave e) {
+			gerenciaVendas.cadastrarVenda(listaVendas, listaIds, cardapio, info, listaProdutos, listaClientes);
+		} catch (PratoNaoCadastrado | QuantidadeProdutosInsuficiente | ErroGrave | ClienteNaoCadastrado e) {
 			System.out.println(e.toString());
 		}
 		
 		info[0] = "Pure de Batata, Cachorro Quente";
 		info[1] = "Dinheiro";
+		info[2] = "Vinicius Lorenzo Elias Freitas";
 
 		try {
-			gerenciaVendas.cadastrarVenda(listaVendas, listaIds, cardapio, info, listaProdutos);
-		} catch (PratoNaoCadastrado | QuantidadeProdutosInsuficiente | ErroGrave e) {
+			gerenciaVendas.cadastrarVenda(listaVendas, listaIds, cardapio, info, listaProdutos, listaClientes);
+		} catch (PratoNaoCadastrado | QuantidadeProdutosInsuficiente | ErroGrave | ClienteNaoCadastrado e) {
 			System.out.println(e.toString());
 		}
 		
