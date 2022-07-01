@@ -11,14 +11,14 @@
 
 <AnchorPane fx:id="painelAnchorPane" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FornecedoresController">
    <children>
-      <VBox alignment="CENTER" layoutX="20.0" layoutY="2.0" prefHeight="127.0" prefWidth="600.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+      <VBox layoutX="20.0" layoutY="2.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
          <children>
-            <Label alignment="TOP_LEFT" prefHeight="81.0" prefWidth="581.0" styleClass="titulo" stylesheets="@application.css" text="FORNECEDORES">
+            <Label alignment="TOP_LEFT" styleClass="titulo" stylesheets="@application.css" text="FORNECEDORES">
                <font>
                   <Font name="System Bold" size="36.0" />
                </font>
             </Label>
-            <HBox alignment="CENTER_LEFT" prefHeight="207.0" prefWidth="237.0" spacing="20.0">
+            <HBox alignment="CENTER_LEFT" spacing="20.0">
                <children>
                   <Button fx:id="cadastrarButton" mnemonicParsing="false" onAction="#cadastrarFornecedor" prefHeight="50.0" prefWidth="150.0" styleClass="crudButton" stylesheets="@application.css" text="CADASTRAR" />
                   <Button fx:id="editarButton" mnemonicParsing="false" onAction="#editarFornecedor" prefHeight="50.0" prefWidth="150.0" styleClass="crudButton" stylesheets="@application.css" text="EDITAR" />
