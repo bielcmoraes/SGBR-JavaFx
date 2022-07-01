@@ -118,7 +118,7 @@ public class CadastrarUsuarioController implements Initializable{
 		
 		ArrayList<String> opcaoComboBox = new ArrayList<String>();
 		opcaoComboBox.add("Gerente");
-		opcaoComboBox.add("Funcionário");
+		opcaoComboBox.add("Funcionario");
 		ObservableList<String> obsComboBox = FXCollections.observableArrayList(opcaoComboBox);
 		tipoUsuarioComboBox.setItems(obsComboBox);
 	}

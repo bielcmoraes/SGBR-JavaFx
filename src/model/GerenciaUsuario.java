@@ -42,7 +42,7 @@ public class GerenciaUsuario implements UsuarioCopyable {
 				return true;
 			}
 			//Cria um novo Funcionario e adiciona na lista
-			else if(infoUsuario[1].equals("Funcionário")) {
+			else if(infoUsuario[1].equals("Funcionario")) {
 				
 				for(Usuario usuario: listaUsuarios) {
 					if(usuario.getLogin().equals(infoUsuario[2])) {
