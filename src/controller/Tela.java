@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 public abstract class Tela {
@@ -35,5 +36,20 @@ public abstract class Tela {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+    }
+    
+    public void permiteDecimal(TextField textfield) {
+        textfield.textProperty().addListener(
+                (observable, oldValue, newValue) -> {
+                    try {
+                        if (!newValue.matches("\\d*(\\.\\d*)?")) {
+                            textfield.setText(oldValue);
+                        }
+
+                    } catch(Exception e) {
+                        textfield.setText(oldValue);
+                    }
+                }
+        );
     }
 }
