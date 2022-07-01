@@ -69,8 +69,8 @@ public class UsuariosController implements Initializable{
     		atualizarPainel("/view/EditarUsuario.fxml");
     	} else {
     		Alert alert = new Alert(AlertType.WARNING);
-    		alert.setTitle("ATENÇÃO!");
-    		alert.setHeaderText("Nenhum usuário selecionado!");
+    		alert.setTitle("ATENCAO!");
+    		alert.setHeaderText("Nenhum usuario selecionado!");
     		alert.setContentText("Selecione um usuário na tabela para que possa edita-lo.");
     		alert.showAndWait();
     	}

@@ -12,14 +12,17 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import model.BancoDeDados;
 import model.Fornecedor;
 import model.GerenciaFornecedor;
+import model.Usuario;
 
 public class FornecedoresController implements Initializable{
 
@@ -63,12 +66,22 @@ public class FornecedoresController implements Initializable{
     //Métodos
     @FXML
     void cadastrarFornecedor(ActionEvent event) {
-    	atualizarPainel("/view/CadastroFornecedor.fxml");
+    	atualizarPainel("/view/EditarFornecedor.fxml");
     }
     
     @FXML
     void editarFornecedor(ActionEvent event) {
-    	
+    	Fornecedor fornecedor = tabelaFornecedores.getSelectionModel().getSelectedItem();
+    	if(fornecedor != null) {
+    		ObjetoSelecionado.getInstance().setObj(fornecedor);
+    		atualizarPainel("/view/EditarFornecedor.fxml");
+    	}else {
+    		Alert alert = new Alert(AlertType.WARNING);
+    		alert.setTitle("ATENÇÃO!");
+    		alert.setHeaderText("Nenhum fornecedor selecionado!");
+    		alert.setContentText("Selecione um fornecedor na tabela para que possa edita-lo.");
+    		alert.showAndWait();
+    	}
     }
 
     @FXML
