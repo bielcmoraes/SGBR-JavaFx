@@ -66,7 +66,7 @@ public class FornecedoresController implements Initializable{
     //Métodos
     @FXML
     void cadastrarFornecedor(ActionEvent event) {
-    	atualizarPainel("/view/EditarFornecedor.fxml");
+    	atualizarPainel("/view/CadastroFornecedor.fxml");
     }
     
     @FXML

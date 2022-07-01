@@ -108,8 +108,8 @@ public class CadastrarPratoController extends Tela implements Initializable{
     	obsProdutos.remove(nome);
     	} else {
     		Alert alert = new Alert(AlertType.WARNING);
-    		alert.setTitle("ATENÇÃO!");
-    		alert.setHeaderText("Existe campos não preenchidos!");
+    		alert.setTitle("ATENCAO!");
+    		alert.setHeaderText("Existe campos nao preenchidos!");
     		alert.setContentText("Preenchas os campos restantes antes de adicionar.");
     		alert.showAndWait();
     	}
@@ -124,7 +124,7 @@ public class CadastrarPratoController extends Tela implements Initializable{
 	    	obsProdutos.add(ingrediente.getNome());
     	} else {
     		Alert alert = new Alert(AlertType.WARNING);
-    		alert.setTitle("ATENÇÃO!");
+    		alert.setTitle("ATENCAO!");
     		alert.setHeaderText("Nenhum item selecionado!");
     		alert.setContentText("Selecione um item na tabela para que possa remove-lo.");
     		alert.showAndWait();
@@ -165,8 +165,8 @@ public class CadastrarPratoController extends Tela implements Initializable{
 	    	atualizarPainel("/view/Cardapio.fxml");
     	} else {
     		Alert alert = new Alert(AlertType.WARNING);
-    		alert.setTitle("ATENÇÃO!");
-    		alert.setHeaderText("Existe campos não preenchidos!");
+    		alert.setTitle("ATENCAO!");
+    		alert.setHeaderText("Existe campos nao preenchidos!");
     		alert.setContentText("Preenchas os campos restantes antes de cadastrar.");
     		alert.showAndWait();
     	}
