@@ -108,5 +108,15 @@ public class Venda extends Entidade{
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
+	
+	public String getPratosToString() {
+		String pratosStr = "";
+		for(Prato prato : pratos) {
+			pratosStr += prato.getNome() + ", ";
+		}
+		
+		pratosStr = pratosStr.substring(0, pratosStr.length()-2);
+		return pratosStr;
+	}
 }
 

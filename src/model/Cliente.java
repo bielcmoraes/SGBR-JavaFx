@@ -61,4 +61,8 @@ public class Cliente extends Entidade{
 	public void setCompras(ArrayList<Venda> compras) {
 		this.compras = compras;
 	}
+	
+	public String toString() {
+		return this.nome;
+	}
 }
