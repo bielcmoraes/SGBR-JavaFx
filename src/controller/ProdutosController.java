@@ -28,7 +28,7 @@ import model.BancoDeDados;
 import model.GerenciaProdutos;
 import model.Produto;
 
-public class ProdutosController extends Tela implements Initializable{
+public class ProdutosController extends Tela implements Initializable {
 
     @FXML
     private Button cadastrarButton;

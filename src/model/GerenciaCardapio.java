@@ -142,6 +142,8 @@ public class GerenciaCardapio implements CardapioCopyable {
 						prato.setPreco(preco);
 						prato.setDescricao(info[2]);
 						prato.setCategoria(info[3]);
+						prato.setProdutos(produtos);
+						prato.setReceita(receita);
 						return true;
 					} else {
 						throw new FormatoIngredientesInvalido();

@@ -81,7 +81,17 @@ public class CardapioController extends Tela implements Initializable{
 
     @FXML
     void editarProduto(ActionEvent event) {
-
+    	if (!cardapioTableView.getSelectionModel().isEmpty()) {
+    		Prato prato = cardapioTableView.getSelectionModel().getSelectedItem();
+    		ObjetoSelecionado.getInstance().setObj(prato);
+    		atualizarPainel("/view/EditarPrato.fxml");
+    	} else {
+    		Alert alert = new Alert(AlertType.WARNING);
+    		alert.setTitle("ATENÇÃO!");
+    		alert.setHeaderText("Nenhum item selecionado!");
+    		alert.setContentText("Selecione um item na tabela para que possa edita-lo.");
+    		alert.showAndWait();
+    	}
     }
 
     @FXML
