@@ -23,12 +23,12 @@ public class Fornecedor extends Entidade{
 	 * @param cnpj CNPJ do fornecedor
 	 * @param endereco Endereço do fornecedor
 	 */
-	public Fornecedor(ArrayList<String> listaIds, String nome, String cnpj, String endereco) {
+	public Fornecedor(ArrayList<String> listaIds, String nome, String cnpj, String endereco, ArrayList<String> produtos) {
 		super(listaIds);
 		this.nome = nome;
 		this.cnpj = cnpj;
 		this.endereco = endereco;
-		this.produtos = new ArrayList<String>();
+		this.produtos = produtos;
 	}
 	
 	/**Metódo para retorno de nome do fornecedor

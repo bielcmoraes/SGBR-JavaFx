@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import exceptions.ErroGrave;
@@ -111,10 +112,14 @@ public class CadastrarFornecedorController implements Initializable{
 		info[1] = cnpj;
 		info[2] = endereco;
 		
+		ArrayList<String> produtos = new ArrayList<String>();
+		for(Produto produto : produtosDaTabela) {
+			produtos.add(produto.getNome());
+		}
 		GerenciaFornecedor gerenciaFornecedores = new GerenciaFornecedor();
 		
 		try {
-			gerenciaFornecedores.cadastrarFornecedor(BancoDeDados.getInstance().getListaFornecedores(), BancoDeDados.getInstance().getListaIds(), info);
+			gerenciaFornecedores.cadastrarFornecedor(BancoDeDados.getInstance().getListaFornecedores(), BancoDeDados.getInstance().getListaIds(), info, produtos);
 		} catch (ErroGrave e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

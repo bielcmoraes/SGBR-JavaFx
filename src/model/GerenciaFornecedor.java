@@ -10,7 +10,7 @@ import exceptions.NaoEncontrado;
  * @author Gabriel Moraes
  * @author Luis Fernando Cintra
  */
-public class GerenciaFornecedor implements FornecedorCopyable {
+public class GerenciaFornecedor {
 	
 	/**O método instancia um objeto do tipo Fornecedor utilizando as entradas do usuário que estão armazenadas em info. Se a lista de fornecedores 
 	 * e o vetor que armazena as entradas do usuário não forem null o objeto do tipo fornecedor que foi instanciado é adicionado na 
@@ -18,10 +18,9 @@ public class GerenciaFornecedor implements FornecedorCopyable {
 	 * 
 	 * @throws ErroGrave 
 	 */
-	@Override
-	public boolean cadastrarFornecedor(ArrayList<Fornecedor> listaFornecedores, ArrayList<String> listaIds, String [] info) throws ErroGrave {
+	public boolean cadastrarFornecedor(ArrayList<Fornecedor> listaFornecedores, ArrayList<String> listaIds, String [] info, ArrayList<String> produtos) throws ErroGrave {
 		
-		Fornecedor novoFornecedor = new Fornecedor(listaIds, info[0], info[1], info[2]);
+		Fornecedor novoFornecedor = new Fornecedor(listaIds, info[0], info[1], info[2], produtos);
 		
 			try {
 				listaFornecedores.add(novoFornecedor);
@@ -44,8 +43,7 @@ public class GerenciaFornecedor implements FornecedorCopyable {
 	 * @throws ErroGrave 
 	 * @throws NaoEncontrado 
 	 */
-	@Override
-	public boolean editarFornecedor(ArrayList<Fornecedor> listaFornecedores, String codigoFornecedor, String [] info) throws ErroGrave, NaoEncontrado {
+	public boolean editarFornecedor(ArrayList<Fornecedor> listaFornecedores, String codigoFornecedor, String [] info, ArrayList<String> produtos) throws ErroGrave, NaoEncontrado {
 			
 			try {
 				for(Fornecedor fornecedor : listaFornecedores) {
@@ -53,6 +51,7 @@ public class GerenciaFornecedor implements FornecedorCopyable {
 						fornecedor.setNome(info[0]);
 						fornecedor.setCnpj(info[1]);
 						fornecedor.setEndereco(info[2]);
+						fornecedor.setProdutos(produtos);
 						return true;
 					}else {
 						throw new NaoEncontrado("Fornecedor");
@@ -74,7 +73,6 @@ public class GerenciaFornecedor implements FornecedorCopyable {
 	 * @throws ErroGrave 
 	 * @throws NaoEncontrado 
 	 */
-	@Override
 	public boolean excluirFornecedor(ArrayList<Fornecedor> listaFornecedores, ArrayList<String> listaIds, String codigoFornecedor) throws ErroGrave {
 			
 			try {

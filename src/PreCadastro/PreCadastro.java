@@ -82,6 +82,18 @@ public class PreCadastro {
 		
 		info[0] = "Pao";//nome;
 		info[1] = "0.5";//preco;
+		info[2] = "50 un";//quantidade;
+		info[3] = "15/09/2022";//validade;
+		info[4] = "Jose";//fornecedores;
+		try {
+			gerenciaProdutos.cadastrarProduto(listaProdutos, listaIds, info, listaFornecedor);
+		} catch (PrecoInvalido | FormatoQuantidadeInvalido | QuantidadeInvalida | FormatoDataInvalido
+				| FornecedorNaoCadastrado | ErroGrave e) {
+			System.out.println(e.toString());
+		}
+		
+		info[0] = "Pao";//nome;
+		info[1] = "0.5";//preco;
 		info[2] = "1 un";//quantidade;
 		info[3] = "02/09/2021";//validade;
 		info[4] = "Jose";//fornecedores;
@@ -136,8 +148,9 @@ public class PreCadastro {
 		info[0] = "Joao";//nome;
 		info[1] = "77.994.900/0001-26";//cnpj;
 		info[2] = "Rua A";//endereco;
+		ArrayList<String> produtos = new ArrayList<String>();
 		try {
-			gerenciaFornecedor.cadastrarFornecedor(listaFornecedor, listaIds, info);
+			gerenciaFornecedor.cadastrarFornecedor(listaFornecedor, listaIds, info, produtos);
 		} catch (ErroGrave e) {
 			System.out.println(e.toString());
 		}
@@ -146,7 +159,7 @@ public class PreCadastro {
 		info[1] = "37.889.838/0001-98";//cnpj;
 		info[2] = "Rua B";//endereco;
 		try {
-			gerenciaFornecedor.cadastrarFornecedor(listaFornecedor, listaIds, info);
+			gerenciaFornecedor.cadastrarFornecedor(listaFornecedor, listaIds, info, produtos);
 		} catch (ErroGrave e) {
 			System.out.println(e.toString());
 		}
@@ -155,7 +168,7 @@ public class PreCadastro {
 		info[1] = "37.889.838/0001-98";//cnpj;
 		info[2] = "Rua C";//endereco;
 		try {
-			gerenciaFornecedor.cadastrarFornecedor(listaFornecedor, listaIds, info);
+			gerenciaFornecedor.cadastrarFornecedor(listaFornecedor, listaIds, info, produtos);
 		} catch (ErroGrave e) {
 			System.out.println(e.toString());
 		}
@@ -185,7 +198,7 @@ public class PreCadastro {
 		info[0] = "Pure de Batata";//nome;
 		info[1] = "5";//preco;
 		info[2] = "Pure de Batata Simples";//descricao;
-		info[3] = "Acompanhamento";//categoria;
+		info[3] = "Lanche";//categoria;
 		info[4] = "0.5;kg;Batata;0.5;l;Leite;";//ingredientes;
 
 		try {
