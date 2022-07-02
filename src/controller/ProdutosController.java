@@ -81,7 +81,7 @@ public class ProdutosController extends Tela implements Initializable {
     		atualizarPainel("/view/EditarProduto.fxml");
     	} else {
     		Alert alert = new Alert(AlertType.WARNING);
-    		alert.setTitle("ATENÇÃO!");
+    		alert.setTitle("ATENï¿½ï¿½O!");
     		alert.setHeaderText("Nenhum item selecionado!");
     		alert.setContentText("Selecione um item na tabela para que possa edita-lo.");
     		alert.showAndWait();
@@ -93,7 +93,7 @@ public class ProdutosController extends Tela implements Initializable {
     	Produto produto = tabelaProdutos.getSelectionModel().getSelectedItem();
     	if (produto != null) {
     		Alert alert = new Alert(AlertType.CONFIRMATION);
-    		alert.setTitle("ATENÇÃO!");
+    		alert.setTitle("ATENï¿½ï¿½O!");
     		alert.setHeaderText("Deseja mesmo excluir o item selecionado?");
     		alert.setContentText("Clique em ok se sim.");
     		Optional<ButtonType> escolha = alert.showAndWait();
@@ -110,7 +110,7 @@ public class ProdutosController extends Tela implements Initializable {
     		}
     	} else {
     		Alert alert = new Alert(AlertType.WARNING);
-    		alert.setTitle("ATENÇÃO!");
+    		alert.setTitle("ATENCAO!");
     		alert.setHeaderText("Nenhum item selecionado!");
     		alert.setContentText("Selecione um item na tabela para que possa exclui-lo.");
     		alert.showAndWait();

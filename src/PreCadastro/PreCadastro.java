@@ -34,7 +34,7 @@ public class PreCadastro {
 		String [] info = new String[5];
 		info[0] = "Batata"; //nome;
 		info[1] = "10"; //preco;
-		info[2] = "100 kg"; //quantidade;
+		info[2] = "300 kg"; //quantidade;
 		info[3] = "10/10/2022"; //validade;
 		info[4] = "Joao, Maria"; //fornecedores;
 		try {
@@ -46,7 +46,7 @@ public class PreCadastro {
 		
 		info[0] = "Leite";//nome;
 		info[1] = "12";//preco;
-		info[2] = "30 l";//quantidade;
+		info[2] = "200 l";//quantidade;
 		info[3] = "20/10/2022";//validade;
 		info[4] = "Maria";//fornecedores;
 		try {
@@ -58,7 +58,7 @@ public class PreCadastro {
 		
 		info[0] = "Leite";//nome;
 		info[1] = "12";//preco;
-		info[2] = "5 l";//quantidade;
+		info[2] = "300 l";//quantidade;
 		info[3] = "28/10/2021";//validade;
 		info[4] = "Joao, Maria";//fornecedores;
 		try {
@@ -70,7 +70,7 @@ public class PreCadastro {
 		
 		info[0] = "Pao";//nome;
 		info[1] = "0.5";//preco;
-		info[2] = "1 un";//quantidade;
+		info[2] = "22 un";//quantidade;
 		info[3] = "15/09/2022";//validade;
 		info[4] = "Jose";//fornecedores;
 		try {
@@ -94,7 +94,7 @@ public class PreCadastro {
 		
 		info[0] = "Pao";//nome;
 		info[1] = "0.5";//preco;
-		info[2] = "1 un";//quantidade;
+		info[2] = "16 un";//quantidade;
 		info[3] = "02/09/2021";//validade;
 		info[4] = "Jose";//fornecedores;
 		try {

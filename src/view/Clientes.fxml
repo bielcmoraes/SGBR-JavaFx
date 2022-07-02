@@ -22,7 +22,7 @@
                <children>
                   <Button fx:id="cadastrarButton" mnemonicParsing="false" onAction="#cadastrarUsuario" prefHeight="50.0" prefWidth="150.0" styleClass="crudButton" stylesheets="@application.css" text="CADASTRAR" />
                   <Button fx:id="editarButton" mnemonicParsing="false" onAction="#editar" prefHeight="50.0" prefWidth="150.0" styleClass="crudButton" stylesheets="@application.css" text="EDITAR" />
-                  <Button fx:id="excluirButton" mnemonicParsing="false" onAction="#excluirUsuario" prefHeight="50.0" prefWidth="150.0" styleClass="crudButton" stylesheets="@application.css" text="EXCLUIR" />
+                  <Button fx:id="excluirButton" mnemonicParsing="false" onAction="#excluirCliente" prefHeight="50.0" prefWidth="150.0" styleClass="crudButton" stylesheets="@application.css" text="EXCLUIR" />
                </children>
             </HBox>
          </children>

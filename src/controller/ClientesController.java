@@ -5,6 +5,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import exceptions.ErroGrave;
+import exceptions.NaoEncontrado;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,7 +22,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import model.BancoDeDados;
 import model.Cliente;
-import model.Usuario;
+import model.GerenciaCliente;
 
 public class ClientesController implements Initializable{
 
@@ -80,8 +82,25 @@ public class ClientesController implements Initializable{
     }
 
     @FXML
-    void excluirUsuario(ActionEvent event) {
-
+    void excluirCliente(ActionEvent event) {
+    	
+    	if(tabelaClientes.getSelectionModel().getSelectedItem() != null) {
+    		String idSelecionado = tabelaClientes.getSelectionModel().getSelectedItem().getId();
+        	GerenciaCliente gerenciaCliente = new GerenciaCliente();
+        	try {
+    			gerenciaCliente.excluirCliente(BancoDeDados.getInstance().getListaClientes(), BancoDeDados.getInstance().getListaIds(), idSelecionado);
+    		} catch (ErroGrave | NaoEncontrado e) {
+    			e.printStackTrace();
+    		}
+    	} else {
+    		Alert alert = new Alert(AlertType.WARNING);
+    		alert.setTitle("ATENCAO!");
+    		alert.setHeaderText("Nenhum item selecionado!");
+    		alert.setContentText("Selecione um item na tabela para que possa exclui-lo.");
+    		alert.showAndWait();
+    	}
+    	
+    	carregarListaClientes();
     }
 
 	@Override

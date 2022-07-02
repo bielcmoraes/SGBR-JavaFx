@@ -87,20 +87,24 @@ public class FornecedoresController implements Initializable{
     @FXML
     void excluirFornecedor(ActionEvent event) {
     	
-    	String idSelecionado = tabelaFornecedores.getSelectionModel().getSelectedItem().getId();
-    	GerenciaFornecedor gerenciaFornecedor = new GerenciaFornecedor();
-    	try {
-    		gerenciaFornecedor.excluirFornecedor(BancoDeDados.getInstance().getListaFornecedores(), BancoDeDados.getInstance().getListaIds(), idSelecionado);
-		} catch (ErroGrave e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    	if(tabelaFornecedores.getSelectionModel().getSelectedItem() != null) {
+    		
+    		String idSelecionado = tabelaFornecedores.getSelectionModel().getSelectedItem().getId();
+    		GerenciaFornecedor gerenciaFornecedor = new GerenciaFornecedor();
+    		try {
+    			gerenciaFornecedor.excluirFornecedor(BancoDeDados.getInstance().getListaFornecedores(), BancoDeDados.getInstance().getListaIds(), idSelecionado);
+    		} catch (ErroGrave e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		}
+    	}else {
+    		Alert alert = new Alert(AlertType.WARNING);
+    		alert.setTitle("ATENCAO!");
+    		alert.setHeaderText("Nenhum item selecionado!");
+    		alert.setContentText("Selecione um item na tabela para que possa exclui-lo.");
+    		alert.showAndWait();
+    	}
     	carregarListaUsuarios();
-    }
-    
-    @FXML
-    void voltarParaMain(ActionEvent event) {
-
     }
     
     private void atualizarPainel(String url) {
