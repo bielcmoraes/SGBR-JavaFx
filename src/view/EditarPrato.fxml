@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="painelAnchorPane" prefHeight="600.0" prefWidth="600.0" styleClass="paneBackground" stylesheets="@application.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="painelAnchorPane" prefHeight="600.0" prefWidth="600.0" styleClass="paneBackground" stylesheets="@application.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditarPratoController">
    <children>
       <GridPane hgap="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
          <columnConstraints>

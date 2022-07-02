@@ -77,7 +77,7 @@ public class PreCadastro {
 		
 		info[0] = "Pao";//nome;
 		info[1] = "0.5";//preco;
-		info[2] = "22 un";//quantidade;
+		info[2] = "10 un.";//quantidade;
 		info[3] = "15/09/2022";//validade;
 		info[4] = "Jose";//fornecedores;
 		try {
@@ -90,7 +90,7 @@ public class PreCadastro {
 		
 		info[0] = "Pao";//nome;
 		info[1] = "0.5";//preco;
-		info[2] = "50 un";//quantidade;
+		info[2] = "1 un.";//quantidade;
 		info[3] = "15/09/2022";//validade;
 		info[4] = "Jose";//fornecedores;
 		try {
@@ -103,7 +103,7 @@ public class PreCadastro {
 		
 		info[0] = "Pao";//nome;
 		info[1] = "0.5";//preco;
-		info[2] = "16 un";//quantidade;
+		info[2] = "1 un.";//quantidade;
 		info[3] = "02/09/2021";//validade;
 		info[4] = "Jose";//fornecedores;
 		try {
@@ -116,7 +116,7 @@ public class PreCadastro {
 		
 		info[0] = "Pao";//nome;
 		info[1] = "0.5";//preco;
-		info[2] = "1 un";//quantidade;
+		info[2] = "1 un.";//quantidade;
 		info[3] = "01/09/2020";//validade;
 		info[4] = "Jose";//fornecedores;
 		try {
@@ -129,7 +129,7 @@ public class PreCadastro {
 		
 		info[0] = "Salsicha";//nome;
 		info[1] = "2";//preco;
-		info[2] = "50 un";//quantidade;
+		info[2] = "50 un.";//quantidade;
 		info[3] = "20/08/2022";//validade;
 		info[4] = "Jose";//fornecedores;
 		try {
@@ -142,7 +142,7 @@ public class PreCadastro {
 		
 		info[0] = "Salsicha";//nome;
 		info[1] = "2";//preco;
-		info[2] = "10 un";//quantidade;
+		info[2] = "10 un.";//quantidade;
 		info[3] = "25/10/2022";//validade;
 		info[4] = "Jose";//fornecedores;
 		try {
@@ -278,7 +278,7 @@ public class PreCadastro {
 		}
 		
 		info[0] = "Cachorro Quente, Pure de Batata";
-		info[1] = "Credito";
+		info[1] = "Cartão";
 		info[2] = "Fernando Marcos Vinicius Melo";
 		
 		try {
