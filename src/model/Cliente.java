@@ -12,8 +12,9 @@ public class Cliente extends Entidade{
 	
 	
 	//Construtores
-	public Cliente(String nome, String cpf, String email, String telefone) {
+	public Cliente(ArrayList<String> listaIds, String nome, String cpf, String email, String telefone) {
 		
+		super(listaIds);
 		this.nome = nome;
 		this.cpf = cpf;
 		this.email = email;

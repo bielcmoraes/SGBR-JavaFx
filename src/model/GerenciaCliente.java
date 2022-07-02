@@ -9,7 +9,7 @@ public class GerenciaCliente {
 
 	public boolean cadastrarCliente(ArrayList<Cliente> listaClientes, ArrayList<String> listaIds, String[] info) throws ErroGrave {
 		
-		Cliente novoCliente = new Cliente(info[0], info[1], info[2], info[3]);
+		Cliente novoCliente = new Cliente(listaIds, info[0], info[1], info[2], info[3]);
 		
 		try {
 			listaClientes.add(novoCliente);
