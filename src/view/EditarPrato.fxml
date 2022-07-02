@@ -15,132 +15,128 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditarPratoController">
+<AnchorPane fx:id="painelAnchorPane" prefHeight="600.0" prefWidth="600.0" styleClass="paneBackground" stylesheets="@application.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane fx:id="painelAnchorPane" layoutX="10.0" layoutY="10.0" prefHeight="600.0" prefWidth="600.0" styleClass="paneBackground" stylesheets="@application.css">
+      <GridPane hgap="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="140.0" />
+            <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="140.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="140.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="140.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="3.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
          <children>
-            <GridPane hgap="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="140.0" />
-                  <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="140.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="140.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="140.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="3.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-               <children>
-                  <Label styleClass="titulo" text="DADOS DO PRATO" GridPane.columnSpan="2147483647">
-                     <font>
-                        <Font name="System Bold" size="36.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets />
-                     </GridPane.margin>
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
-                  </Label>
-                  <Label styleClass="textoCrud" text="NOME:" GridPane.rowIndex="2">
-                     <GridPane.margin>
-                        <Insets />
-                     </GridPane.margin>
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
-                  </Label>
-                  <Label styleClass="textoCrud" text="PREÇO:" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
-                  </Label>
-                  <Label styleClass="textoCrud" text="DESCRIÇÃO" GridPane.rowIndex="5">
-                     <GridPane.margin>
-                        <Insets />
-                     </GridPane.margin>
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
-                  </Label>
-                  <TextField fx:id="nomeTextField" styleClass="text-fieldCrud" GridPane.columnSpan="2" GridPane.rowIndex="3">
-                     <GridPane.margin>
-                        <Insets />
-                     </GridPane.margin>
-                  </TextField>
-                  <ComboBox fx:id="produtoComboBox" prefWidth="150.0" promptText="Selecione" GridPane.rowIndex="10" />
-                  <TextField fx:id="precoTextField" promptText="R$ 99,99" styleClass="text-fieldCrud" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                  <TextField fx:id="descricaoTextField" styleClass="text-fieldCrud" GridPane.rowIndex="6" />
-                  <Label styleClass="textoCrud" text="PRODUTO" GridPane.rowIndex="9">
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
-                  </Label>
-                  <Label styleClass="textoCrud" text="CATEGORIA" GridPane.columnIndex="2" GridPane.rowIndex="5">
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
-                  </Label>
-                  <Label styleClass="textoCrud" text="QUANTIDADE:" GridPane.columnIndex="2" GridPane.rowIndex="9">
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
-                  </Label>
-                  <TextField fx:id="quantidadeTextField" promptText="99" styleClass="text-fieldCrud" GridPane.columnIndex="2" GridPane.rowIndex="10" />
-                  <ComboBox fx:id="categoriaComboBox" prefWidth="150.0" promptText="Selecione" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-                  <Label styleClass="textoCrud" text="LISTA DE PRODUTOS" GridPane.columnSpan="2147483647" GridPane.rowIndex="8">
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
-                  </Label>
-                  <Label styleClass="textoCrud" text="MEDIDA:" GridPane.columnIndex="1" GridPane.rowIndex="9">
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
-                  </Label>
-                  <ComboBox fx:id="medidaComboBox" prefWidth="150.0" promptText="Selecione" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-               </children>
-            </GridPane>
-            <TableView fx:id="produtosTableView" prefHeight="180.0" prefWidth="415.0" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="335.0">
-               <columns>
-                  <TableColumn fx:id="produtoTableColumn" prefWidth="75.0" text="PRODUTO" />
-                  <TableColumn fx:id="quantidadeTableColumn" prefWidth="75.0" text="QUANTIDADE" />
-                  <TableColumn fx:id="medidaTableColumn" prefWidth="75.0" text="MEDIDA" />
-               </columns>
-               <columnResizePolicy>
-                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-               </columnResizePolicy>
-            </TableView>
-            <HBox layoutX="294.0" layoutY="249.0" prefHeight="50.0" prefWidth="324.0" spacing="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0">
-               <children>
-                  <Button fx:id="editarButton" mnemonicParsing="false" onAction="#editar" prefHeight="50.0" prefWidth="150.0" styleClass="crudButton" text="EDITAR" />
-                  <Button fx:id="cancelarButton" mnemonicParsing="false" onAction="#cancelar" prefHeight="50.0" prefWidth="150.0" styleClass="crudButton" text="CANCELAR" />
-               </children>
-            </HBox>
-            <VBox prefHeight="200.0" spacing="10.0" AnchorPane.leftAnchor="445.0" AnchorPane.topAnchor="335.0">
-               <children>
-                  <Button fx:id="adicionarButton" mnemonicParsing="false" onAction="#adicionar" prefHeight="50.0" prefWidth="150.0" styleClass="crudButton" text="ADICIONAR" />
-                  <Button fx:id="removerButton" mnemonicParsing="false" onAction="#remover" prefHeight="50.0" prefWidth="150.0" styleClass="crudButton" text="REMOVER" />
-               </children>
-            </VBox>
+            <Label styleClass="titulo" text="DADOS DO PRATO" GridPane.columnSpan="2147483647">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </Label>
+            <Label styleClass="textoCrud" text="NOME:" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </Label>
+            <Label styleClass="textoCrud" text="PREÇO:" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </Label>
+            <Label styleClass="textoCrud" text="DESCRIÇÃO" GridPane.rowIndex="5">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="nomeTextField" styleClass="text-fieldCrud" GridPane.columnSpan="2" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </TextField>
+            <ComboBox fx:id="produtoComboBox" prefWidth="150.0" promptText="Selecione" GridPane.rowIndex="10" />
+            <TextField fx:id="precoTextField" promptText="R$ 99,99" styleClass="text-fieldCrud" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <TextField fx:id="descricaoTextField" styleClass="text-fieldCrud" GridPane.rowIndex="6" />
+            <Label styleClass="textoCrud" text="PRODUTO" GridPane.rowIndex="9">
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </Label>
+            <Label styleClass="textoCrud" text="CATEGORIA" GridPane.columnIndex="2" GridPane.rowIndex="5">
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </Label>
+            <Label styleClass="textoCrud" text="QUANTIDADE:" GridPane.columnIndex="2" GridPane.rowIndex="9">
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="quantidadeTextField" promptText="99" styleClass="text-fieldCrud" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+            <ComboBox fx:id="categoriaComboBox" prefWidth="150.0" promptText="Selecione" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <Label styleClass="textoCrud" text="LISTA DE PRODUTOS" GridPane.columnSpan="2147483647" GridPane.rowIndex="8">
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </Label>
+            <Label styleClass="textoCrud" text="MEDIDA:" GridPane.columnIndex="1" GridPane.rowIndex="9">
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </Label>
+            <ComboBox fx:id="medidaComboBox" prefWidth="150.0" promptText="Selecione" GridPane.columnIndex="1" GridPane.rowIndex="10" />
          </children>
-      </AnchorPane>
+      </GridPane>
+      <TableView fx:id="produtosTableView" prefHeight="180.0" prefWidth="415.0" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="335.0">
+         <columns>
+            <TableColumn fx:id="produtoTableColumn" prefWidth="75.0" text="PRODUTO" />
+            <TableColumn fx:id="quantidadeTableColumn" prefWidth="75.0" text="QUANTIDADE" />
+            <TableColumn fx:id="medidaTableColumn" prefWidth="75.0" text="MEDIDA" />
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <HBox layoutX="294.0" layoutY="249.0" prefHeight="50.0" prefWidth="324.0" spacing="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0">
+         <children>
+            <Button fx:id="editarButton" mnemonicParsing="false" onAction="#editar" prefHeight="50.0" prefWidth="150.0" styleClass="crudButton" text="EDITAR" />
+            <Button fx:id="cancelarButton" mnemonicParsing="false" onAction="#cancelar" prefHeight="50.0" prefWidth="150.0" styleClass="crudButton" text="CANCELAR" />
+         </children>
+      </HBox>
+      <VBox prefHeight="200.0" spacing="10.0" AnchorPane.leftAnchor="445.0" AnchorPane.topAnchor="335.0">
+         <children>
+            <Button fx:id="adicionarButton" mnemonicParsing="false" onAction="#adicionar" prefHeight="50.0" prefWidth="150.0" styleClass="crudButton" text="ADICIONAR" />
+            <Button fx:id="removerButton" mnemonicParsing="false" onAction="#remover" prefHeight="50.0" prefWidth="150.0" styleClass="crudButton" text="REMOVER" />
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
