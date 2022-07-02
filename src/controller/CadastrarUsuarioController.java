@@ -52,8 +52,6 @@ public class CadastrarUsuarioController implements Initializable{
     @FXML
     void cadastrar(ActionEvent event) {
     	
-    	
-    	
     	if(!tipoUsuarioComboBox.getSelectionModel().isEmpty() && !senhaTextField.getText().isBlank() && !loginTextField.getText().isBlank() && !nomeTextField.getText().isBlank() && !tipoUsuarioComboBox.getSelectionModel().getSelectedItem().toString().isBlank()) {
     		
     		String nome = nomeTextField.getText();
