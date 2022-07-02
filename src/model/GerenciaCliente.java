@@ -5,9 +5,8 @@ import java.util.ArrayList;
 import exceptions.ErroGrave;
 import exceptions.NaoEncontrado;
 
-public class GerenciaCliente implements ClienteCopyable{
+public class GerenciaCliente {
 
-	@Override
 	public boolean cadastrarCliente(ArrayList<Cliente> listaClientes, ArrayList<String> listaIds, String[] info) throws ErroGrave {
 		
 		Cliente novoCliente = new Cliente(info[0], info[1], info[2], info[3]);
@@ -23,7 +22,6 @@ public class GerenciaCliente implements ClienteCopyable{
 		}
 	}
 
-	@Override
 	public boolean editarCliente(ArrayList<Cliente> listaClientes, String codigoCliente, String[] info) throws ErroGrave, NaoEncontrado {
 		
 		try {
@@ -47,7 +45,6 @@ public class GerenciaCliente implements ClienteCopyable{
 		return false;
 	}
 
-	@Override
 	public boolean excluirCliente(ArrayList<Cliente> listaClientes, ArrayList<String> listaIds, String codigoCliente) throws ErroGrave, NaoEncontrado {
 		
 		try {
