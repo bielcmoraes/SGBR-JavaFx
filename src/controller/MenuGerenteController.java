@@ -29,6 +29,9 @@ public class MenuGerenteController extends Tela {
     
     @FXML
     private Button relatoriosButton;
+    
+    @FXML
+    private Button listarButton;
 
     
     //Métodos
@@ -65,6 +68,11 @@ public class MenuGerenteController extends Tela {
     @FXML
     void tela_relatorios(ActionEvent event) {
     	atualizarPainel("/view/Relatorios.fxml");
+    }
+    
+    @FXML
+    void tela_listagem(ActionEvent event) {
+    	atualizarPainel("/view/Listagem.fxml");
     }
     
     @FXML

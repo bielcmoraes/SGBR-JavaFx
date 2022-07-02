@@ -5,10 +5,12 @@ import java.util.HashMap;
 
 import exceptions.ClienteNaoCadastrado;
 import exceptions.ErroGrave;
+import exceptions.EscolhaIncorreta;
 import exceptions.FormatoDataInvalido;
 import exceptions.FormatoIngredientesInvalido;
 import exceptions.FormatoQuantidadeInvalido;
 import exceptions.FornecedorNaoCadastrado;
+import exceptions.LoginJaCadastrado;
 import exceptions.PratoNaoCadastrado;
 import exceptions.PrecoInvalido;
 import exceptions.ProdutoNaoCadastrado;
@@ -21,9 +23,11 @@ import model.GerenciaCardapio;
 import model.GerenciaCliente;
 import model.GerenciaFornecedor;
 import model.GerenciaProdutos;
+import model.GerenciaUsuario;
 import model.GerenciaVendas;
 import model.Prato;
 import model.Produto;
+import model.Usuario;
 import model.Venda;
 
 public class PreCadastro {
