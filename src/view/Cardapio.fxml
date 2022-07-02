@@ -20,9 +20,9 @@
             </Label>
             <HBox alignment="CENTER_LEFT" spacing="20.0">
                <children>
-                  <Button fx:id="cadastrarButton" mnemonicParsing="false" onAction="#cadastrarProduto" prefHeight="50.0" prefWidth="150.0" styleClass="crudButton" text="CADASTRAR" />
-                  <Button fx:id="editarButton" mnemonicParsing="false" onAction="#editarProduto" prefHeight="50.0" prefWidth="150.0" styleClass="crudButton" text="EDITAR" />
-                  <Button fx:id="excluirButton" mnemonicParsing="false" onAction="#excluirProduto" prefHeight="50.0" prefWidth="150.0" styleClass="crudButton" text="EXCLUIR" />
+                  <Button fx:id="cadastrarButton" mnemonicParsing="false" onAction="#cadastrar" prefHeight="50.0" prefWidth="150.0" styleClass="crudButton" text="CADASTRAR" />
+                  <Button fx:id="editarButton" mnemonicParsing="false" onAction="#editar" prefHeight="50.0" prefWidth="150.0" styleClass="crudButton" text="EDITAR" />
+                  <Button fx:id="excluirButton" mnemonicParsing="false" onAction="#excluir" prefHeight="50.0" prefWidth="150.0" styleClass="crudButton" text="EXCLUIR" />
                </children>
             </HBox>
          </children>

@@ -75,12 +75,12 @@ public class CardapioController extends Tela implements Initializable{
 	
     
     @FXML
-    void cadastrarProduto(ActionEvent event) {
+    void cadastrar(ActionEvent event) {
     	atualizarPainel("/view/CadastrarPrato.fxml");
     }
 
     @FXML
-    void editarProduto(ActionEvent event) {
+    void editar(ActionEvent event) {
     	if (!cardapioTableView.getSelectionModel().isEmpty()) {
     		Prato prato = cardapioTableView.getSelectionModel().getSelectedItem();
     		ObjetoSelecionado.getInstance().setObj(prato);
@@ -95,7 +95,7 @@ public class CardapioController extends Tela implements Initializable{
     }
 
     @FXML
-    void excluirProduto(ActionEvent event) {
+    void excluir(ActionEvent event) {
     	if (!cardapioTableView.getSelectionModel().isEmpty()) {
     		Alert alert = new Alert(AlertType.CONFIRMATION);
     		alert.setTitle("ATENÇÃO!");
@@ -111,7 +111,7 @@ public class CardapioController extends Tela implements Initializable{
 					e.printStackTrace();
 				}
 
-		    	carregarListaProdutos();
+		    	carregarCardapio();
     		}
     	} else {
     		Alert alert = new Alert(AlertType.WARNING);
@@ -122,7 +122,7 @@ public class CardapioController extends Tela implements Initializable{
     	}
     }
 
-    public void carregarListaProdutos() {
+    public void carregarCardapio() {
 		
 		idTableColumn.setCellValueFactory(new PropertyValueFactory<Prato, String>("id"));
 		nomeTableColumn.setCellValueFactory(new PropertyValueFactory<Prato, String>("nome"));
@@ -150,7 +150,7 @@ public class CardapioController extends Tela implements Initializable{
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		carregarListaProdutos();
+		carregarCardapio();
 		
 	}
 

@@ -79,9 +79,9 @@
             <ComboBox fx:id="mdpComboBox" prefWidth="150.0" promptText="Selecione" GridPane.rowIndex="3" />
          </children>
       </GridPane>
-      <TableView fx:id="pratosTableView" prefHeight="180.0" prefWidth="250.0" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="185.0" AnchorPane.topAnchor="155.0">
+      <TableView fx:id="comprasTableView" prefHeight="180.0" prefWidth="250.0" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="185.0" AnchorPane.topAnchor="155.0">
          <columns>
-            <TableColumn fx:id="pratoTableColumn" prefWidth="75.0" text="LISTA DE PRATOS" />
+            <TableColumn fx:id="pratoTableColumn" prefWidth="75.0" text="COMPRA" />
          </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

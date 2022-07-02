@@ -122,4 +122,9 @@ public class Prato extends Entidade{
 		produtosTemp = produtosTemp.substring(0, produtosTemp.length()-2);
 		return produtosTemp;
 	}
+	
+	public String toString() {
+		return this.nome;
+		
+	}
 }

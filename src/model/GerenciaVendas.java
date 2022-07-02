@@ -113,6 +113,7 @@ public class GerenciaVendas implements VendaCopyable {
 		for (Cliente clienteTemp: listaClientes) {
 			if (clienteTemp.getNome().equals(info[2])) {
 				cliente = clienteTemp;
+				break;
 			}
 		}
 		
@@ -144,10 +145,11 @@ public class GerenciaVendas implements VendaCopyable {
 	 * @param listaProdutos Lista de produtos
 	 * @return true caso a edição ocorra corretamente, false caso ocorra algum problema durante o processo.
 	 * @throws VendaNaoCadastrada 
+	 * @throws ClienteNaoCadastrado 
 	 */
 	@Override
-	public boolean editarVenda(ArrayList<Venda> listaVendas, ArrayList<Prato> cardapio, String codigoVenda, String [] info, HashMap<String, ArrayList<Produto>> listaProdutos) 
-			throws FormatoDataInvalido, FormatoHorarioInvalido, PratoNaoCadastrado, QuantidadeProdutosInsuficiente, ErroGrave, VendaNaoCadastrada{
+	public boolean editarVenda(ArrayList<Venda> listaVendas, ArrayList<Prato> cardapio, String codigoVenda, String [] info, HashMap<String, ArrayList<Produto>> listaProdutos, ArrayList<Cliente> listaClientes) 
+			throws FormatoDataInvalido, FormatoHorarioInvalido, PratoNaoCadastrado, QuantidadeProdutosInsuficiente, ErroGrave, VendaNaoCadastrada, ClienteNaoCadastrado{
 		
 		try {
 			for(Venda venda : listaVendas) {
@@ -259,11 +261,24 @@ public class GerenciaVendas implements VendaCopyable {
 						precoTotal += prato.getPreco();
 					}
 					
+					Cliente cliente = null;
+					for (Cliente clienteTemp: listaClientes) {
+						if (clienteTemp.getNome().equals(info[5])) {
+							cliente = clienteTemp;
+							break;
+						}
+					}
+					
+					if (cliente == null) {
+						throw new ClienteNaoCadastrado();
+					}
+					
 					venda.setData(dia);
 					venda.setHorario(horario);
 					venda.setPratos(pratos);
 					venda.setPrecoTotal(precoTotal);
 					venda.setMetodoDePagamento(info[3]);
+					venda.setCliente(cliente);
 					
 					return true;
 				}
