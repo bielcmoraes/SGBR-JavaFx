@@ -171,6 +171,7 @@ public class EditarFornecedorController implements Initializable{
     	produtosColuna.setCellValueFactory(new PropertyValueFactory<Produto, String>("nome"));
     	produtosTableView.setItems(produtosDaTabela);
     }
+	
 	private void atualizarPainel(String url) {
 		try {
 			AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource(url));
