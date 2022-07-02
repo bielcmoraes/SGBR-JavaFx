@@ -29,7 +29,7 @@ import model.Venda;
 public class PreCadastro {
 	
 	public void PreCadastrarProdutos (HashMap<String, ArrayList<Produto>> listaProdutos, ArrayList<String> listaIds, ArrayList<Fornecedor> listaFornecedor) {
-		GerenciaProdutos gerenciaProdutos = new GerenciaProdutos();
+		
 		
 		String [] info = new String[5];
 		info[0] = "Batata"; //nome;
@@ -38,6 +38,7 @@ public class PreCadastro {
 		info[3] = "10/10/2022"; //validade;
 		info[4] = "Joao, Maria"; //fornecedores;
 		try {
+			GerenciaProdutos gerenciaProdutos = new GerenciaProdutos();
 			gerenciaProdutos.cadastrarProduto(listaProdutos, listaIds, info, listaFornecedor);
 		} catch (PrecoInvalido | FormatoQuantidadeInvalido | QuantidadeInvalida | FormatoDataInvalido
 				| FornecedorNaoCadastrado | ErroGrave e) {
@@ -50,6 +51,7 @@ public class PreCadastro {
 		info[3] = "20/10/2022";//validade;
 		info[4] = "Maria";//fornecedores;
 		try {
+			GerenciaProdutos gerenciaProdutos = new GerenciaProdutos();
 			gerenciaProdutos.cadastrarProduto(listaProdutos, listaIds, info, listaFornecedor);
 		} catch (PrecoInvalido | FormatoQuantidadeInvalido | QuantidadeInvalida | FormatoDataInvalido
 				| FornecedorNaoCadastrado | ErroGrave e) {
@@ -62,6 +64,7 @@ public class PreCadastro {
 		info[3] = "28/10/2021";//validade;
 		info[4] = "Joao, Maria";//fornecedores;
 		try {
+			GerenciaProdutos gerenciaProdutos = new GerenciaProdutos();
 			gerenciaProdutos.cadastrarProduto(listaProdutos, listaIds, info, listaFornecedor);
 		} catch (PrecoInvalido | FormatoQuantidadeInvalido | QuantidadeInvalida | FormatoDataInvalido
 				| FornecedorNaoCadastrado | ErroGrave e) {
@@ -74,6 +77,7 @@ public class PreCadastro {
 		info[3] = "15/09/2022";//validade;
 		info[4] = "Jose";//fornecedores;
 		try {
+			GerenciaProdutos gerenciaProdutos = new GerenciaProdutos();
 			gerenciaProdutos.cadastrarProduto(listaProdutos, listaIds, info, listaFornecedor);
 		} catch (PrecoInvalido | FormatoQuantidadeInvalido | QuantidadeInvalida | FormatoDataInvalido
 				| FornecedorNaoCadastrado | ErroGrave e) {
@@ -86,6 +90,7 @@ public class PreCadastro {
 		info[3] = "15/09/2022";//validade;
 		info[4] = "Jose";//fornecedores;
 		try {
+			GerenciaProdutos gerenciaProdutos = new GerenciaProdutos();
 			gerenciaProdutos.cadastrarProduto(listaProdutos, listaIds, info, listaFornecedor);
 		} catch (PrecoInvalido | FormatoQuantidadeInvalido | QuantidadeInvalida | FormatoDataInvalido
 				| FornecedorNaoCadastrado | ErroGrave e) {
@@ -98,6 +103,7 @@ public class PreCadastro {
 		info[3] = "02/09/2021";//validade;
 		info[4] = "Jose";//fornecedores;
 		try {
+			GerenciaProdutos gerenciaProdutos = new GerenciaProdutos();
 			gerenciaProdutos.cadastrarProduto(listaProdutos, listaIds, info, listaFornecedor);
 		} catch (PrecoInvalido | FormatoQuantidadeInvalido | QuantidadeInvalida | FormatoDataInvalido
 				| FornecedorNaoCadastrado | ErroGrave e) {
@@ -110,6 +116,7 @@ public class PreCadastro {
 		info[3] = "01/09/2020";//validade;
 		info[4] = "Jose";//fornecedores;
 		try {
+			GerenciaProdutos gerenciaProdutos = new GerenciaProdutos();
 			gerenciaProdutos.cadastrarProduto(listaProdutos, listaIds, info, listaFornecedor);
 		} catch (PrecoInvalido | FormatoQuantidadeInvalido | QuantidadeInvalida | FormatoDataInvalido
 				| FornecedorNaoCadastrado | ErroGrave e) {
@@ -122,6 +129,7 @@ public class PreCadastro {
 		info[3] = "20/08/2022";//validade;
 		info[4] = "Jose";//fornecedores;
 		try {
+			GerenciaProdutos gerenciaProdutos = new GerenciaProdutos();
 			gerenciaProdutos.cadastrarProduto(listaProdutos, listaIds, info, listaFornecedor);
 		} catch (PrecoInvalido | FormatoQuantidadeInvalido | QuantidadeInvalida | FormatoDataInvalido
 				| FornecedorNaoCadastrado | ErroGrave e) {
@@ -134,6 +142,7 @@ public class PreCadastro {
 		info[3] = "25/10/2022";//validade;
 		info[4] = "Jose";//fornecedores;
 		try {
+			GerenciaProdutos gerenciaProdutos = new GerenciaProdutos();
 			gerenciaProdutos.cadastrarProduto(listaProdutos, listaIds, info, listaFornecedor);
 		} catch (PrecoInvalido | FormatoQuantidadeInvalido | QuantidadeInvalida | FormatoDataInvalido
 				| FornecedorNaoCadastrado | ErroGrave e) {
@@ -142,15 +151,14 @@ public class PreCadastro {
 	}
 	
 	public void PreCadastrarFornecedores (ArrayList<Fornecedor> listaFornecedor, ArrayList<String> listaIds){
-		GerenciaFornecedor gerenciaFornecedor = new GerenciaFornecedor();
 		
 		String [] info = new String[3];
 		info[0] = "Joao";//nome;
 		info[1] = "77.994.900/0001-26";//cnpj;
 		info[2] = "Rua A";//endereco;
-		ArrayList<String> produtos = new ArrayList<String>();
 		try {
-			gerenciaFornecedor.cadastrarFornecedor(listaFornecedor, listaIds, info, produtos);
+			GerenciaFornecedor gerenciaFornecedor = new GerenciaFornecedor();
+			gerenciaFornecedor.cadastrarFornecedor(listaFornecedor, listaIds, info, new ArrayList<String>());
 		} catch (ErroGrave e) {
 			System.out.println(e.toString());
 		}
@@ -159,16 +167,18 @@ public class PreCadastro {
 		info[1] = "37.889.838/0001-98";//cnpj;
 		info[2] = "Rua B";//endereco;
 		try {
-			gerenciaFornecedor.cadastrarFornecedor(listaFornecedor, listaIds, info, produtos);
+			GerenciaFornecedor gerenciaFornecedor = new GerenciaFornecedor();
+			gerenciaFornecedor.cadastrarFornecedor(listaFornecedor, listaIds, info, new ArrayList<String>());
 		} catch (ErroGrave e) {
 			System.out.println(e.toString());
 		}
 		
 		info[0] = "Jose";//nome;
-		info[1] = "37.889.838/0001-98";//cnpj;
+		info[1] = "29.742.904/0001-74";//cnpj;
 		info[2] = "Rua C";//endereco;
 		try {
-			gerenciaFornecedor.cadastrarFornecedor(listaFornecedor, listaIds, info, produtos);
+			GerenciaFornecedor gerenciaFornecedor = new GerenciaFornecedor();
+			gerenciaFornecedor.cadastrarFornecedor(listaFornecedor, listaIds, info, new ArrayList<String>());
 		} catch (ErroGrave e) {
 			System.out.println(e.toString());
 		}

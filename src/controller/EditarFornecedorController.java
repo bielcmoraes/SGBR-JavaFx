@@ -26,7 +26,6 @@ import model.BancoDeDados;
 import model.Fornecedor;
 import model.GerenciaFornecedor;
 import model.Produto;
-import model.Usuario;
 
 public class EditarFornecedorController implements Initializable{
 
@@ -66,6 +65,7 @@ public class EditarFornecedorController implements Initializable{
     private ObservableList<String> obsProdutos;
     private ObservableList<Produto> produtosDaTabela;
     private Fornecedor fornecedor = (Fornecedor) ObjetoSelecionado.getInstance().getObj();
+    GerenciaFornecedor gerenciaFornecedor = new GerenciaFornecedor();
     
     //Metodos
     
@@ -106,26 +106,23 @@ public class EditarFornecedorController implements Initializable{
     @FXML
     void atualizar(ActionEvent event) {
     	if(!nomeTextField.getText().isBlank() && !enderecoTextField.getText().isBlank() && !cnpjTextField.getText().isBlank()) {
-    		Fornecedor fornecedor = (Fornecedor) ObjetoSelecionado.getInstance().getObj();
+    		
     		String nome = nomeTextField.getText();
     		String endereco = enderecoTextField.getText();
     		String cnpj = cnpjTextField.getText();
     		
     		String [] info = new String[3];
     		info[0] = nome;
-			info[1] = endereco;
-			info[2] = cnpj;
+			info[1] = cnpj;
+			info[2] = endereco;
 			
 			ArrayList<String> produtos = new ArrayList<String>();
 			for(Produto produto : produtosDaTabela) {
 				produtos.add(produto.getNome());
 			}
-			GerenciaFornecedor gerenciaFornecedor = new GerenciaFornecedor();
-			
 			try {
 				gerenciaFornecedor.editarFornecedor(BancoDeDados.getInstance().getListaFornecedores(), fornecedor.getId(), info, produtos);
 			} catch (ErroGrave | NaoEncontrado e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			atualizarPainel("/view/Fornecedores.fxml");
@@ -144,7 +141,7 @@ public class EditarFornecedorController implements Initializable{
     }
     
     private void carregarDados() {
-		Fornecedor fornecedor = (Fornecedor) ObjetoSelecionado.getInstance().getObj();
+		
 		nomeTextField.setText(fornecedor.getNome());
 		enderecoTextField.setText(fornecedor.getEndereco());
 		cnpjTextField.setText(fornecedor.getCnpj());

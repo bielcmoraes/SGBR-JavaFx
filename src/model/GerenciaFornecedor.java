@@ -43,26 +43,19 @@ public class GerenciaFornecedor {
 	 * @throws ErroGrave 
 	 * @throws NaoEncontrado 
 	 */
-	public boolean editarFornecedor(ArrayList<Fornecedor> listaFornecedores, String codigoFornecedor, String [] info, ArrayList<String> produtos) throws ErroGrave, NaoEncontrado {
-			
-			try {
-				for(Fornecedor fornecedor : listaFornecedores) {
-					if(fornecedor.getId().equals(codigoFornecedor)) {
-						fornecedor.setNome(info[0]);
-						fornecedor.setCnpj(info[1]);
-						fornecedor.setEndereco(info[2]);
-						fornecedor.setProdutos(produtos);
-						return true;
-					}else {
-						throw new NaoEncontrado("Fornecedor");
-					}
-				}
-			}catch(ArrayIndexOutOfBoundsException a){
-				throw new ErroGrave();
-			}catch( NullPointerException a) {
-				throw new ErroGrave();
-			}
-		return false;
+	public boolean editarFornecedor(ArrayList<Fornecedor> listaFornecedores, String fornecedorId, String [] info, ArrayList<String> produtos) throws ErroGrave, NaoEncontrado {
+	for(Fornecedor f1 : listaFornecedores) {
+		if(fornecedorId.equals(f1.getId())) {
+			f1.setNome(info[0]);
+			f1.setCnpj(info[1]);
+			f1.setEndereco(info[2]);
+			f1.setProdutos(produtos);
+			return true;
+		}
+	}
+	return false;	
+	
+				
 	}
 	
 	/**Se a lista de fornecedores e a lista de id's forem diferentes de null, um for each percorre os objetos da lista de fornecedores e verifica se
