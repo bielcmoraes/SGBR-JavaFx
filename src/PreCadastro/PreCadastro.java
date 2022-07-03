@@ -5,29 +5,24 @@ import java.util.HashMap;
 
 import exceptions.ClienteNaoCadastrado;
 import exceptions.ErroGrave;
-import exceptions.EscolhaIncorreta;
 import exceptions.FormatoDataInvalido;
 import exceptions.FormatoIngredientesInvalido;
 import exceptions.FormatoQuantidadeInvalido;
 import exceptions.FornecedorNaoCadastrado;
-import exceptions.LoginJaCadastrado;
 import exceptions.PratoNaoCadastrado;
 import exceptions.PrecoInvalido;
 import exceptions.ProdutoNaoCadastrado;
 import exceptions.QuantidadeInvalida;
 import exceptions.QuantidadeProdutosInsuficiente;
-import model.BancoDeDados;
 import model.Cliente;
 import model.Fornecedor;
 import model.GerenciaCardapio;
 import model.GerenciaCliente;
 import model.GerenciaFornecedor;
 import model.GerenciaProdutos;
-import model.GerenciaUsuario;
 import model.GerenciaVendas;
 import model.Prato;
 import model.Produto;
-import model.Usuario;
 import model.Venda;
 
 public class PreCadastro {
@@ -278,7 +273,7 @@ public class PreCadastro {
 		}
 		
 		info[0] = "Cachorro Quente, Pure de Batata";
-		info[1] = "Cartão";
+		info[1] = "Cartï¿½o";
 		info[2] = "Fernando Marcos Vinicius Melo";
 		
 		try {

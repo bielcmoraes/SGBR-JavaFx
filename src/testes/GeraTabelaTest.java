@@ -19,7 +19,6 @@ import model.Produto;
 
 class GeraTabelaTest {
 	
-	private BancoDeDados bd = new BancoDeDados();
 	PreCadastro pc = new PreCadastro();
 	GeraTabela gt = new GeraTabela();
 	@BeforeEach
@@ -31,15 +30,13 @@ class GeraTabelaTest {
 	
 	@Test
 	void estoqueTotalComListaDeProdutosVazia() throws ErroGrave {
-		assertTrue((gt.estoqueTotal(bd.getListaProdutos()) instanceof Table), "Tentando gerar tabela de estoque total com lista não instanciada");	
+		assertTrue((gt.estoqueTotal(BancoDeDados.getInstance().getListaProdutos()) instanceof Table), "Tentando gerar tabela de estoque total com lista não instanciada");	
 
 	}
 	
 	@Test
 	void estoqueTotalComSucesso() throws ErroGrave {
-		pc.PreCadastrarProdutos(bd);
-		pc.PreCadastrarProdutos(bd);
-		assertTrue((gt.estoqueTotal(bd.getListaProdutos()) instanceof Table), "Tentando gerar tabela de estoque total com lista não instanciada");	
+		assertTrue((gt.estoqueTotal(BancoDeDados.getInstance().getListaProdutos()) instanceof Table), "Tentando gerar tabela de estoque total com lista não instanciada");	
 
 	}
 	
@@ -50,15 +47,12 @@ class GeraTabelaTest {
 	
 	@Test 
 	void estoquePorProdutoComListaDeProdutosVazia() throws ErroGrave {
-		assertTrue((gt.estoquePorProduto(bd.getListaProdutos()) instanceof Table));
+		assertTrue((gt.estoquePorProduto(BancoDeDados.getInstance().getListaProdutos()) instanceof Table));
 	}
 	
 	@Test 
 	void estoquePorProdutoComSucesso() throws ErroGrave {
-		pc.PreCadastrarProdutos(bd);
-		pc.PreCadastrarProdutos(bd);
-		pc.PreCadastrarProdutos(bd);
-		assertTrue((gt.estoquePorProduto(bd.getListaProdutos()) instanceof Table));
+		assertTrue((gt.estoquePorProduto(BancoDeDados.getInstance().getListaProdutos()) instanceof Table));
 	}
 	
 	@Test
@@ -68,14 +62,14 @@ class GeraTabelaTest {
 	
 	@Test
 	void estoqueProdutosPertoDeVencerComListaVazia() throws ErroGrave {
-		assertTrue((gt.estoqueProdutosPertoDeVencer(bd.getListaProdutos()) instanceof Table ), "Tentando gerar tabela de estoque produtos perto de vencer com lista não instanciada");	
+		assertTrue((gt.estoqueProdutosPertoDeVencer(BancoDeDados.getInstance().getListaProdutos()) instanceof Table ), "Tentando gerar tabela de estoque produtos perto de vencer com lista não instanciada");	
 	}
 	
 	@Test
 	void estoqueProdutosPertoDeVencerComSucesso() throws ErroGrave {
 		LocalDate validade = LocalDate.of(2022, 05, 07);
-		Produto pertoDeVencer = new Produto(bd.getListaIds(), "Pao", 0.5, 10.0, "Un", validade, bd.getListaFornecedores());
-		assertTrue((gt.estoqueProdutosPertoDeVencer(bd.getListaProdutos()) instanceof Table ), "Tentando gerar tabela de estoque produtos perto de vencer com lista não instanciada");	
+		Produto pertoDeVencer = new Produto(BancoDeDados.getInstance().getListaIds(), "Pao", 0.5, 10.0, "Un", validade, BancoDeDados.getInstance().getListaFornecedores());
+		assertTrue((gt.estoqueProdutosPertoDeVencer(BancoDeDados.getInstance().getListaProdutos()) instanceof Table ), "Tentando gerar tabela de estoque produtos perto de vencer com lista não instanciada");	
 	}
 	
 	
@@ -86,32 +80,29 @@ class GeraTabelaTest {
 	
 	@Test
 	void estoqueProdutosVencidosComListaVazia() throws ErroGrave {
-		assertTrue((gt.estoqueProdutosVencidos(bd.getListaProdutos()) instanceof Table ), "Tentando gerar tabela de estoque produtos perto de vencer com lista não instanciada");	
+		assertTrue((gt.estoqueProdutosVencidos(BancoDeDados.getInstance().getListaProdutos()) instanceof Table ), "Tentando gerar tabela de estoque produtos perto de vencer com lista não instanciada");	
 	}
 	
 	@Test
 	void estoqueProdutosVencidosComSucesso() throws ErroGrave {
 		LocalDate validade = LocalDate.of(2020, 05, 07);
-		Produto pertoDeVencer = new Produto(bd.getListaIds(), "Pao", 0.5, 10.0, "Un", validade, bd.getListaFornecedores());
-		assertTrue((gt.estoqueProdutosVencidos(bd.getListaProdutos()) instanceof Table ), "Tentando gerar tabela de estoque produtos perto de vencer com lista não instanciada");	
+		Produto pertoDeVencer = new Produto(BancoDeDados.getInstance().getListaIds(), "Pao", 0.5, 10.0, "Un", validade, BancoDeDados.getInstance().getListaFornecedores());
+		assertTrue((gt.estoqueProdutosVencidos(BancoDeDados.getInstance().getListaProdutos()) instanceof Table ), "Tentando gerar tabela de estoque produtos perto de vencer com lista não instanciada");	
 	}
 	
 	@Test
 	void fornecedorPorProdutoComListaNull() {
-		pc.PreCadastrarFornecedores(bd);
 		assertThrows(ErroGrave.class, () -> gt.fornecedorPorProduto(null), "Tentando gerar tabela de fornecedor por fornecedor com lista não instanciada");	
 	}
 	
 	@Test
 	void fornecedorPorProdutoComListaVazia() throws ErroGrave {
-		assertTrue((gt.fornecedorPorProduto(bd.getListaProdutos()) instanceof Table), "Tentando gerar tabela de fornecedor por produto com lista não instanciada");	
+		assertTrue((gt.fornecedorPorProduto(BancoDeDados.getInstance().getListaProdutos()) instanceof Table), "Tentando gerar tabela de fornecedor por produto com lista não instanciada");	
 	}
 	
 	@Test
 	void fornecedorPorProdutoComSucesso() throws ErroGrave {
-		pc.PreCadastrarFornecedores(bd);
-		pc.PreCadastrarProdutos(bd);
-		assertTrue((gt.fornecedorPorProduto(bd.getListaProdutos()) instanceof Table), "Tentando gerar tabela de fornecedor por produto com lista não instanciada");	
+		assertTrue((gt.fornecedorPorProduto(BancoDeDados.getInstance().getListaProdutos()) instanceof Table), "Tentando gerar tabela de fornecedor por produto com lista não instanciada");	
 	}
 	
 	@Test
@@ -121,14 +112,12 @@ class GeraTabelaTest {
 	
 	@Test
 	void fornecedorPorFornecedorComListaVazia() throws ErroGrave {
-		assertTrue((gt.fornecedorPorFornecedor(bd.getListaFornecedores()) instanceof Table), "Tentando gerar tabela de fornecedor por produto com lista não instanciada");	
+		assertTrue((gt.fornecedorPorFornecedor(BancoDeDados.getInstance().getListaFornecedores()) instanceof Table), "Tentando gerar tabela de fornecedor por produto com lista não instanciada");	
 	}
 	
 	@Test
 	void fornecedorPorFornecedorComSucesso() throws ErroGrave {
-		pc.PreCadastrarFornecedores(bd);
-		pc.PreCadastrarProdutos(bd);
-		assertTrue((gt.fornecedorPorFornecedor(bd.getListaFornecedores()) instanceof Table), "Tentando gerar tabela de fornecedor por produto com lista não instanciada");	
+		assertTrue((gt.fornecedorPorFornecedor(BancoDeDados.getInstance().getListaFornecedores()) instanceof Table), "Tentando gerar tabela de fornecedor por produto com lista não instanciada");	
 	}
 	
 	@Test
@@ -138,16 +127,12 @@ class GeraTabelaTest {
 	
 	@Test
 	void vendasTotalComListaVazia() throws ErroGrave {
-		assertTrue((gt.vendasTotal(bd.getListaVendas()) instanceof Table), "Tentando gerar tabela de vendas totais com lista não instanciada");	
+		assertTrue((gt.vendasTotal(BancoDeDados.getInstance().getListaVendas()) instanceof Table), "Tentando gerar tabela de vendas totais com lista não instanciada");	
 	}
 	
 	@Test
 	void vendasTotalComSucesso() throws ErroGrave {
-		pc.PreCadastrarFornecedores(bd);
-		pc.PreCadastrarProdutos(bd);
-		pc.PreCadastrarPratos(bd);
-		pc.preCadastrarVendas(bd);
-		assertTrue((gt.vendasTotal(bd.getListaVendas()) instanceof Table), "Tentando gerar tabela de vendas totais com lista não instanciada");	
+		assertTrue((gt.vendasTotal(BancoDeDados.getInstance().getListaVendas()) instanceof Table), "Tentando gerar tabela de vendas totais com lista não instanciada");	
 	}
 	
 	@Test
@@ -157,16 +142,12 @@ class GeraTabelaTest {
 	
 	@Test
 	void vendasDiariasComListaVazia() throws ErroGrave {
-		assertTrue((gt.vendasDiarias(bd.getListaVendas()) instanceof Table), "Tentando gerar tabela de vendas diarias com lista não instanciada");	
+		assertTrue((gt.vendasDiarias(BancoDeDados.getInstance().getListaVendas()) instanceof Table), "Tentando gerar tabela de vendas diarias com lista não instanciada");	
 	}
 	
 	@Test
 	void vendasDiariasComSucesso() throws ErroGrave {
-		pc.PreCadastrarFornecedores(bd);
-		pc.PreCadastrarProdutos(bd);
-		pc.PreCadastrarPratos(bd);
-		pc.preCadastrarVendas(bd);
-		assertTrue((gt.vendasDiarias(bd.getListaVendas()) instanceof Table), "Tentando gerar tabela de vendas diarias com lista não instanciada");	
+		assertTrue((gt.vendasDiarias(BancoDeDados.getInstance().getListaVendas()) instanceof Table), "Tentando gerar tabela de vendas diarias com lista não instanciada");	
 	}
 	
 	@Test
@@ -176,16 +157,12 @@ class GeraTabelaTest {
 	
 	@Test
 	void vendasSemanalComListaVazia() throws ErroGrave {
-		assertTrue((gt.vendasSemanal(bd.getListaVendas()) instanceof Table), "Tentando gerar tabela de vendas diarias com lista não instanciada");	
+		assertTrue((gt.vendasSemanal(BancoDeDados.getInstance().getListaVendas()) instanceof Table), "Tentando gerar tabela de vendas diarias com lista não instanciada");	
 	}
 	
 	@Test
 	void vendasSemanalComSucesso() throws ErroGrave {
-		pc.PreCadastrarFornecedores(bd);
-		pc.PreCadastrarProdutos(bd);
-		pc.PreCadastrarPratos(bd);
-		pc.preCadastrarVendas(bd);
-		assertTrue((gt.vendasSemanal(bd.getListaVendas()) instanceof Table), "Tentando gerar tabela de vendas diarias com lista não instanciada");	
+		assertTrue((gt.vendasSemanal(BancoDeDados.getInstance().getListaVendas()) instanceof Table), "Tentando gerar tabela de vendas diarias com lista não instanciada");	
 	}
 	
 	@Test
@@ -195,16 +172,12 @@ class GeraTabelaTest {
 	
 	@Test
 	void vendasMensaisComListaVazia() throws ErroGrave {
-		assertTrue((gt.vendasMensais(bd.getListaVendas()) instanceof Table), "Tentando gerar tabela de vendas diarias com lista não instanciada");	
+		assertTrue((gt.vendasMensais(BancoDeDados.getInstance().getListaVendas()) instanceof Table), "Tentando gerar tabela de vendas diarias com lista não instanciada");	
 	}
 	
 	@Test
 	void vendasMensaisComSucesso() throws ErroGrave {
-		pc.PreCadastrarFornecedores(bd);
-		pc.PreCadastrarProdutos(bd);
-		pc.PreCadastrarPratos(bd);
-		pc.preCadastrarVendas(bd);
-		assertTrue((gt.vendasMensais(bd.getListaVendas()) instanceof Table), "Tentando gerar tabela de vendas diarias com lista não instanciada");	
+		assertTrue((gt.vendasMensais(BancoDeDados.getInstance().getListaVendas()) instanceof Table), "Tentando gerar tabela de vendas diarias com lista não instanciada");	
 	}
 	
 	@Test
@@ -214,15 +187,11 @@ class GeraTabelaTest {
 	
 	@Test
 	void vendasPorTipoDePratoComListaVazia() throws ErroGrave {
-		assertTrue((gt.vendasPorTipoDePrato(bd.getListaVendas()) instanceof Table), "Tentando gerar tabela de vendas diarias com lista não instanciada");	
+		assertTrue((gt.vendasPorTipoDePrato(BancoDeDados.getInstance().getListaVendas()) instanceof Table), "Tentando gerar tabela de vendas diarias com lista não instanciada");	
 	}
 	
 	@Test
 	void vendasPorTipoDePratoComSucesso() throws ErroGrave {
-		pc.PreCadastrarFornecedores(bd);
-		pc.PreCadastrarProdutos(bd);
-		pc.PreCadastrarPratos(bd);
-		pc.preCadastrarVendas(bd);
-		assertTrue((gt.vendasPorTipoDePrato(bd.getListaVendas()) instanceof Table), "Tentando gerar tabela de vendas diarias com lista não instanciada");	
+		assertTrue((gt.vendasPorTipoDePrato(BancoDeDados.getInstance().getListaVendas()) instanceof Table), "Tentando gerar tabela de vendas diarias com lista não instanciada");	
 	}
 }

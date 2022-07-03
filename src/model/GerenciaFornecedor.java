@@ -44,15 +44,18 @@ public class GerenciaFornecedor {
 	 * @throws NaoEncontrado 
 	 */
 	public boolean editarFornecedor(ArrayList<Fornecedor> listaFornecedores, String fornecedorId, String [] info, ArrayList<String> produtos) throws ErroGrave, NaoEncontrado {
-	for(Fornecedor f1 : listaFornecedores) {
-		if(fornecedorId.equals(f1.getId())) {
-			f1.setNome(info[0]);
-			f1.setCnpj(info[1]);
-			f1.setEndereco(info[2]);
-			f1.setProdutos(produtos);
-			return true;
+		if(listaFornecedores != null) {
+			
+			for(Fornecedor f1 : listaFornecedores) {
+				if(fornecedorId.equals(f1.getId())) {
+					f1.setNome(info[0]);
+					f1.setCnpj(info[1]);
+					f1.setEndereco(info[2]);
+					f1.setProdutos(produtos);
+					return true;
+				}
+			}
 		}
-	}
 	return false;	
 	
 				
