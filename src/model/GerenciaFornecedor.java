@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import exceptions.ErroGrave;
 import exceptions.NaoEncontrado;
 
-/**Classe responsável por implementar os metódos de cadastrar, editar e excluir fornecedor que foram especificados na classe FornecedorCopyable.
+/**Classe responsável por implementar os metódos de cadastrar, editar e excluir .
  * 
  * @author Gabriel Moraes
  * @author Luis Fernando Cintra
@@ -37,11 +37,7 @@ public class GerenciaFornecedor {
 	 * e verifica se existe um objeto na lista quem tem o atributo de id igual ao codigo de fornecedor que é passado como parâmetro. Se existir um
 	 * fornecedor com o id igual ao código de fornecedor as informações são substituidas pelos novos valores que passados pelo usuário através do 
 	 * vetor info. As substituições das informações são feitas utilizando os metódos de setters presentes na classe Fornecedor e é retornado true.
-	 * Caso não exista um fornecedor com id igual ao codigo de fornecedor uma excessão para objeto não encontrado é lançada. Se lista de fornecedores ou o vetor info tiverem valor null, o metódo 
-	 * lança uma excessão expecífica para este caso.
 	 * 
-	 * @throws ErroGrave 
-	 * @throws NaoEncontrado 
 	 */
 	public boolean editarFornecedor(ArrayList<Fornecedor> listaFornecedores, String fornecedorId, String [] info, ArrayList<String> produtos) throws ErroGrave, NaoEncontrado {
 		if(listaFornecedores != null) {
