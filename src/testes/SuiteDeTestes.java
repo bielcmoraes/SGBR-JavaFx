@@ -8,10 +8,10 @@ import org.junit.platform.suite.api.Suite;
 	//BancoDeDadosTest.class,
 	GeraRelatorioTest.class,
 	GeraTabelaTest.class,
-	GerenciaFornecedorTest.class,
+	GerenciaVendaTest.class,
 	GerenciaProdutoTest.class,
 	GerenciaCardapioTest.class,
-	GerenciaVendaTest.class,
+	GerenciaFornecedorTest.class,
 	GerenciaUsuarioTest.class,
 	LoginTest.class
 })
