@@ -41,7 +41,7 @@ public class GerenciaCliente {
 	 */
 	public boolean editarCliente(ArrayList<Cliente> listaClientes, String codigoCliente, String[] info) throws ErroGrave, NaoEncontrado {
 		
-		if(listaClientes != null) {
+		try {
 			
 			for(Cliente cliente : listaClientes) {
 				if(cliente.getId().equals(codigoCliente)) {
@@ -53,6 +53,11 @@ public class GerenciaCliente {
 					
 				}
 			}
+			
+		}catch(ArrayIndexOutOfBoundsException a){
+			throw new ErroGrave();
+		}catch( NullPointerException a) {
+			throw new ErroGrave();
 		}
 		return false;
 		}

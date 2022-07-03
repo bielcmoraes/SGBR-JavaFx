@@ -84,7 +84,7 @@ class GerenciaClienteTest {
 	
 	@Test
 	void excluindoClienteCodigoClienteIncorreto() throws ErroGrave, NaoEncontrado {
-		assertThrows(NaoEncontrado.class, () -> gc.excluirCliente(BancoDeDados.getInstance().getListaClientes(), BancoDeDados.getInstance().getListaIds(), codigoCliente));
+		assertFalse(gc.excluirCliente(BancoDeDados.getInstance().getListaClientes(), BancoDeDados.getInstance().getListaIds(), codigoCliente));
 	}
 	
 	@Test
