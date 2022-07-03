@@ -9,20 +9,17 @@ public class GerenciaCliente {
 
 	public boolean cadastrarCliente(ArrayList<Cliente> listaClientes, ArrayList<String> listaIds, String[] info) throws ErroGrave {
 		
-		if(listaClientes != null) {
-			Cliente novoCliente = new Cliente(listaIds, info[0], info[1], info[2], info[3]);
+		Cliente novoCliente = new Cliente(listaIds, info[0], info[1], info[2], info[3]);
 			
-			try {
-				listaClientes.add(novoCliente);
-				return true;
-				
-			}catch(ArrayIndexOutOfBoundsException a){
-				throw new ErroGrave();
-			}catch( NullPointerException a) {
-				throw new ErroGrave();
-			}
+		try {
+			listaClientes.add(novoCliente);
+			return true;
+			
+		}catch(ArrayIndexOutOfBoundsException a){
+			throw new ErroGrave();
+		}catch( NullPointerException a) {
+			throw new ErroGrave();
 		}
-		return false;
 	}
 
 	public boolean editarCliente(ArrayList<Cliente> listaClientes, String codigoCliente, String[] info) throws ErroGrave, NaoEncontrado {

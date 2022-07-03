@@ -33,7 +33,7 @@ class GerenciaFornecedorTest {
 	}
 	
 	@Test
-	void adicionandoUmFornecedorNaListaVazia() throws ErroGrave {
+	void adicionandoUmFornecedorNaLista() throws ErroGrave {
 		GerenciaFornecedor gf = new GerenciaFornecedor();
 		String [] info = new String[3] ;
 		info[0] = "Fornecedor1";
@@ -78,6 +78,7 @@ class GerenciaFornecedorTest {
 		info[2] = "Rua de baixo";
 		assertFalse(gf.editarFornecedor(BancoDeDados.getInstance().getListaFornecedores(), codigoFornecedor, info, produtos), "Tentando editar fornecedor com codigo de fornecedor incorreto");
 	}
+	
 	@Test
 	void editanfoFornecedorComSucesso() throws ErroGrave, NaoEncontrado {
 		GerenciaFornecedor gf = new GerenciaFornecedor();
