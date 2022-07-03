@@ -1,7 +1,8 @@
 package testes;
 
-import static org.junit.jupiter.api.Assertions.*;
-import junit.framework.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
 import org.junit.jupiter.api.Test;
 
 import model.BancoDeDados;
@@ -12,8 +13,7 @@ public class LoginTest {
 	
 	@Test
 	public void autenticaLoginListaUsuarioNull(){
-		BancoDeDados bd = new BancoDeDados();
-		Login lo = new Login(bd.getListaUsuarios());
+		Login lo = new Login(BancoDeDados.getInstance().getListaUsuarios());
 		String login = "patati";
 		String senha = "patata";
 		assertNull(lo.autenticarLogin(null, login, senha), "Tentando logar com a lista de usuarios null");
@@ -21,21 +21,19 @@ public class LoginTest {
 	
 	@Test
 	public void falhaAutenticaLogin() {
-		BancoDeDados bd = new BancoDeDados();
-		Login lo = new Login(bd.getListaUsuarios());
+		Login lo = new Login(BancoDeDados.getInstance().getListaUsuarios());
 		String login = "patati";
 		String  senha = "patata";
-		assertNull(lo.autenticarLogin(bd.getListaUsuarios(), login, senha), "Tentando logar com informações incorretas");
+		assertNull(lo.autenticarLogin(BancoDeDados.getInstance().getListaUsuarios(), login, senha), "Tentando logar com informações incorretas");
 	}
 	
 	@Test
 	public void logandoComSucesso() {
-		BancoDeDados bd = new BancoDeDados();
-		Login lo = new Login(bd.getListaUsuarios());
+		Login lo = new Login(BancoDeDados.getInstance().getListaUsuarios());
 		String login = "admin";
 		String senha = "admin";
-		Usuario logado = bd.getListaUsuarios().get(0);
-		assertEquals(logado, lo.autenticarLogin(bd.getListaUsuarios(), login, senha),"Logando com sucesso");
+		Usuario logado = BancoDeDados.getInstance().getListaUsuarios().get(0);
+		assertEquals(logado, lo.autenticarLogin(BancoDeDados.getInstance().getListaUsuarios(), login, senha),"Logando com sucesso");
 	}
 
 }
