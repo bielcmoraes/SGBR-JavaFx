@@ -5,14 +5,14 @@ import org.junit.platform.suite.api.Suite;
 
 @Suite
 @SelectClasses({
-	BancoDeDadosTest.class,
+	//BancoDeDadosTest.class,
 	GeraRelatorioTest.class,
 	GeraTabelaTest.class,
-	GerenciaCardapioTest.class,
 	GerenciaFornecedorTest.class,
 	GerenciaProdutoTest.class,
-	GerenciaUsuarioTest.class,
+	GerenciaCardapioTest.class,
 	GerenciaVendaTest.class,
+	GerenciaUsuarioTest.class,
 	LoginTest.class
 })
 

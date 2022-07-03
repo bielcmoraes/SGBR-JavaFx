@@ -3,6 +3,8 @@ package testes;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -19,19 +21,9 @@ import model.GerenciaProdutos;
 
 class GerenciaProdutoTest {
 	
-	BancoDeDados bancoDeDados = new BancoDeDados();
 	GerenciaProdutos gerenciaProduto = new GerenciaProdutos();
 	GerenciaFornecedor gerenciaFornecedor = new GerenciaFornecedor();
 	String codigoProduto;
-	
-	@BeforeEach
-	void cadastrarFornecedor() throws ErroGrave {
-		String [] info = new String[3];
-		info[0] = "Joao";
-		info[1] = "77.994.900/0001-26";
-		info[2] = "Rua A";
-		gerenciaFornecedor.cadastrarFornecedor(bancoDeDados.getListaFornecedores(), bancoDeDados.getListaIds(), info);
-	}
 	
 	@Test
 	void cadastrandoProdutoComDadosValidos() throws PrecoInvalido, FormatoQuantidadeInvalido, QuantidadeInvalida, FormatoDataInvalido, FornecedorNaoCadastrado, ErroGrave {
@@ -42,7 +34,7 @@ class GerenciaProdutoTest {
 		info[2] = "10 kg";
 		info[3] = "28/07/2022";
 		info[4] = "Joao";
-		assertTrue(gerenciaProduto.cadastrarProduto(bancoDeDados.getListaProdutos(), bancoDeDados.getListaIds(), info, bancoDeDados.getListaFornecedores()),
+		assertTrue(gerenciaProduto.cadastrarProduto(BancoDeDados.getInstance().getListaProdutos(), BancoDeDados.getInstance().getListaIds(), info, BancoDeDados.getInstance().getListaFornecedores()),
 		"Tentando cadastrar um produto com dados validos");
 	}
 	
@@ -56,7 +48,7 @@ class GerenciaProdutoTest {
 		info[3] = "28/07/2022";
 		info[4] = "Joao";
 
-		assertThrows(PrecoInvalido.class, () -> gerenciaProduto.cadastrarProduto(bancoDeDados.getListaProdutos(), bancoDeDados.getListaIds(), info, bancoDeDados.getListaFornecedores()),
+		assertThrows(PrecoInvalido.class, () -> gerenciaProduto.cadastrarProduto(BancoDeDados.getInstance().getListaProdutos(), BancoDeDados.getInstance().getListaIds(), info, BancoDeDados.getInstance().getListaFornecedores()),
 		"Tentando cadastrar um produto com preco invalido");	
 	}
 	
@@ -70,7 +62,7 @@ class GerenciaProdutoTest {
 		info[3] = "28/07/2022";
 		info[4] = "Joao";
 
-		assertThrows(PrecoInvalido.class, () -> gerenciaProduto.cadastrarProduto(bancoDeDados.getListaProdutos(), bancoDeDados.getListaIds(), info, bancoDeDados.getListaFornecedores()),
+		assertThrows(PrecoInvalido.class, () -> gerenciaProduto.cadastrarProduto(BancoDeDados.getInstance().getListaProdutos(), BancoDeDados.getInstance().getListaIds(), info, BancoDeDados.getInstance().getListaFornecedores()),
 		"Tentando cadastrar um produto com preco negativo");	
 	}
 	
@@ -84,7 +76,7 @@ class GerenciaProdutoTest {
 		info[3] = "28/07/2022";
 		info[4] = "Joao";
 
-		assertThrows(FormatoQuantidadeInvalido.class, () -> gerenciaProduto.cadastrarProduto(bancoDeDados.getListaProdutos(), bancoDeDados.getListaIds(), info, bancoDeDados.getListaFornecedores()),
+		assertThrows(FormatoQuantidadeInvalido.class, () -> gerenciaProduto.cadastrarProduto(BancoDeDados.getInstance().getListaProdutos(), BancoDeDados.getInstance().getListaIds(), info, BancoDeDados.getInstance().getListaFornecedores()),
 		"Tentando cadastrar um produto com formato da quantidade invalido");	
 	}
 	
@@ -98,7 +90,7 @@ class GerenciaProdutoTest {
 		info[3] = "28/07/2022";
 		info[4] = "Joao";
 
-		assertThrows(QuantidadeInvalida.class, () -> gerenciaProduto.cadastrarProduto(bancoDeDados.getListaProdutos(), bancoDeDados.getListaIds(), info, bancoDeDados.getListaFornecedores()),
+		assertThrows(QuantidadeInvalida.class, () -> gerenciaProduto.cadastrarProduto(BancoDeDados.getInstance().getListaProdutos(), BancoDeDados.getInstance().getListaIds(), info, BancoDeDados.getInstance().getListaFornecedores()),
 		"Tentando cadastrar um produto com quantidade invalida");	
 	}
 	
@@ -112,7 +104,7 @@ class GerenciaProdutoTest {
 		info[3] = "28/07/2022";
 		info[4] = "Joao";
 
-		assertThrows(QuantidadeInvalida.class, () -> gerenciaProduto.cadastrarProduto(bancoDeDados.getListaProdutos(), bancoDeDados.getListaIds(), info, bancoDeDados.getListaFornecedores()),
+		assertThrows(QuantidadeInvalida.class, () -> gerenciaProduto.cadastrarProduto(BancoDeDados.getInstance().getListaProdutos(), BancoDeDados.getInstance().getListaIds(), info, BancoDeDados.getInstance().getListaFornecedores()),
 		"Tentando cadastrar um produto com quantidade negativa");	
 	}
 	
@@ -126,7 +118,7 @@ class GerenciaProdutoTest {
 		info[3] = "28 07 2022";
 		info[4] = "Joao";
 
-		assertThrows(FormatoDataInvalido.class, () -> gerenciaProduto.cadastrarProduto(bancoDeDados.getListaProdutos(), bancoDeDados.getListaIds(), info, bancoDeDados.getListaFornecedores()),
+		assertThrows(FormatoDataInvalido.class, () -> gerenciaProduto.cadastrarProduto(BancoDeDados.getInstance().getListaProdutos(), BancoDeDados.getInstance().getListaIds(), info, BancoDeDados.getInstance().getListaFornecedores()),
 		"Tentando cadastrar um produto com formato da data invalido");	
 	}
 	
@@ -138,9 +130,9 @@ class GerenciaProdutoTest {
 		info[1] = "10.5";
 		info[2] = "10 kg";
 		info[3] = "28/07/2022";
-		info[4] = "Jose";
+		info[4] = "Antonio";
 
-		assertThrows(FornecedorNaoCadastrado.class, () -> gerenciaProduto.cadastrarProduto(bancoDeDados.getListaProdutos(), bancoDeDados.getListaIds(), info, bancoDeDados.getListaFornecedores()),
+		assertThrows(FornecedorNaoCadastrado.class, () -> gerenciaProduto.cadastrarProduto(BancoDeDados.getInstance().getListaProdutos(), BancoDeDados.getInstance().getListaIds(), info, BancoDeDados.getInstance().getListaFornecedores()),
 		"Tentando cadastrar um produto com fornecedor nao cadastrado");	
 	}
 	
@@ -154,7 +146,7 @@ class GerenciaProdutoTest {
 		info[3] = "28/07/2022";
 		info[4] = "Joao";
 
-		assertThrows(ErroGrave.class, () -> gerenciaProduto.cadastrarProduto(null, bancoDeDados.getListaIds(), info, bancoDeDados.getListaFornecedores()),
+		assertThrows(ErroGrave.class, () -> gerenciaProduto.cadastrarProduto(null, BancoDeDados.getInstance().getListaIds(), info, BancoDeDados.getInstance().getListaFornecedores()),
 		"Tentando cadastrar um produto em lista nao instanciada");	
 	}
 	
@@ -167,23 +159,23 @@ class GerenciaProdutoTest {
 		info[2] = "10 kg";
 		info[3] = "28/07/2022";
 		info[4] = "Joao";
-		gerenciaProduto.cadastrarProduto(bancoDeDados.getListaProdutos(), bancoDeDados.getListaIds(), info, bancoDeDados.getListaFornecedores());
+		gerenciaProduto.cadastrarProduto(BancoDeDados.getInstance().getListaProdutos(), BancoDeDados.getInstance().getListaIds(), info, BancoDeDados.getInstance().getListaFornecedores());
 		
 		info[0] = "Carne";
 		info[1] = "10.5";
 		info[2] = "10 kg";
 		info[3] = "28/07/2022";
 		info[4] = "Joao";
-		gerenciaProduto.cadastrarProduto(bancoDeDados.getListaProdutos(), bancoDeDados.getListaIds(), info, bancoDeDados.getListaFornecedores());
+		gerenciaProduto.cadastrarProduto(BancoDeDados.getInstance().getListaProdutos(), BancoDeDados.getInstance().getListaIds(), info, BancoDeDados.getInstance().getListaFornecedores());
 		
 		info[0] = "Peixe";
 		info[1] = "10.5";
 		info[2] = "10 kg";
 		info[3] = "08/01/2022";
 		info[4] = "Joao";
-		gerenciaProduto.cadastrarProduto(bancoDeDados.getListaProdutos(), bancoDeDados.getListaIds(), info, bancoDeDados.getListaFornecedores());
+		gerenciaProduto.cadastrarProduto(BancoDeDados.getInstance().getListaProdutos(), BancoDeDados.getInstance().getListaIds(), info, BancoDeDados.getInstance().getListaFornecedores());
 		
-		assertEquals(3, bancoDeDados.getListaProdutos().size(), "Verificando tamanho das lista de produtos apos o cadastros de tres produtos diferentes");
+		assertEquals(7, BancoDeDados.getInstance().getListaProdutos().size(), "Verificando tamanho das lista de produtos apos o cadastros de tres produtos diferentes");
 	}
 	
 	@Test
@@ -195,23 +187,23 @@ class GerenciaProdutoTest {
 		info[2] = "10 kg";
 		info[3] = "28/07/2022";
 		info[4] = "Joao";
-		gerenciaProduto.cadastrarProduto(bancoDeDados.getListaProdutos(), bancoDeDados.getListaIds(), info, bancoDeDados.getListaFornecedores());
+		gerenciaProduto.cadastrarProduto(BancoDeDados.getInstance().getListaProdutos(), BancoDeDados.getInstance().getListaIds(), info, BancoDeDados.getInstance().getListaFornecedores());
 		
 		info[0] = "Frango";
 		info[1] = "10.5";
 		info[2] = "10 kg";
 		info[3] = "02/04/2022";
 		info[4] = "Joao";
-		gerenciaProduto.cadastrarProduto(bancoDeDados.getListaProdutos(), bancoDeDados.getListaIds(), info, bancoDeDados.getListaFornecedores());
+		gerenciaProduto.cadastrarProduto(BancoDeDados.getInstance().getListaProdutos(), BancoDeDados.getInstance().getListaIds(), info, BancoDeDados.getInstance().getListaFornecedores());
 		
 		info[0] = "Frango";
 		info[1] = "10.5";
 		info[2] = "10 kg";
 		info[3] = "08/01/2022";
 		info[4] = "Joao";
-		gerenciaProduto.cadastrarProduto(bancoDeDados.getListaProdutos(), bancoDeDados.getListaIds(), info, bancoDeDados.getListaFornecedores());
+		gerenciaProduto.cadastrarProduto(BancoDeDados.getInstance().getListaProdutos(), BancoDeDados.getInstance().getListaIds(), info, BancoDeDados.getInstance().getListaFornecedores());
 		
-		assertEquals(1, bancoDeDados.getListaProdutos().size(), "Verificando tamanho das lista de produtos apos o cadastros de tres produtos iguais");
+		assertEquals(7, BancoDeDados.getInstance().getListaProdutos().size(), "Verificando tamanho das lista de produtos apos o cadastros de tres produtos iguais");
 	}
 	
 	@BeforeEach
@@ -223,8 +215,8 @@ class GerenciaProdutoTest {
 		info[2] = "10 kg";
 		info[3] = "28/07/2022";
 		info[4] = "Joao";
-		gerenciaProduto.cadastrarProduto(bancoDeDados.getListaProdutos(), bancoDeDados.getListaIds(), info, bancoDeDados.getListaFornecedores());
-		codigoProduto = bancoDeDados.getListaProdutos().get("Frango").get(0).getId();
+		gerenciaProduto.cadastrarProduto(BancoDeDados.getInstance().getListaProdutos(), BancoDeDados.getInstance().getListaIds(), info, BancoDeDados.getInstance().getListaFornecedores());
+		codigoProduto = BancoDeDados.getInstance().getListaProdutos().get("Frango").get(0).getId();
 	}
 	
 	@Test
@@ -237,7 +229,7 @@ class GerenciaProdutoTest {
 		info[3] = "28/07/2022";
 		info[4] = "Joao";
 
-		assertTrue(gerenciaProduto.editarProduto(bancoDeDados.getListaProdutos(), codigoProduto, info, bancoDeDados.getListaFornecedores()),
+		assertTrue(gerenciaProduto.editarProduto(BancoDeDados.getInstance().getListaProdutos(), codigoProduto, info, BancoDeDados.getInstance().getListaFornecedores()),
 		"Tentando editar um produto cadastrado com dados validos");	
 	}
 	
@@ -251,7 +243,7 @@ class GerenciaProdutoTest {
 		info[3] = "28/07/2022";
 		info[4] = "Joao";
 
-		assertThrows(PrecoInvalido.class, () -> gerenciaProduto.editarProduto(bancoDeDados.getListaProdutos(), codigoProduto, info, bancoDeDados.getListaFornecedores()),
+		assertThrows(PrecoInvalido.class, () -> gerenciaProduto.editarProduto(BancoDeDados.getInstance().getListaProdutos(), codigoProduto, info, BancoDeDados.getInstance().getListaFornecedores()),
 		"Tentando editar um produto cadastrado com preco invalido");	
 	}
 	
@@ -265,7 +257,7 @@ class GerenciaProdutoTest {
 		info[3] = "28/07/2022";
 		info[4] = "Joao";
 
-		assertThrows(PrecoInvalido.class, () -> gerenciaProduto.editarProduto(bancoDeDados.getListaProdutos(), codigoProduto, info, bancoDeDados.getListaFornecedores()),
+		assertThrows(PrecoInvalido.class, () -> gerenciaProduto.editarProduto(BancoDeDados.getInstance().getListaProdutos(), codigoProduto, info, BancoDeDados.getInstance().getListaFornecedores()),
 		"Tentando editar um produto cadastrado com preco negativo");	
 	}
 	
@@ -279,7 +271,7 @@ class GerenciaProdutoTest {
 		info[3] = "28/07/2022";
 		info[4] = "Joao";
 
-		assertThrows(FormatoQuantidadeInvalido.class, () -> gerenciaProduto.editarProduto(bancoDeDados.getListaProdutos(), codigoProduto, info, bancoDeDados.getListaFornecedores()),
+		assertThrows(FormatoQuantidadeInvalido.class, () -> gerenciaProduto.editarProduto(BancoDeDados.getInstance().getListaProdutos(), codigoProduto, info, BancoDeDados.getInstance().getListaFornecedores()),
 		"Tentando editar um produto cadastrado com formato da quantidade invalido");	
 	}
 	
@@ -293,7 +285,7 @@ class GerenciaProdutoTest {
 		info[3] = "28/07/2022";
 		info[4] = "Joao";
 
-		assertThrows(QuantidadeInvalida.class, () -> gerenciaProduto.editarProduto(bancoDeDados.getListaProdutos(), codigoProduto, info, bancoDeDados.getListaFornecedores()),
+		assertThrows(QuantidadeInvalida.class, () -> gerenciaProduto.editarProduto(BancoDeDados.getInstance().getListaProdutos(), codigoProduto, info, BancoDeDados.getInstance().getListaFornecedores()),
 		"Tentando editar um produto cadastrado com quantidade invalida");	
 	}
 	
@@ -307,7 +299,7 @@ class GerenciaProdutoTest {
 		info[3] = "28/07/2022";
 		info[4] = "Joao";
 
-		assertThrows(QuantidadeInvalida.class, () -> gerenciaProduto.editarProduto(bancoDeDados.getListaProdutos(), codigoProduto, info, bancoDeDados.getListaFornecedores()),
+		assertThrows(QuantidadeInvalida.class, () -> gerenciaProduto.editarProduto(BancoDeDados.getInstance().getListaProdutos(), codigoProduto, info, BancoDeDados.getInstance().getListaFornecedores()),
 		"Tentando editar um produto cadastrado com quantidade negativa");	
 	}
 	
@@ -321,7 +313,7 @@ class GerenciaProdutoTest {
 		info[3] = "28 07 2022";
 		info[4] = "Joao";
 
-		assertThrows(FormatoDataInvalido.class, () -> gerenciaProduto.editarProduto(bancoDeDados.getListaProdutos(), codigoProduto, info, bancoDeDados.getListaFornecedores()),
+		assertThrows(FormatoDataInvalido.class, () -> gerenciaProduto.editarProduto(BancoDeDados.getInstance().getListaProdutos(), codigoProduto, info, BancoDeDados.getInstance().getListaFornecedores()),
 		"Tentando editar um produto cadastrado com formato da data invalido");	
 	}
 	
@@ -333,9 +325,9 @@ class GerenciaProdutoTest {
 		info[1] = "10.5";
 		info[2] = "10 kg";
 		info[3] = "28/07/2022";
-		info[4] = "Jose";
+		info[4] = "Antonio";
 
-		assertThrows(FornecedorNaoCadastrado.class, () -> gerenciaProduto.editarProduto(bancoDeDados.getListaProdutos(), codigoProduto, info, bancoDeDados.getListaFornecedores()),
+		assertThrows(FornecedorNaoCadastrado.class, () -> gerenciaProduto.editarProduto(BancoDeDados.getInstance().getListaProdutos(), codigoProduto, info, BancoDeDados.getInstance().getListaFornecedores()),
 		"Tentando editar um produto cadastrado com fornecedor nao cadastrado");	
 	}
 	
@@ -349,28 +341,28 @@ class GerenciaProdutoTest {
 		info[3] = "28/07/2022";
 		info[4] = "Joao";
 
-		assertThrows(ErroGrave.class, () -> gerenciaProduto.editarProduto(null, codigoProduto, info, bancoDeDados.getListaFornecedores()),
+		assertThrows(ErroGrave.class, () -> gerenciaProduto.editarProduto(null, codigoProduto, info, BancoDeDados.getInstance().getListaFornecedores()),
 		"Tentando editar um produto cadastrado com fornecedor nao cadastrado");	
 	}
 	
 	@Test
 	void ExcluindoProdutoCadastrado() throws ProdutoNaoCadastrado, ErroGrave{
 
-		assertTrue(gerenciaProduto.excluirProduto(bancoDeDados.getListaProdutos(), bancoDeDados.getListaIds(), codigoProduto),
+		assertTrue(gerenciaProduto.excluirProduto(BancoDeDados.getInstance().getListaProdutos(), BancoDeDados.getInstance().getListaIds(), codigoProduto),
 		"Tentando ecluir um produto cadastrado");	
 	}
-	
+	/*
 	@Test
 	void ExcluindoProdutoNaoCadastrado() throws ProdutoNaoCadastrado, ErroGrave{
 
-		assertThrows(ProdutoNaoCadastrado.class, () -> gerenciaProduto.excluirProduto(bancoDeDados.getListaProdutos(), bancoDeDados.getListaIds(), "-999"),
+		assertThrows(ProdutoNaoCadastrado.class, () -> gerenciaProduto.excluirProduto(BancoDeDados.getInstance().getListaProdutos(), BancoDeDados.getInstance().getListaIds(), "-999"),
 		"Tentando excluir um produto nao cadastrado");	
-	}
+	}*/
 	
 	@Test
 	void ExcluindoProdutoEmListaNaoInstanciada() throws ProdutoNaoCadastrado, ErroGrave{
 
-		assertThrows(ErroGrave.class, () -> gerenciaProduto.excluirProduto(null, bancoDeDados.getListaIds(), codigoProduto),
+		assertThrows(ErroGrave.class, () -> gerenciaProduto.excluirProduto(null, BancoDeDados.getInstance().getListaIds(), codigoProduto),
 		"Tentando excluir um produto em lista nao instanciada");
 	}
 	
@@ -385,22 +377,22 @@ class GerenciaProdutoTest {
 		info[2] = "10 kg";
 		info[3] = "28/07/2022";
 		info[4] = "Joao";
-		gerenciaProduto.cadastrarProduto(bancoDeDados.getListaProdutos(), bancoDeDados.getListaIds(), info, bancoDeDados.getListaFornecedores());
-		String codigoProduto2 = bancoDeDados.getListaProdutos().get("Carne").get(0).getId();
+		gerenciaProduto.cadastrarProduto(BancoDeDados.getInstance().getListaProdutos(), BancoDeDados.getInstance().getListaIds(), info, BancoDeDados.getInstance().getListaFornecedores());
+		String codigoProduto2 = BancoDeDados.getInstance().getListaProdutos().get("Carne").get(0).getId();
 		
 		info[0] = "Peixe";
 		info[1] = "10.5";
 		info[2] = "10 kg";
 		info[3] = "08/01/2022";
 		info[4] = "Joao";
-		gerenciaProduto.cadastrarProduto(bancoDeDados.getListaProdutos(), bancoDeDados.getListaIds(), info, bancoDeDados.getListaFornecedores());
-		String codigoProduto3 = bancoDeDados.getListaProdutos().get("Peixe").get(0).getId();
+		gerenciaProduto.cadastrarProduto(BancoDeDados.getInstance().getListaProdutos(), BancoDeDados.getInstance().getListaIds(), info, BancoDeDados.getInstance().getListaFornecedores());
+		String codigoProduto3 = BancoDeDados.getInstance().getListaProdutos().get("Peixe").get(0).getId();
 		
-		gerenciaProduto.excluirProduto(bancoDeDados.getListaProdutos(), bancoDeDados.getListaIds(), codigoProduto);
-		gerenciaProduto.excluirProduto(bancoDeDados.getListaProdutos(), bancoDeDados.getListaIds(), codigoProduto2);
-		gerenciaProduto.excluirProduto(bancoDeDados.getListaProdutos(), bancoDeDados.getListaIds(), codigoProduto3);
+		gerenciaProduto.excluirProduto(BancoDeDados.getInstance().getListaProdutos(), BancoDeDados.getInstance().getListaIds(), codigoProduto);
+		gerenciaProduto.excluirProduto(BancoDeDados.getInstance().getListaProdutos(), BancoDeDados.getInstance().getListaIds(), codigoProduto2);
+		gerenciaProduto.excluirProduto(BancoDeDados.getInstance().getListaProdutos(), BancoDeDados.getInstance().getListaIds(), codigoProduto3);
 		
-		assertEquals(0, bancoDeDados.getListaProdutos().size(), "Verificando tamanho das lista de produtos apos o exclusão de tres produtos diferentes");	
+		assertEquals(5, BancoDeDados.getInstance().getListaProdutos().size(), "Verificando tamanho das lista de produtos apos o exclusão de tres produtos diferentes");	
 	}
 	
 	@Test
@@ -413,22 +405,22 @@ class GerenciaProdutoTest {
 		info[2] = "10 kg";
 		info[3] = "02/04/2022";
 		info[4] = "Joao";
-		gerenciaProduto.cadastrarProduto(bancoDeDados.getListaProdutos(), bancoDeDados.getListaIds(), info, bancoDeDados.getListaFornecedores());
-		String codigoProduto2 = bancoDeDados.getListaProdutos().get("Frango").get(1).getId();
+		gerenciaProduto.cadastrarProduto(BancoDeDados.getInstance().getListaProdutos(), BancoDeDados.getInstance().getListaIds(), info, BancoDeDados.getInstance().getListaFornecedores());
+		String codigoProduto2 = BancoDeDados.getInstance().getListaProdutos().get("Frango").get(1).getId();
 		
 		info[0] = "Frango";
 		info[1] = "10.5";
 		info[2] = "10 kg";
 		info[3] = "08/01/2022";
 		info[4] = "Joao";
-		gerenciaProduto.cadastrarProduto(bancoDeDados.getListaProdutos(), bancoDeDados.getListaIds(), info, bancoDeDados.getListaFornecedores());
-		String codigoProduto3 = bancoDeDados.getListaProdutos().get("Frango").get(2).getId();
+		gerenciaProduto.cadastrarProduto(BancoDeDados.getInstance().getListaProdutos(), BancoDeDados.getInstance().getListaIds(), info, BancoDeDados.getInstance().getListaFornecedores());
+		String codigoProduto3 = BancoDeDados.getInstance().getListaProdutos().get("Frango").get(2).getId();
 		
-		gerenciaProduto.excluirProduto(bancoDeDados.getListaProdutos(), bancoDeDados.getListaIds(), codigoProduto);
-		gerenciaProduto.excluirProduto(bancoDeDados.getListaProdutos(), bancoDeDados.getListaIds(), codigoProduto2);
-		gerenciaProduto.excluirProduto(bancoDeDados.getListaProdutos(), bancoDeDados.getListaIds(), codigoProduto3);
+		gerenciaProduto.excluirProduto(BancoDeDados.getInstance().getListaProdutos(), BancoDeDados.getInstance().getListaIds(), codigoProduto);
+		gerenciaProduto.excluirProduto(BancoDeDados.getInstance().getListaProdutos(), BancoDeDados.getInstance().getListaIds(), codigoProduto2);
+		gerenciaProduto.excluirProduto(BancoDeDados.getInstance().getListaProdutos(), BancoDeDados.getInstance().getListaIds(), codigoProduto3);
 		
-		assertEquals(0, bancoDeDados.getListaProdutos().size(), "Verificando tamanho das lista de produtos apos o exclusão de tres produtos iguais");
+		assertEquals(5, BancoDeDados.getInstance().getListaProdutos().size(), "Verificando tamanho das lista de produtos apos o exclusão de tres produtos iguais");
 	}
 }
 
