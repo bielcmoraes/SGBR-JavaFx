@@ -13,7 +13,7 @@ import exceptions.NaoEncontrado;
  * @author Luis Fernando Cintra
  *
  */
-public class GerenciaUsuario implements UsuarioCopyable {
+public class GerenciaUsuario {
 	
 	/**Se a lista de usuários e a lista de id's não tiverem valor null, é verificado se o objeto cadastrado será do tipo Gerente ou do tipo Funcionario
 	 * através da informação fornecida pelo usuário ("1" para Gerente e "2" para Funcionario), depois a lista de usuários é percorrida para verificar
@@ -25,7 +25,6 @@ public class GerenciaUsuario implements UsuarioCopyable {
 	 * @throws LoginJaCadastrado 
 	 * @throws ErroGrave 
 	 */
-	@Override
 	public boolean cadastrarUsuario(ArrayList<Usuario> listaUsuarios, ArrayList<String> listaIds, String [] infoUsuario) throws EscolhaIncorreta, LoginJaCadastrado, ErroGrave {
 			
 		try {
@@ -71,7 +70,6 @@ public class GerenciaUsuario implements UsuarioCopyable {
 	 * @throws NaoEncontrado 
 	 * @throws ErroGrave 
 	 */
-	@Override
 	public boolean editarUsuario(ArrayList<Usuario> listaUsuarios, String codigoUsuario, String [] info) throws ErroGrave {
 		
 		try {
@@ -95,7 +93,6 @@ public class GerenciaUsuario implements UsuarioCopyable {
 	 * @throws NaoEncontrado 
 	 * 
 	 */
-	@Override
 	public boolean excluirUsuario(ArrayList<Usuario> listaUsuarios, ArrayList<String> listaIds, String codigoUsuario) throws ErroGrave {
 		
 		try {

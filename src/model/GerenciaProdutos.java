@@ -19,7 +19,7 @@ import exceptions.QuantidadeInvalida;
  *  @author Luis Fernando Cintra
  *
  */
-public class GerenciaProdutos implements ProdutoCopyable {
+public class GerenciaProdutos {
 	/**
 	 * O método é responsável por cadastrar um objeto do tipo Produto em uma ArrayList<Produto>.
 	 * Esse cadastro só ocorre caso todos os dados passados atraves da String []
@@ -30,7 +30,6 @@ public class GerenciaProdutos implements ProdutoCopyable {
 	 * @param listaFornecedor Lista de fornecedores
 	 * @return true caso o cadastro ocorra corretamente, false caso ocorra algum problema durante o processo
 	 */
-	@Override
 	public boolean cadastrarProduto(HashMap<String, ArrayList<Produto>> listaProdutos, ArrayList<String> listaIds, String [] info, ArrayList<Fornecedor> listaFornecedor) 
 			throws PrecoInvalido, FormatoQuantidadeInvalido, QuantidadeInvalida, FormatoDataInvalido, FornecedorNaoCadastrado, ErroGrave{
 		
@@ -126,7 +125,6 @@ public class GerenciaProdutos implements ProdutoCopyable {
 	 * @param listaFornecedor Lista de fornecedores
 	 * @return true caso a edição ocorra corretamente, false caso ocorra algum problema durante o processo
 	 */
-	@Override
 	public boolean editarProduto(HashMap<String, ArrayList<Produto>> listaProdutos, String codigoProduto, String [] info, ArrayList<Fornecedor> listaFornecedor) 
 			throws PrecoInvalido, FormatoQuantidadeInvalido, QuantidadeInvalida, FormatoDataInvalido, FornecedorNaoCadastrado, ErroGrave {
 		
@@ -212,7 +210,6 @@ public class GerenciaProdutos implements ProdutoCopyable {
 	 * @param codigoProduto Código do Produto a ser editado
 	 * @return true caso a edição ocorra corretamente, false caso ocorra algum problema durante o processo
 	 */
-	@Override
 	public boolean excluirProduto(HashMap<String, ArrayList<Produto>> listaProdutos, ArrayList<String> listaIds, String codigoProduto) 
 	throws ErroGrave {
 		

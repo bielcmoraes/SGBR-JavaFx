@@ -16,7 +16,7 @@ import exceptions.RelatorioNaoGerado;
  * @author Gabriel Moraes
  * @author Luis Fernando Cintra
  */
-public class GeraRelatorio implements GeraRelatoriosCopyable {
+public class GeraRelatorio {
 	
 	/*O método gera uma tabela do estoque total por meio do metódo estoqueTotal da classe GeraTabela e passa a tabela para o modelo de relatório 
 	 * que gera o relatório e retorna true. Trata erros relacionadoas a criação do documento lançando uma excessão do tipo RelatorioNaoGerado.
@@ -25,7 +25,6 @@ public class GeraRelatorio implements GeraRelatoriosCopyable {
 	 * @throws RelatorioNaoGerado
 	 * @throws ErroGrave
 	 */
-	@Override
 	public boolean estoqueTotal(HashMap<String, ArrayList<Produto>> listaProdutos) throws RelatorioNaoGerado, ErroGrave {
 		
 		try{
@@ -50,7 +49,6 @@ public class GeraRelatorio implements GeraRelatoriosCopyable {
 	 * @throws RelatorioNaoGerado
 	 * @throws ErroGrave
 	 */
-	@Override
 	public boolean estoquePorProduto(HashMap<String, ArrayList<Produto>> listaProdutos) throws RelatorioNaoGerado, ErroGrave {
 		try {
 			GeraTabela tabela = new GeraTabela();
@@ -76,7 +74,6 @@ public class GeraRelatorio implements GeraRelatoriosCopyable {
 	 * @throws RelatorioNaoGerado
 	 * @throws ErroGrave
 	 */
-	@Override
 	public boolean estoqueProdutosPertoDeVencer(HashMap<String, ArrayList<Produto>> listaProdutos) throws ErroGrave, RelatorioNaoGerado {
 		
 		try{
@@ -101,7 +98,6 @@ public class GeraRelatorio implements GeraRelatoriosCopyable {
 	 * @throws RelatorioNaoGerado
 	 * @throws ErroGrave
 	 */
-	@Override
 	public boolean fornecedorPorProduto(HashMap<String, ArrayList<Produto>> listaProdutos) throws RelatorioNaoGerado, ErroGrave {
 		
 		try{
@@ -128,7 +124,6 @@ public class GeraRelatorio implements GeraRelatoriosCopyable {
 	 * @throws RelatorioNaoGerado
 	 * @throws ErroGrave
 	 */
-	@Override
 	public boolean fornecedorPorFornecedor(ArrayList<Fornecedor> listaFornecedores) throws RelatorioNaoGerado, ErroGrave {
 		
 		try {
@@ -153,7 +148,6 @@ public class GeraRelatorio implements GeraRelatoriosCopyable {
 	 * @throws RelatorioNaoGerado
 	 * @throws ErroGrave
 	 */
-	@Override
 	public boolean vendasTotal(ArrayList<Venda> listaVendas) throws ErroGrave, RelatorioNaoGerado {
 		
 		try{
@@ -181,7 +175,6 @@ public class GeraRelatorio implements GeraRelatoriosCopyable {
 	 * @throws RelatorioNaoGerado
 	 * @throws ErroGrave
 	 */
-	@Override
 	public boolean vendasPorPeriodo(ArrayList<Venda> listaVendas) throws ErroGrave {
 		GeraTabela tabela = new GeraTabela();
 		
@@ -240,7 +233,6 @@ public class GeraRelatorio implements GeraRelatoriosCopyable {
 	 * @throws RelatorioNaoGerado
 	 * @throws ErroGrave
 	 */
-	@Override
 	public boolean vendasPorTipoDePrato(ArrayList<Venda> listaVendas) throws ErroGrave, RelatorioNaoGerado {
 		
 		try{

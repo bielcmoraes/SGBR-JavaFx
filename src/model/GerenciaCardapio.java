@@ -17,7 +17,7 @@ import exceptions.QuantidadeInvalida;
  * @author Luis Fernando Cintra
  *
  */
-public class GerenciaCardapio implements CardapioCopyable {
+public class GerenciaCardapio {
 	
 	/**
 	 * O método é responsável por cadastrar um objeto do tipo Prato em uma ArrayList<Prato>.
@@ -31,7 +31,6 @@ public class GerenciaCardapio implements CardapioCopyable {
 	 * @throws ProdutoNaoCadastrado 
 	 * @throws ErroGrave 
 	 */
-	@Override
 	public boolean cadastrarPrato(ArrayList<Prato> cardapio, ArrayList<String> listaIds, HashMap<String, ArrayList<Produto>> listaProdutos, String [] info) throws 
 	PrecoInvalido, QuantidadeInvalida, ProdutoNaoCadastrado, FormatoIngredientesInvalido, ErroGrave {
 		try {
@@ -94,7 +93,6 @@ public class GerenciaCardapio implements CardapioCopyable {
 	 * @throws ProdutoNaoCadastrado 
 	 * @throws PratoNaoCadastrado 
 	 */
-	@Override
 	public boolean editarPrato(ArrayList<Prato> cardapio, HashMap<String, ArrayList<Produto>> listaProdutos, String codigoPrato, String [] info) 
 			throws PrecoInvalido, QuantidadeInvalida, ProdutoNaoCadastrado, FormatoIngredientesInvalido, ErroGrave, PratoNaoCadastrado {
 		
@@ -166,7 +164,6 @@ public class GerenciaCardapio implements CardapioCopyable {
 	 * @return true caso a exclusão ocorra corretamente, false caso ocorra algum problema durante o processo.
 	 * @throws ErroGrave 
 	 */
-	@Override
 	public boolean excluirPrato(ArrayList<Prato> cardapio, ArrayList<String> listaIds, String codigoPrato) 
 			throws ErroGrave, PratoNaoCadastrado {
 		

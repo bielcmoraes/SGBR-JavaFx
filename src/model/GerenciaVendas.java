@@ -22,7 +22,7 @@ import exceptions.VendaNaoCadastrada;
  * @author Luis Fernando Cintra
  *
  */
-public class GerenciaVendas implements VendaCopyable {
+public class GerenciaVendas {
 	/**
 	 * O método é responsável por cadastrar um objeto do tipo Venda em uma ArrayList<Venda>.
 	 * Esse cadastro só ocorre caso todos os dados passados atraves da String []
@@ -37,7 +37,6 @@ public class GerenciaVendas implements VendaCopyable {
 	 * @throws PratoNaoCadastrado 
 	 * @throws ClienteNaoCadastrado 
 	 */
-	@Override
 	public boolean cadastrarVenda(ArrayList<Venda> listaVendas, ArrayList<String> listaIds, ArrayList<Prato> cardapio, String [] info, HashMap<String, ArrayList<Produto>> listaProdutos, ArrayList<Cliente> listaClientes)
 			throws PratoNaoCadastrado, QuantidadeProdutosInsuficiente, ErroGrave, ClienteNaoCadastrado {
 		
@@ -147,7 +146,6 @@ public class GerenciaVendas implements VendaCopyable {
 	 * @throws VendaNaoCadastrada 
 	 * @throws ClienteNaoCadastrado 
 	 */
-	@Override
 	public boolean editarVenda(ArrayList<Venda> listaVendas, ArrayList<Prato> cardapio, String codigoVenda, String [] info, HashMap<String, ArrayList<Produto>> listaProdutos, ArrayList<Cliente> listaClientes) 
 			throws FormatoDataInvalido, FormatoHorarioInvalido, PratoNaoCadastrado, QuantidadeProdutosInsuficiente, ErroGrave, VendaNaoCadastrada, ClienteNaoCadastrado{
 		
@@ -298,7 +296,6 @@ public class GerenciaVendas implements VendaCopyable {
 	 * @param codigoVenda Codigo da Venda a ser excluida
 	 * @return true caso a exclusão ocorra corretamente, false caso ocorra algum problema durante o processo.
 	 */
-	@Override
 	public boolean excluirVenda(ArrayList<Venda> listaVendas, ArrayList<String> listaIds, String codigoVenda) 
 			throws VendaNaoCadastrada, ErroGrave {
 		
