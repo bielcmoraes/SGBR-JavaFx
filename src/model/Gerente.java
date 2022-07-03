@@ -1,25 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-
-import exceptions.ClienteNaoCadastrado;
-import exceptions.ErroGrave;
-import exceptions.EscolhaIncorreta;
-import exceptions.FormatoDataInvalido;
-import exceptions.FormatoHorarioInvalido;
-import exceptions.FormatoIngredientesInvalido;
-import exceptions.FormatoQuantidadeInvalido;
-import exceptions.FornecedorNaoCadastrado;
-import exceptions.LoginJaCadastrado;
-import exceptions.ProdutoNaoCadastrado;
-import exceptions.QuantidadeInvalida;
-import exceptions.QuantidadeProdutosInsuficiente;
-import exceptions.RelatorioNaoGerado;
-import exceptions.VendaNaoCadastrada;
-import exceptions.NaoEncontrado;
-import exceptions.PratoNaoCadastrado;
-import exceptions.PrecoInvalido;
 
 /**Classe para objetos do tipo Gerente, onde são contidos, valores e metódos necessários para a implementação da classe.
  * 

@@ -3,8 +3,6 @@ package model;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-import org.junit.platform.commons.util.StringUtils;
-
 /**Classe para objetos do tipo Produto, onde são contidos, valores e metódos necessarios para implementação da classe.
  * 
  * @author Gabriel Moraes

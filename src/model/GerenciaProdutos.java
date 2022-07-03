@@ -10,7 +10,6 @@ import exceptions.FormatoDataInvalido;
 import exceptions.FormatoQuantidadeInvalido;
 import exceptions.FornecedorNaoCadastrado;
 import exceptions.PrecoInvalido;
-import exceptions.ProdutoNaoCadastrado;
 import exceptions.QuantidadeInvalida;
 
 /**Classe responsável por implementar os metódos de cadastrar, editar e excluir produto que foram especificados na classe ProdutoCopyable.

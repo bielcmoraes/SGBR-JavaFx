@@ -8,7 +8,6 @@ import com.lowagie.text.DocumentException;
 import com.lowagie.text.Table;
 
 import exceptions.ErroGrave;
-import exceptions.ProdutoNaoCadastrado;
 import exceptions.RelatorioNaoGerado;
 
 /**Classe respónsavel por implementar os métodos de gerar relatórios PDF que foram especificados na classe GeraRelatoriosCopyable.

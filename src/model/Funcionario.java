@@ -1,15 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-
-import exceptions.ClienteNaoCadastrado;
-import exceptions.ErroGrave;
-import exceptions.FormatoDataInvalido;
-import exceptions.FormatoHorarioInvalido;
-import exceptions.PratoNaoCadastrado;
-import exceptions.QuantidadeProdutosInsuficiente;
-import exceptions.VendaNaoCadastrada;
 
 /**Classe para objetos do tipo Funcionario, onde são contidos, valores e metódos necessários para a implementação da classe.
  * 
